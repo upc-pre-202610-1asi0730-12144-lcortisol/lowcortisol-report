@@ -77,19 +77,19 @@ A continuación, se detallan los repositorios utilizados a lo largo del proyecto
 
 #### Link del repositorio del Reporte:
 
-- https://github.com/upc-pre-202610-1asi0730-2610-LCortisol/Lowcortisol-report.git
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report
 
-#### Link del repositorio de la Landing Page:
+#### Link del repositorio de la Website:
 
-- https://github.com/upc-pre-202610-1asi0730-2610-LCortisol/Lowcortisol-LadingPage.git
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-website
 
-#### Link del repositorio del Frontend:
+#### Link del repositorio del Webapp:
 
-- 
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp
 
-#### Link del repositorio del Backend:
+#### Link del repositorio del Platform:
 
-- 
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-platform
 
 ### Entrega AV1:
 
@@ -2673,264 +2673,277 @@ IoT monitoring, gas leak detection, water safety sensors, smart pipeline monitor
 
 
 ## 4.4. Web Applications UX/UI Design
+
 ### 4.4.1. Web Applications Wireframes
 
-Los wireframes de **LowCortisol** representan la estructura lógica y funcional de la aplicación, priorizando la organización de los elementos de interfaz, la claridad de navegación y la accesibilidad de las acciones principales del sistema. Estas vistas de baja fidelidad permiten identificar la distribución general de los componentes antes de su implementación visual definitiva, tanto en entorno web como móvil.
+Los wireframes de **LowCortisol** representan la estructura lógica y funcional de la aplicación, priorizando la organización de los elementos de interfaz, la claridad de navegación y la accesibilidad de las acciones principales del sistema. Estas vistas de baja fidelidad permiten identificar la distribución general de los componentes antes de su implementación visual definitiva.
 
 #### 1. Pantalla de Inicio de Sesión
+
 * **Propósito:** Permitir el acceso seguro de usuarios registrados mediante credenciales de correo y contraseña.
-* **Elementos clave:** Selector de idioma, campos de correo y contraseña, botón de inicio de sesión y enlace para crear una nueva cuenta.
+* **Elementos clave:** Selector de idioma, campos de correo y contraseña, botón de inicio de sesión, enlace para recuperar contraseña y enlace para crear una nueva cuenta.
 
-<p align="center"><strong>Web version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Login.png" alt="Login-Web-Application-Wireframe" width="700">
-</p>
-
-<p align="center"><strong>Mobile version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Login.png" alt="Login-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Login.png" alt="Login-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
 #### 2. Registro de Usuario
+
 * **Propósito:** Permitir el registro de nuevos usuarios dentro de la plataforma.
-* **Elementos clave:** Campos para nombre, correo electrónico, teléfono y contraseña, selector de tipo de cuenta, botón para crear la cuenta y enlace para volver al inicio de sesión.
+* **Elementos clave:** Campos para nombre completo, correo electrónico, teléfono y contraseña, botón de registro y enlace para volver al inicio de sesión.
 
-<p align="center"><strong>Web version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Register.png" alt="Register-Web-Application-Wireframe" width="700">
-</p>
-
-<p align="center"><strong>Mobile version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Register.png" alt="Register-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Register.png" alt="Register-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### 3. Dashboard Principal (Home)
-* **Propósito:** Presentar una vista general del estado del sistema y de la actividad reciente del usuario.
-* **Elementos clave:** Tarjetas informativas de agua y gas, indicador de incidentes activos, resumen del sistema, acciones rápidas, incidentes recientes y notificaciones recientes.
+#### 3. Recuperación de Contraseña
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Home.png" alt="Home-Web-Application-Wireframe" width="700">
-</p>
+* **Propósito:** Permitir que el usuario solicite instrucciones de recuperación de acceso mediante su correo electrónico.
+* **Elementos clave:** Campo de correo, botón para enviar recuperación y enlace para volver al inicio de sesión.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Home.png" alt="Home-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Recover.png" alt="Recover-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### 4. Gestión de Dispositivos
-* **Propósito:** Administrar los dispositivos registrados dentro de la red de monitoreo inteligente.
-* **Elementos clave:** Estado de los dispositivos, botón para agregar dispositivos y visualización del estado actual de la red o del contenido disponible.
+#### 4. Panel de Monitoreo
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Devices.png" alt="Devices-Web-Application-Wireframe" width="700">
-</p>
+* **Propósito:** Presentar una vista general del estado del sistema, las lecturas recientes, la sesión activa y las anomalías detectadas.
+* **Elementos clave:** Selector de idioma, botón para simular lectura, tarjetas de lecturas recientes, sesión activa, sección de anomalías y barra de navegación inferior.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Devices.png" alt="Devices-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Home.png" alt="Home-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### 5. Reportes de Consumo
-* **Propósito:** Visualizar el historial y análisis del consumo registrado en la plataforma.
-* **Elementos clave:** Resumen de reportes generados, totales de agua y gas, gráfico de tendencia de consumo, selector de rango temporal y sección de reportes generados.
+#### 5. Gestión de Sedes
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Reports.png" alt="Reports-Web-Application-Wireframe" width="700">
-</p>
+* **Propósito:** Administrar las sedes registradas dentro de la plataforma y visualizar información consolidada de cada una.
+* **Elementos clave:** Botón para registrar sede, filtros por tipo de sede, tarjetas de resumen, listado de sedes, detalle de sede, responsables asignados, dispositivos asignados y resumen consolidado.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Reports.png" alt="Reports-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Workspace.png" alt="Workspace-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### 6. Centro de Alertas
-* **Propósito:** Gestionar incidentes detectados por el sistema y dar seguimiento a su estado operativo.
-* **Elementos clave:** Botón para crear incidentes, resumen de incidencias y tablero o historial de incidentes registrados.
+#### 6. Gestión de Dispositivos
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Alerts.png" alt="Alerts-Web-Application-Wireframe" width="700">
-</p>
+* **Propósito:** Administrar hubs, sensores, válvulas y comandos remotos asociados a las sedes.
+* **Elementos clave:** Botón para agregar dispositivo, tarjetas de resumen, listado de dispositivos, detalle del dispositivo, sensores vinculados, control de válvulas y comandos recientes.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Alerts.png" alt="Alerts-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Devices.png" alt="Devices-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### 7. Perfil de Usuario
-* **Propósito:** Mostrar la información personal del usuario y los principales datos de su cuenta.
-* **Elementos clave:** Avatar o iniciales del usuario, nombre completo, correo electrónico, rol, resumen de la cuenta, accesos rápidos y opción de cierre de sesión.
+#### 7. Centro de Alertas y Notificaciones
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireframe-Profile.png" alt="Profile-Web-Application-Wireframe" width="700">
-</p>
+* **Propósito:** Gestionar alertas, umbrales, incidentes, canales de notificación y envíos.
+* **Elementos clave:** Botón para crear alerta, tarjetas de resumen, alertas activas, umbrales configurados, incidentes y sección de canales/envíos.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireframe-Profile.png" alt="Profile-Mobile-Application-Wireframe" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Notifications.png" alt="Notifications-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-### 4.4.2. Web Applications Wireflow Diagrams
+#### 8. Reportes de Consumo
 
-En este apartado se presentan los wireflows de la aplicación **LowCortisol**, los cuales describen el flujo de navegación e interacción entre las principales pantallas del sistema. Estos diagramas permiten visualizar cómo el usuario recorre la aplicación desde el inicio de sesión hasta los módulos funcionales principales, tanto en la versión web de escritorio como en la versión móvil.
-
-#### Web Wireflow
-El wireflow de escritorio muestra la relación entre las pantallas principales de la aplicación web, incluyendo el acceso mediante **Login** y **Register**, y la navegación posterior hacia los módulos de **Home**, **Devices**, **Reports**, **Alerts** y **Profile**. Su propósito es representar de forma clara la estructura de navegación general del sistema y la continuidad entre las vistas principales.
+* **Propósito:** Visualizar el historial y los reportes de consumo generados a partir de las lecturas monitoreadas.
+* **Elementos clave:** Botón para generar reporte, tarjetas de reportes generados, lecturas disponibles, anomalías, reportes de consumo y lecturas base.
 
 <p align="center">
-  <img src="assets/md-images-chapter4/Application-Wireflow.png" alt="Application-Wireflow">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Reports.png" alt="Reports-Webapp-Wireframe" width="700">
 </p>
 
 ---
 
-#### Mobile Wireflow
-El wireflow móvil representa la lógica de navegación de la aplicación adaptada a dispositivos móviles. En este flujo se observa cómo el usuario puede acceder desde las pantallas de autenticación hacia las vistas principales del sistema, manteniendo una estructura coherente con la versión de escritorio, pero optimizada para una experiencia de uso en pantallas reducidas.
+#### 9. Gestión de Planes
+
+* **Propósito:** Administrar la suscripción del usuario, revisar beneficios, pagos y solicitudes de servicio.
+* **Elementos clave:** Plan activo, capacidad disponible, pagos, tarjetas de planes, historial de pagos, solicitudes de servicio y botón para cancelar suscripción.
 
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Wireflow.png" alt="Mobile-Application-Wireflow">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Plans.png" alt="Plans-Webapp-Wireframe" width="700">
+</p>
+
+---
+
+#### 10. Soporte
+
+* **Propósito:** Gestionar tickets, mensajes y artículos de ayuda para resolver incidencias del usuario.
+* **Elementos clave:** Botón para crear ticket, resumen de tickets, agentes y ayuda, listado de tickets, detalle del ticket, conversación y artículos de ayuda.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Support.png" alt="Support-Webapp-Wireframe" width="700">
+</p>
+
+---
+
+#### 11. Perfil de Usuario
+
+* **Propósito:** Mostrar y actualizar la información personal del usuario, su perfil de acceso y la sesión activa.
+* **Elementos clave:** Tarjeta de usuario, perfil de acceso, formulario de actualización de datos, información de sesión y botón para cerrar sesión.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Wireframe-Profile.png" alt="Profile-Webapp-Wireframe" width="700">
+</p>
+
+---
+
+### 4.4.2. Web Applications Wireflow Diagram
+
+El wireflow de **LowCortisol** describe la relación entre las principales pantallas de la aplicación web y el flujo de navegación del usuario. El recorrido inicia desde las pantallas de autenticación, continúa con la validación de suscripción activa y luego permite el acceso a los módulos principales: panel de monitoreo, sedes, dispositivos, alertas, reportes, planes, soporte y perfil.
+
+Este diagrama permite visualizar cómo el usuario se desplaza entre las pantallas, incluyendo flujos alternativos como registro, recuperación de contraseña, compra o activación de plan y cierre de sesión.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Wireflow.png" alt="Webapp-Wireflow" width="900">
 </p>
 
 ---
 
 ### 4.4.3. Web Applications Mock-ups
 
+Los mockups de **LowCortisol** representan la versión visual de alta fidelidad de las pantallas principales del sistema. A diferencia de los wireframes, estos incorporan estilos finales como colores, tipografía, espaciado, tarjetas, botones, jerarquía visual y componentes interactivos, permitiendo validar la experiencia final del usuario antes de la implementación o entrega.
+
 #### 1. Pantalla de Inicio de Sesión
+
 * **Propósito:** Permitir que los usuarios registrados accedan a la plataforma.
-* **Elementos clave:** Selector de idioma (ES, EN, PT), campos de correo y contraseña, botón de inicio de sesión y enlace para crear una nueva cuenta.
+* **Elementos clave:** Selector de idioma, campos de correo y contraseña, botón de ingreso, enlace de recuperación y enlace de creación de cuenta.
 
-<p align="center"><strong>Web version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Login.png" alt="Login-Web-Application-MockUp" width="700">
-</p>
-
-<p align="center"><strong>Mobile version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Login.png" alt="Login-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Login.png" alt="Login-Webapp-Mockup" width="700">
 </p>
 
 ---
 
 #### 2. Registro de Usuario
-* **Propósito:** Permitir el registro de nuevos usuarios dentro de la plataforma.
-* **Elementos clave:** Campos para nombre, correo electrónico, teléfono y contraseña, selector de tipo de cuenta, botón para crear la cuenta y enlace para volver al inicio de sesión.
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Register.png" alt="Register-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Permitir la creación de nuevas cuentas dentro de la plataforma.
+* **Elementos clave:** Campos de información personal, botón de registro y enlace para volver al inicio de sesión.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Register.png" alt="Register-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Register.png" alt="Register-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-#### 3. Dashboard Principal (Home)
-* **Propósito:** Presentar una vista general del estado del sistema y la actividad reciente del usuario.
-* **Elementos clave:** Tarjetas informativas de consumo de agua y gas, indicador de incidentes activos, resumen del sistema, acciones rápidas, lista de incidentes recientes y notificaciones recientes.
+#### 3. Recuperación de Contraseña
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Home.png" alt="Home-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Permitir que el usuario solicite recuperación de acceso mediante su correo electrónico.
+* **Elementos clave:** Campo de correo, botón de recuperación y enlace de retorno al login.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Home.png" alt="Home-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Recover.png" alt="Recover-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-#### 4. Gestión de Dispositivos
-* **Propósito:** Administrar los dispositivos registrados dentro de la red de monitoreo inteligente.
-* **Elementos clave:** Listado de dispositivos, estado operativo (online/offline), cantidad de sensores, umbral configurado, acciones de control y botón para agregar nuevos dispositivos.
+#### 4. Panel de Monitoreo
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Devices.png" alt="Devices-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Presentar el estado general del consumo, sensores, sesiones activas y anomalías detectadas.
+* **Elementos clave:** Botón de simulación de lectura, tarjetas de información, sección de anomalías y navegación principal.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Devices.png" alt="Devices-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Home.png" alt="Home-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-#### 5. Reportes de Consumo
-* **Propósito:** Visualizar el historial y análisis del consumo registrado en la plataforma.
-* **Elementos clave:** Resumen de reportes generados, totales de agua y gas, gráfico de tendencia de consumo, selector de rango temporal (7D, 30D, 90D), tabla de reportes generados y botón para generar nuevos reportes.
+#### 5. Gestión de Sedes
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Reports.png" alt="Reports-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Administrar las sedes, responsables, dispositivos asignados y métricas consolidadas.
+* **Elementos clave:** Filtros de sede, listado, detalle, responsables, dispositivos asignados y resumen consolidado.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Reports.png" alt="Reports-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Workspace.png" alt="Workspace-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-#### 6. Centro de Alertas
-* **Propósito:** Gestionar incidentes detectados por el sistema y dar seguimiento a su estado.
-* **Elementos clave:** Formulario para crear incidentes, selección de dispositivo y severidad, campo de descripción, botones de acción, resumen de incidentes e historial o tablero de incidencias.
+#### 6. Gestión de Dispositivos
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Alerts.png" alt="Alerts-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Controlar hubs, sensores, válvulas y comandos remotos asociados a las sedes.
+* **Elementos clave:** Listado de dispositivos, detalle del dispositivo, sensores vinculados, control de válvulas y comandos recientes.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Alerts.png" alt="Alerts-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Devices.png" alt="Devices-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-#### 7. Perfil de Usuario
-* **Propósito:** Mostrar la información personal del usuario y los datos principales de su cuenta.
-* **Elementos clave:** Avatar o iniciales del usuario, nombre completo, correo electrónico, rol, resumen de la cuenta y opción para cerrar sesión.
+#### 7. Centro de Alertas y Notificaciones
 
-<p align="center"><strong>Web version</strong></p>
-<p align="center">
-  <img src="assets/md-images-chapter4/Application-Mock-up-Profile.png" alt="Profile-Web-Application-MockUp" width="700">
-</p>
+* **Propósito:** Gestionar alertas, umbrales, incidentes y canales de notificación.
+* **Elementos clave:** Resumen de alertas, alertas activas, umbrales configurados, incidentes, canales activos y envíos.
 
-<p align="center"><strong>Mobile version</strong></p>
 <p align="center">
-  <img src="assets/md-images-chapter4/Mobile-Application-Mock-up-Profile.png" alt="Profile-Mobile-Application-MockUp" width="260">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Notifications.png" alt="Notifications-Webapp-Mockup" width="700">
 </p>
 
 ---
 
-### 4.4.4. Web Applications User Flow Diagrams
+#### 8. Reportes de Consumo
 
-El flujo inicia con el acceso del usuario a la plataforma, seguido de procesos clave como la navegación entre secciones, la interacción con funcionalidades principales y la obtención de resultados esperados. Asimismo, se contemplan escenarios alternativos y puntos de decisión que influyen en la experiencia del usuario, permitiendo comprender cómo se gestionan diferentes situaciones dentro del sistema.
+* **Propósito:** Visualizar reportes de consumo generados a partir de lecturas monitoreadas.
+* **Elementos clave:** Reportes generados, lecturas disponibles, anomalías, reportes de consumo y lecturas base.
 
 <p align="center">
-  <img src="assets/md-images-chapter4/UserFlowDiagram.png" alt="UserFlowDiagram">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Reports.png" alt="Reports-Webapp-Mockup" width="700">
+</p>
+
+---
+
+#### 9. Gestión de Planes
+
+* **Propósito:** Permitir la administración de suscripciones, pagos, beneficios y solicitudes de servicio.
+* **Elementos clave:** Plan activo, capacidad, pagos, tarjetas de planes, historial de pagos, solicitudes de servicio y cancelación de suscripción.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Plans.png" alt="Plans-Webapp-Mockup" width="700">
+</p>
+
+---
+
+#### 10. Soporte
+
+* **Propósito:** Permitir la creación y seguimiento de tickets de soporte.
+* **Elementos clave:** Tickets, agentes disponibles, artículos de ayuda, detalle del ticket, conversación y acciones de resolución o cierre.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Support.png" alt="Support-Webapp-Mockup" width="700">
+</p>
+
+---
+
+#### 11. Perfil de Usuario
+
+* **Propósito:** Mostrar y actualizar la información del usuario, perfil de acceso y sesión activa.
+* **Elementos clave:** Tarjeta de usuario, perfil de acceso, actualización de datos y control de sesión.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Mockup-Profile.png" alt="Profile-Webapp-Mockup" width="700">
+</p>
+
+---
+
+### 4.4.4. Web Applications User Flow Diagram
+
+El user flow diagram representa el recorrido funcional del usuario dentro de **LowCortisol**. El flujo inicia con el acceso a la plataforma, continúa con los procesos de autenticación, registro o recuperación de contraseña, y posteriormente valida si el usuario cuenta con una suscripción activa.
+
+Si el usuario no tiene una suscripción activa, el sistema lo dirige hacia la sección de planes para seleccionar y activar una suscripción. Una vez habilitado el acceso, el usuario puede navegar por los módulos principales del sistema: panel de monitoreo, sedes, dispositivos, alertas, reportes, planes, soporte y perfil. Este diagrama también contempla acciones como la asignación de dispositivos, generación de alertas, creación de reportes, gestión de tickets y cierre de sesión.
+
+<p align="center">
+  <img src="assets/md-images-chapter4/Webapp-Userflow.png" alt="Webapp-Userflow" width="900">
 </p>
 
 ## 4.5. Web Applications Prototyping
@@ -2954,50 +2967,155 @@ Event Storming es una técnica de modelado que nos permite identificar y organiz
 ![Event Storming](./assets/md-images-chapter4/Cap4.png)
 ![Event Storming](./assets/md-images-chapter4/Cap5.png)
 Link de modelo: https://lucid.app/lucidspark/83c9509f-24aa-47a0-acb8-d565dad1216c/edit?view_items=F0GQ8.VouW7A&page=0_0&invitationId=inv_3993ba91-db9e-419d-8bd7-f08a3754f9ab
+
 ### 4.6.2. Software Architecture Context Diagram
-**Elementos:**
 
-* Usuario Residencial
-* Profesional de Infraestructura
+El diagrama de contexto presenta una visión general del sistema **LowCortisol Platform** y su relación con los actores principales y sistemas externos. Este nivel permite entender el alcance del sistema sin entrar todavía en detalles técnicos internos.
 
-**Sistema Principal:**
+**Actores principales:**
 
-* Sistema de Monitoreo de Agua y Gas
+* **Owner / User:** Usuario principal que utiliza la plataforma para monitorear el consumo de agua y gas, gestionar sedes, dispositivos, alertas, reportes, planes y solicitudes de soporte.
+* **Site Operator:** Usuario encargado de revisar información operativa asociada a una sede, como dispositivos, lecturas, alertas e incidentes.
+* **Support Agent:** Persona encargada de atender tickets de soporte, revisar incidencias y brindar ayuda al usuario.
 
-**Sistemas Externos:**
+**Sistema principal:**
 
-* Sensores IoT
-* Servicio de Notificaciones
-* Sistema de Autenticación
+* **LowCortisol Platform:** Plataforma web orientada al monitoreo inteligente de agua y gas. Permite gestionar sedes, dispositivos IoT, sensores, válvulas, alertas, reportes, suscripciones y soporte.
 
-![Diagrama Contexto](./assets/md-images-chapter4/DContexto.png)
+**Sistemas externos:**
 
-### 4.6.3. Software Architecture Container Diagrams
-Los diagramas de contenedores presentan la descomposición del sistema en sus principales unidades de ejecución y almacenamiento, permitiendo visualizar cómo se contribuyen las responsabilidades entre el frontend y el backend.
-![Diagrama Contenedores](./assets/md-images-chapter4/DContenedores.png)
+* **Email Provider:** Servicio externo utilizado para recuperación de contraseña, envío de alertas y notificaciones.
+* **Payment Provider:** Servicio proyectado para procesar pagos de suscripciones.
+* **IoT Sensor and Device Network:** Red externa de sensores, hubs y válvulas encargada de registrar lecturas de consumo y ejecutar comandos remotos.
+* **Render:** Plataforma cloud usada para desplegar la aplicación web y la API.
 
-### 4.6.4. Software Architecture Components Diagrams
+![Context Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ContextDiagram.puml)
 
-**Backend:**
-![Diagrama Componentes](./assets/md-images-chapter4/DComponentes.png)
+### 4.6.3. Software Architecture Container Diagram
 
-A continuación las especificaciones de cada Bounded Context, los cuales definen la organización interna de cada módulo tanto en el backend como en la SPA del Frontend
-![Diagrama Componentes](./assets/md-images-chapter4/Componente1.png)
-![Diagrama Componentes](./assets/md-images-chapter4/Componente2.png)
-![Diagrama Componentes](./assets/md-images-chapter4/Componente3.png)
-![Diagrama Componentes](./assets/md-images-chapter4/Componente4.png)
-![Diagrama Componentes](./assets/md-images-chapter4/Componente5.png)
+El diagrama de contenedores muestra la descomposición general de **LowCortisol Platform** en sus principales unidades ejecutables y de almacenamiento. Este nivel permite identificar cómo se distribuyen las responsabilidades entre el frontend, la API, la Fake API actual y la base de datos proyectada.
 
-**Frontend:**
-Aqui cada módulo comparte una misma arquitectura frontend al fin de mantener consistencia, modularidad y facilidad de mantenimiento, pero cada capa cambia su resonsabilidad según su módulo
-![Diagrama Componentes](./assets/md-images-chapter4/CFronted.png)
+**Contenedores principales:**
 
-A continuación las especificaciones de cada Módulo
-![Diagrama Componentes](./assets/md-images-chapter4/C11.png)
-![Diagrama Componentes](./assets/md-images-chapter4/D22.png)
-![Diagrama Componentes](./assets/md-images-chapter4/C33.png)
-![Diagrama Componentes](./assets/md-images-chapter4/D44.png)
-![Diagrama Componentes](./assets/md-images-chapter4/D55.png)
+* **LowCortisol WebApp:** Aplicación frontend desarrollada con Vue 3 y Vite. Permite al usuario iniciar sesión, crear una cuenta, comprar planes, gestionar sedes, administrar dispositivos, revisar alertas, visualizar reportes y acceder al soporte.
+* **LowCortisol Fake API:** API temporal construida con JSON Server y desplegada en Render. Actualmente permite simular recursos REST para usuarios, planes, suscripciones, sedes, dispositivos, lecturas, alertas y soporte.
+* **LowCortisol API:** Backend real proyectado para ser desarrollado con ASP.NET Core Web API. Este contenedor reemplazará a la Fake API y centralizará la lógica de negocio del sistema.
+* **LowCortisol Database:** Base de datos relacional proyectada para almacenar usuarios, perfiles de acceso, planes, suscripciones, sedes, dispositivos, sensores, lecturas, alertas, reportes y tickets de soporte.
+
+**Relaciones principales:**
+
+* Los usuarios acceden a la plataforma mediante la **Single Page Application**.
+* La SPA consume actualmente la **Fake API** mediante HTTPS/JSON.
+* En la arquitectura proyectada, la SPA consumirá la **LowCortisol API** desarrollada en ASP.NET Core.
+* La API real persistirá información en una base de datos relacional y podrá integrarse con servicios externos de correo, pagos y red IoT.
+
+![Container Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ContainerDiagram.puml)
+
+### 4.6.4. Software Architecture Component Diagrams
+
+Los diagramas de componentes presentan la organización interna de cada bounded context de la plataforma. Para evitar diagramas sobrecargados, se decidió separar la arquitectura por contexto y por lado de la aplicación: **frontend** y **backend**.
+
+En el frontend, cada bounded context mantiene una estructura consistente basada en:
+
+* **Presentation Layer:** Contiene páginas, componentes visuales, formularios y navegación del módulo.
+* **Application Layer:** Coordina los casos de uso del módulo mediante stores y facades.
+* **Domain Layer:** Representa los conceptos principales del dominio usados por el frontend.
+* **Infrastructure Layer:** Consume los endpoints del backend o Fake API mediante servicios API.
+* **Shared Layer:** Provee servicios y componentes reutilizables como layout, i18n, manejo de sesión, guards y cliente HTTP.
+
+En el backend proyectado, cada bounded context mantiene una arquitectura basada en:
+
+* **Interface Layer:** Expone endpoints REST mediante controllers de ASP.NET Core.
+* **Application Layer:** Coordina comandos, consultas, DTOs y servicios de aplicación.
+* **Domain Layer:** Contiene entidades, reglas de negocio y servicios de dominio.
+* **Infrastructure Layer:** Implementa repositorios, persistencia y conectores externos.
+* **Database / External Systems:** Representan la persistencia relacional y servicios externos como correo, pagos o red IoT.
+
+Esta organización permite mantener modularidad, separación de responsabilidades y trazabilidad entre historias de usuario, funcionalidades del sistema y componentes técnicos.
+
+#### 4.6.4.1. IAM Bounded Context
+
+El bounded context **IAM** gestiona la identidad y el acceso de los usuarios. Incluye inicio de sesión, registro, recuperación de contraseña, cierre de sesión, perfil de usuario, perfil de acceso y permisos.
+
+En el frontend, el contexto IAM contiene las vistas de autenticación y perfil. La **Presentation Layer** agrupa las páginas de login, registro, recuperación y perfil; la **Application Layer** coordina las acciones mediante store y facade; la **Infrastructure Layer** consume los endpoints de autenticación; y la **Shared Layer** proporciona sesión, traducciones, guards y cliente HTTP.
+
+![IAM Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-IAM.puml)
+
+En el backend proyectado, IAM expone endpoints mediante controllers, coordina los casos de uso de autenticación desde servicios de aplicación, aplica reglas de dominio sobre usuarios, sesiones y perfiles de acceso, y usa infraestructura para persistencia, hashing de contraseñas, generación de tokens y recuperación por correo.
+
+![IAM Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-IAM.puml)
+
+#### 4.6.4.2. Plan Bounded Context
+
+El bounded context **Plan** gestiona los planes, suscripciones, pagos simulados y solicitudes de servicio. Este módulo permite visualizar planes disponibles, comprar una suscripción, cambiar de plan, cancelar una suscripción y revisar pagos.
+
+En el frontend, la **Presentation Layer** contiene la página de planes, tarjetas de planes y formulario de compra. La **Application Layer** coordina la carga de planes, activación de suscripciones y cancelación. La **Domain Layer** representa conceptos como Plan, PlanFeature, Subscription, Payment y ServiceRequest. La **Infrastructure Layer** consume los endpoints relacionados con planes y suscripciones.
+
+![Plan Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Plan.puml)
+
+En el backend proyectado, el contexto Plan expone endpoints de planes, suscripciones, pagos y solicitudes. La capa de aplicación coordina los casos de uso de suscripción, mientras que el dominio contiene reglas como validación de cambio de plan, cancelación y requerimiento de pago. También se considera un conector externo para procesar pagos reales en una futura implementación.
+
+![Plan Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Plan.puml)
+
+#### 4.6.4.3. Workspace Bounded Context
+
+El bounded context **Workspace** gestiona la organización multi-sede de la plataforma. Incluye workspace, sedes, miembros asignados y asignación de dispositivos a sedes.
+
+En el frontend, este contexto permite listar sedes, filtrar por tipo, registrar nuevas sedes, asignar miembros y asociar dispositivos. La **Presentation Layer** contiene las vistas y componentes de interacción; la **Application Layer** coordina las acciones; la **Domain Layer** representa Workspace, Site, SiteMember y SiteDeviceAssignment; y la **Infrastructure Layer** consume endpoints de sedes, miembros y asignaciones.
+
+![Workspace Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Workspace.puml)
+
+En el backend proyectado, Workspace expone controllers para gestionar workspace, sedes, miembros y asignaciones. La capa de aplicación valida operaciones como creación de sedes y asignación de dispositivos, mientras que la capa de dominio mantiene las reglas del contexto. Además, se considera una política de acceso por suscripción para validar límites del plan activo.
+
+![Workspace Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Workspace.puml)
+
+#### 4.6.4.4. Device Control Bounded Context
+
+El bounded context **Device Control** gestiona dispositivos, sensores, válvulas y comandos remotos. Este módulo permite registrar dispositivos, vincular sensores, controlar válvulas y ejecutar comandos de sincronización.
+
+En el frontend, la **Presentation Layer** contiene la página de dispositivos, tarjetas de dispositivos, tarjetas de sensores y controles de válvulas. La **Application Layer** coordina acciones como crear dispositivos, vincular sensores, abrir/cerrar válvulas y ejecutar comandos. La **Domain Layer** representa Device, Sensor, Valve y DeviceCommand. La **Infrastructure Layer** consume endpoints del contexto Device Control.
+
+![Device Control Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-DeviceControl.puml)
+
+En el backend proyectado, Device Control expone endpoints para dispositivos, sensores, válvulas y comandos. La capa de aplicación coordina operaciones remotas, la capa de dominio valida reglas de estado de dispositivos, y la infraestructura se encarga de persistir información y comunicarse con la red IoT mediante un conector especializado.
+
+![Device Control Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-DeviceControl.puml)
+
+#### 4.6.4.5. Monitoring Bounded Context
+
+El bounded context **Monitoring** gestiona las lecturas, sesiones de monitoreo, anomalías, métricas y reportes. Este módulo constituye el núcleo operativo de la plataforma, ya que permite visualizar el estado del consumo de agua y gas.
+
+En el frontend, la **Presentation Layer** contiene el dashboard, la página de reportes, tarjetas de métricas y visualización de consumo. La **Application Layer** coordina la carga de lecturas, anomalías, sesiones activas y reportes. La **Domain Layer** representa MonitoringSession, Reading, Anomaly y Report. La **Infrastructure Layer** consume endpoints de monitoreo.
+
+![Monitoring Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Monitoring.puml)
+
+En el backend proyectado, Monitoring expone endpoints para sesiones, lecturas, anomalías y reportes. La capa de aplicación coordina la generación de métricas y reportes, mientras que la capa de dominio contiene reglas de detección de anomalías. También se considera un conector de ingesta de lecturas desde la red IoT.
+
+![Monitoring Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Monitoring.puml)
+
+#### 4.6.4.6. Notification Bounded Context
+
+El bounded context **Notification** gestiona alertas, umbrales, incidentes, canales de notificación y entregas de alertas. Su objetivo es permitir que el sistema reaccione ante condiciones anómalas o riesgos operativos.
+
+En el frontend, este contexto permite visualizar alertas, crear alertas, resolverlas, cerrarlas, configurar umbrales y revisar incidentes. La **Presentation Layer** contiene la página de alertas y componentes visuales; la **Application Layer** coordina acciones sobre alertas y umbrales; la **Domain Layer** representa Alert, Threshold, Incident, NotificationChannel y AlertDelivery; y la **Infrastructure Layer** consume los endpoints correspondientes.
+
+![Notification Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Notification.puml)
+
+En el backend proyectado, Notification expone endpoints para alertas, umbrales, incidentes, canales y entregas. La capa de dominio incluye reglas para escalar alertas a incidentes. Además, se considera un conector de entrega de notificaciones que puede integrarse con un proveedor externo de correo.
+
+![Notification Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Notification.puml)
+
+#### 4.6.4.7. Support Bounded Context
+
+El bounded context **Support** gestiona tickets, mensajes, conversaciones, agentes de soporte y artículos de ayuda. Este módulo permite atender incidencias, dudas y solicitudes generadas por los usuarios.
+
+En el frontend, la **Presentation Layer** contiene la página de soporte, tarjetas de tickets, artículos de ayuda y área de conversación. La **Application Layer** coordina la creación de tickets, envío de mensajes, resolución y cierre. La **Domain Layer** representa SupportTicket, SupportMessage, SupportAgent, SupportConversation y KnowledgeArticle. La **Infrastructure Layer** consume endpoints del módulo de soporte.
+
+![Support Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Support.puml)
+
+En el backend proyectado, Support expone endpoints para tickets, mensajes, agentes, conversaciones y artículos. La capa de aplicación coordina los casos de uso de soporte, la capa de dominio define reglas como prioridad y asignación, y la infraestructura persiste la información y puede enviar notificaciones mediante un proveedor externo de correo.
+
+![Support Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Support.puml)
 
 ## 4.7. Software Object-Oriented Design
 The object-oriented design of the LowCortisol system is represented through two class diagrams: one for the backend and another for the frontend. This separation allows a clearer view of the responsibilities of each layer of the application.
