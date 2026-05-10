@@ -3146,7 +3146,7 @@ El diagrama de base de datos representa la estructura de almacenamiento del sist
 
 Además, el diagrama muestra cómo se conectan estas tablas mediante claves primarias y foráneas, reflejando la organización de los datos y la integridad relacional del sistema. En conjunto, esta estructura permite almacenar de forma consistente la información necesaria para el funcionamiento del backend y facilita la escalabilidad y mantenibilidad de la aplicación.
 
-![Database Diagram](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-LCortisol/Lowcortisol-app/main/docs/database-diagram.puml)
+![Database Diagram](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/database-diagram.puml)
 
 # Chapter V: Product Implementation, Validation & Deployment
 
