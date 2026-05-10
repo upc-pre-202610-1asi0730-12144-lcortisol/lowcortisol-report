@@ -75,21 +75,21 @@
 ## Project Report Collaboration Insights
 A continuación, se detallan los repositorios utilizados a lo largo del proyecto:
 
-#### Link del repositorio del Reporte:
+#### Link del repositorio del reporte:
 
-- https://github.com/upc-pre-202610-1asi0730-2610-LCortisol/Lowcortisol-report.git
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report
 
-#### Link del repositorio de la Landing Page:
+#### Link del repositorio de la website:
 
-- https://github.com/upc-pre-202610-1asi0730-2610-LCortisol/Lowcortisol-LadingPage.git
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-website
 
-#### Link del repositorio del Frontend:
+#### Link del repositorio de la webapp:
 
-- 
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp
 
-#### Link del repositorio del Backend:
+#### Link del repositorio del platform:
 
-- 
+- https://github.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-platform
 
 ### Entrega AV1:
 

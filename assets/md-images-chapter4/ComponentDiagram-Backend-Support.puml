@@ -1,0 +1,42 @@
+@startuml
+title LowCortisol Platform - Support Context - Backend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Consumes support backend endpoints for tickets, messages, agents, conversations, and knowledge articles.")
+
+System_Ext(emailProvider, "Email Provider", "External service projected for support ticket notifications and user follow-ups.")
+
+ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Stores support tickets, support messages, support agents, support conversations, knowledge articles, users, and sites.")
+
+Container_Boundary(supportContext, "Support Bounded Context") {
+
+  Component(interfaceLayer, "Interface Layer", "ASP.NET Core Controllers", "Exposes support ticket, support message, support agent, support conversation, and knowledge article endpoints through SupportTicketController, SupportMessageController, SupportAgentController, SupportConversationController, and KnowledgeArticleController.")
+
+  Component(applicationLayer, "Application Layer", "Application Services / Commands / DTOs", "Coordinates support use cases such as creating tickets, resolving tickets, closing tickets, sending messages, assigning agents, loading conversations, and loading knowledge articles.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model / Business Rules", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, KnowledgeArticle, and support business rules.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "Repositories / Persistence Services", "Implements repositories and database access for support tickets, messages, agents, conversations, and knowledge articles.")
+
+  Component(supportPriorityService, "Support Priority Service", "Domain Service", "Determines ticket priority and whether a ticket should be assigned immediately.")
+
+  Component(supportNotificationConnector, "Support Notification Connector", "Email Service Adapter", "Sends ticket status updates and support notifications through an external email provider.")
+}
+
+Rel(spa, interfaceLayer, "Consumes support endpoints", "HTTPS/JSON")
+
+Rel(interfaceLayer, applicationLayer, "Delegates commands and queries")
+Rel(applicationLayer, domainLayer, "Applies support business rules")
+Rel(applicationLayer, infrastructureLayer, "Uses repositories and persistence services")
+
+Rel(applicationLayer, supportPriorityService, "Determines priority and assignment rules")
+Rel(applicationLayer, supportNotificationConnector, "Sends support notifications")
+Rel(supportNotificationConnector, emailProvider, "Sends support emails", "SMTP/HTTPS")
+
+Rel(infrastructureLayer, database, "Reads and writes support context data", "EF Core")
+
+@enduml

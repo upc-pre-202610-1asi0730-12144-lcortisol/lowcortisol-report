@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - Notification Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides alert, threshold, incident, notification channel, and alert delivery management through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides alert, threshold, incident, notification channel, and alert delivery endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(notificationContext, "Notification Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Page / Components", "Contains the alert page, alert cards, threshold cards, alert forms, threshold forms, and notification actions.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates notification use cases such as loading alerts, creating alerts, resolving alerts, closing alerts, creating thresholds, sending alerts, and loading incidents.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains Alert, Threshold, Incident, NotificationChannel, and AlertDelivery business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes alert, threshold, incident, notification channel, and alert delivery backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, route guards, subscription access validation, reusable UI components, and HTTP communication.")
+}
+
+Rel(spa, presentationLayer, "Uses notification views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches notification actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
+Rel(applicationLayer, sharedLayer, "Uses subscription access and session services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes notification context endpoints", "HTTPS/JSON")
+
+@enduml

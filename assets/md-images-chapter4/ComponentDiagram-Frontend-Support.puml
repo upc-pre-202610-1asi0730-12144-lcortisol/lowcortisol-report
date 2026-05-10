@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - Support Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides support ticket, support message, support conversation, support agent, and knowledge article management through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides support ticket, support message, support agent, support conversation, and knowledge article endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(supportContext, "Support Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Page / Components", "Contains the support page, ticket cards, knowledge article cards, ticket forms, message form, and conversation area.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates support use cases such as loading tickets, creating tickets, resolving tickets, closing tickets, sending messages, loading agents, and loading knowledge articles.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, and KnowledgeArticle business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes support ticket, support message, support agent, support conversation, and knowledge article backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, route guards, subscription access validation, reusable UI components, and HTTP communication.")
+}
+
+Rel(spa, presentationLayer, "Uses support views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches support actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
+Rel(applicationLayer, sharedLayer, "Uses session and subscription access services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes support context endpoints", "HTTPS/JSON")
+
+@enduml

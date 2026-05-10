@@ -1,0 +1,42 @@
+@startuml
+title LowCortisol Platform - Notification Context - Backend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Consumes notification backend endpoints for alerts, thresholds, incidents, notification channels, and alert deliveries.")
+
+System_Ext(emailProvider, "Email Provider", "External service used to send alert notifications and incident messages.")
+
+ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Stores alerts, thresholds, incidents, notification channels, alert deliveries, sites, and sensors.")
+
+Container_Boundary(notificationContext, "Notification Bounded Context") {
+
+  Component(interfaceLayer, "Interface Layer", "ASP.NET Core Controllers", "Exposes alert, threshold, incident, notification channel, and alert delivery endpoints through AlertController, ThresholdController, IncidentController, NotificationChannelController, and AlertDeliveryController.")
+
+  Component(applicationLayer, "Application Layer", "Application Services / Commands / DTOs", "Coordinates notification use cases such as creating alerts, resolving alerts, closing alerts, creating thresholds, sending alerts, creating incidents, and generating summaries.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model / Business Rules", "Contains Alert, Threshold, Incident, NotificationChannel, AlertDelivery, and notification business rules.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "Repositories / Persistence Services", "Implements repositories and database access for alerts, thresholds, incidents, notification channels, and alert deliveries.")
+
+  Component(alertPolicyService, "Alert Policy Service", "Domain Service", "Creates incidents when alert severity or business rules require escalation.")
+
+  Component(notificationDeliveryConnector, "Notification Delivery Connector", "Email/Message Service Adapter", "Sends alert notifications through external communication providers.")
+}
+
+Rel(spa, interfaceLayer, "Consumes notification endpoints", "HTTPS/JSON")
+
+Rel(interfaceLayer, applicationLayer, "Delegates commands and queries")
+Rel(applicationLayer, domainLayer, "Applies notification business rules")
+Rel(applicationLayer, infrastructureLayer, "Uses repositories and persistence services")
+
+Rel(applicationLayer, alertPolicyService, "Evaluates alert escalation rules")
+Rel(applicationLayer, notificationDeliveryConnector, "Sends alert notifications")
+Rel(notificationDeliveryConnector, emailProvider, "Sends alert emails", "SMTP/HTTPS")
+
+Rel(infrastructureLayer, database, "Reads and writes notification context data", "EF Core")
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - Plan Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides plan browsing, subscription purchase, active subscription validation, payment simulation, and plan management through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides plan, subscription, payment, and service request endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(planContext, "Plan Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Page / Components", "Contains the plan page, plan cards, checkout modal, and payment form. Handles user interaction for subscription operations.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates plan use cases such as loading plans, subscribing, changing plan, cancelling subscription, and loading payment history.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains Plan, PlanFeature, Subscription, Payment, and ServiceRequest business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes plan, subscription, payment, and service request backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, session access, subscription guards, reusable UI components, and HTTP communication.")
+}
+
+Rel(spa, presentationLayer, "Uses plan views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches plan actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
+Rel(applicationLayer, sharedLayer, "Uses session and subscription access services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes plan context endpoints", "HTTPS/JSON")
+
+@enduml

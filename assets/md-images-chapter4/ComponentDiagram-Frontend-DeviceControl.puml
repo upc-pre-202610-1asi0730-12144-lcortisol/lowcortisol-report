@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - Device Control Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides device, sensor, valve, and command management through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides device, sensor, valve, and command endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(deviceControlContext, "Device Control Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Page / Components", "Contains the device page, device cards, sensor cards, valve controls, and command actions. Handles user interaction for device control.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates device control use cases such as loading devices, selecting devices, creating devices, linking sensors, opening valves, closing valves, and executing commands.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains Device, Sensor, Valve, and DeviceCommand business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes device, sensor, valve, and command backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, route guards, subscription access validation, reusable UI components, and HTTP communication.")
+}
+
+Rel(spa, presentationLayer, "Uses device control views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches device control actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
+Rel(applicationLayer, sharedLayer, "Uses subscription access and session services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes device control context endpoints", "HTTPS/JSON")
+
+@enduml

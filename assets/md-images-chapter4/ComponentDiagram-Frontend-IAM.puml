@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - IAM Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides authentication, account creation, password recovery, profile management, and access validation through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides authentication, user profile, access profile, and session endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(iamContext, "IAM Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Pages / Routing", "Contains login, register, recover password, and profile pages. Handles user interaction and navigation.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates IAM use cases such as sign in, sign up, password recovery, profile update, and sign out.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains User, AccessProfile, AuthSession, and IAM-related business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes IAM backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, language switching, UI components, session handling, translations, and HTTP communication used by IAM.")
+}
+
+Rel(spa, presentationLayer, "Uses IAM views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches IAM actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and router guard")
+Rel(applicationLayer, sharedLayer, "Uses session and translation services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes IAM endpoints", "HTTPS/JSON")
+
+@enduml

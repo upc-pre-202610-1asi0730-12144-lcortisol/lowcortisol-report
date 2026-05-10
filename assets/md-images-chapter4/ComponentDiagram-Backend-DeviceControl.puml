@@ -1,0 +1,42 @@
+@startuml
+title LowCortisol Platform - Device Control Context - Backend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Consumes device control backend endpoints for managing devices, sensors, valves, and commands.")
+
+System_Ext(iotNetwork, "IoT Sensor and Device Network", "External network of hubs, sensors, and valves projected for real device communication.")
+
+ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Stores devices, sensors, valves, commands, sites, assignments, and monitoring-related references.")
+
+Container_Boundary(deviceControlContext, "Device Control Bounded Context") {
+
+  Component(interfaceLayer, "Interface Layer", "ASP.NET Core Controllers", "Exposes device, sensor, valve, and command endpoints through DeviceController, SensorController, ValveController, and DeviceCommandController.")
+
+  Component(applicationLayer, "Application Layer", "Application Services / Commands / DTOs", "Coordinates device control use cases such as creating devices, linking sensors, opening valves, closing valves, executing commands, and generating summaries.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model / Business Rules", "Contains Device, Sensor, Valve, DeviceCommand, and device operation business rules.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "Repositories / Persistence Services", "Implements repositories and database access for devices, sensors, valves, and commands.")
+
+  Component(deviceCommandConnector, "Device Command Connector", "IoT Service Adapter", "Sends remote commands to hubs, sensors, and valves through an IoT communication interface.")
+
+  Component(deviceStatusPolicy, "Device Status Policy", "Domain Service", "Validates whether a device, sensor, or valve can receive commands based on its status.")
+}
+
+Rel(spa, interfaceLayer, "Consumes device control endpoints", "HTTPS/JSON")
+
+Rel(interfaceLayer, applicationLayer, "Delegates commands and queries")
+Rel(applicationLayer, domainLayer, "Applies device control business rules")
+Rel(applicationLayer, infrastructureLayer, "Uses repositories and persistence services")
+
+Rel(applicationLayer, deviceStatusPolicy, "Validates device operation rules")
+Rel(applicationLayer, deviceCommandConnector, "Sends remote device commands")
+Rel(deviceCommandConnector, iotNetwork, "Executes device operations", "HTTP/MQTT/IoT API")
+
+Rel(infrastructureLayer, database, "Reads and writes device control context data", "EF Core")
+
+@enduml

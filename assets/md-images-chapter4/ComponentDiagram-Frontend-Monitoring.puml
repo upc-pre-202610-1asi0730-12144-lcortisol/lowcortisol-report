@@ -1,0 +1,40 @@
+@startuml
+title LowCortisol Platform - Monitoring Context - Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides monitoring dashboard, readings, anomalies, usage metrics, and reports through the web browser.")
+
+System_Ext(api, "LowCortisol API", "Backend API that provides monitoring session, reading, anomaly, summary, and report endpoints.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+
+Container_Boundary(monitoringContext, "Monitoring Bounded Context") {
+
+  Component(presentationLayer, "Presentation Layer", "Vue Pages / Components", "Contains dashboard page, report page, metric cards, usage charts, reading lists, and anomaly visualization.")
+
+  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates monitoring use cases such as loading dashboard data, creating random readings, loading anomalies, creating reports, and loading summaries.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model", "Contains MonitoringSession, Reading, Anomaly, and Report business concepts.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes monitoring session, reading, anomaly, summary, and report backend endpoints and adapts API responses to frontend models.")
+
+  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, route guards, subscription access validation, reusable UI components, and HTTP communication.")
+}
+
+Rel(spa, presentationLayer, "Uses monitoring views", "Vue Router")
+
+Rel(presentationLayer, applicationLayer, "Dispatches monitoring actions")
+Rel(applicationLayer, domainLayer, "Uses domain models")
+Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+
+Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
+Rel(applicationLayer, sharedLayer, "Uses subscription access and session services")
+Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
+
+Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
+Rel(infrastructureLayer, api, "Consumes monitoring context endpoints", "HTTPS/JSON")
+
+@enduml

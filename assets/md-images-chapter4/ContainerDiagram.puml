@@ -1,0 +1,54 @@
+@startuml
+title LowCortisol Platform - C4 Container Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(owner, "Owner / User", "Person who monitors consumption, manages sites, devices, subscriptions, alerts, reports, and support.")
+Person(operator, "Site Operator", "User who reviews operational data, devices, readings, alerts, and reports.")
+Person(supportAgent, "Support Agent", "Person who manages support tickets, messages, and help articles.")
+
+System_Ext(emailProvider, "Email Provider", "External service for password recovery emails, alerts, and notifications.")
+System_Ext(paymentProvider, "Payment Provider", "External service projected for subscription payment processing.")
+System_Ext(sensorNetwork, "IoT Sensor and Device Network", "External network of sensors, hubs, and valves for water and gas monitoring.")
+System_Ext(renderHosting, "Render", "Cloud platform used to deploy the frontend and current fake API.")
+
+System_Boundary(lowCortisol, "LowCortisol Platform") {
+
+  Container(webApp, "LowCortisol WebApp", "Vue 3 / Vite / JavaScript", "Single-page application used by users to authenticate, buy plans, monitor consumption, manage sites, devices, alerts, reports, and support.")
+
+  Container(fakeApi, "LowCortisol Fake API", "JSON Server / Node.js", "Current fake REST API deployed on Render. Provides mock resources for users, plans, subscriptions, sites, devices, readings, alerts, and support.")
+
+  Container(api, "LowCortisol API", "ASP.NET Core Web API", "Projected real backend. Exposes REST endpoints for IAM, plans, workplace, device control, monitoring, notifications, and support.")
+
+  ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Projected relational database for users, access profiles, plans, subscriptions, workplaces, sites, devices, readings, alerts, reports, and support data.")
+}
+
+Rel(owner, webApp, "Uses", "HTTPS/Web")
+Rel(operator, webApp, "Uses", "HTTPS/Web")
+Rel(supportAgent, webApp, "Uses", "HTTPS/Web")
+
+Rel(webApp, fakeApi, "Consumes current fake REST resources", "HTTPS/JSON")
+Rel(webApp, api, "Will consume real backend API", "HTTPS/JSON")
+
+Rel(api, database, "Reads and writes data", "EF Core")
+Rel(api, emailProvider, "Sends recovery emails, alerts, and notifications", "SMTP/HTTPS")
+Rel(api, paymentProvider, "Processes subscription payments", "HTTPS")
+Rel(api, sensorNetwork, "Retrieves readings and sends remote commands", "HTTP/MQTT/IoT API")
+
+Rel(webApp, renderHosting, "Is deployed on", "Docker/Nginx")
+Rel(fakeApi, renderHosting, "Is deployed on", "Docker/Node.js")
+
+note right of fakeApi
+Current implementation used for the academic prototype.
+It stores data in db.json and exposes REST-like endpoints.
+end note
+
+note right of api
+Projected real backend to be implemented later in C#.
+It will replace the Fake API while keeping the same business boundaries.
+end note
+
+@enduml

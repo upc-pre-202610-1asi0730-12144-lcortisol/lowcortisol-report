@@ -1,0 +1,34 @@
+@startuml
+title LowCortisol Platform - C4 Context Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(owner, "Owner / User", "Person who uses the platform to monitor consumption, manage sites, devices, alerts, plans, and support.")
+
+Person(operator, "Site Operator", "User responsible for reviewing operational data, alerts, and devices associated with a site.")
+
+Person(supportAgent, "Support Agent", "Person responsible for handling tickets, reviewing incidents, and providing help to users.")
+
+System(lowCortisol, "LowCortisol Platform", "Web platform for intelligent water and gas monitoring. It allows users to manage sites, devices, sensors, valves, alerts, reports, subscriptions, and support.")
+
+System_Ext(emailProvider, "Email Provider", "External service used to send password recovery emails, notifications, and alert messages.")
+
+System_Ext(paymentProvider, "Payment Provider", "External service projected for processing subscription payments.")
+
+System_Ext(sensorNetwork, "IoT Sensor and Device Network", "Sensors, hubs, and valves that record water/gas consumption and allow remote actions.")
+
+System_Ext(renderHosting, "Render", "Cloud platform where the web application and API are deployed.")
+
+Rel(owner, lowCortisol, "Uses the platform to monitor consumption, purchase plans, manage sites, and review alerts", "Web")
+Rel(operator, lowCortisol, "Reviews data, devices, reports, and assigned incidents", "Web")
+Rel(supportAgent, lowCortisol, "Manages tickets, messages, and help articles", "Web")
+
+Rel(lowCortisol, emailProvider, "Sends password recovery emails, alerts, and notifications", "SMTP/HTTPS")
+Rel(lowCortisol, paymentProvider, "Processes subscription payments", "HTTPS")
+Rel(lowCortisol, sensorNetwork, "Retrieves readings and executes remote device commands", "HTTP/MQTT/IoT API")
+Rel(lowCortisol, renderHosting, "Is deployed and executed in the cloud", "Docker/Web Service")
+
+@enduml

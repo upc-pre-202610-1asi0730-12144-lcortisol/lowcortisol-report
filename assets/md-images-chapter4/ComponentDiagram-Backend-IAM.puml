@@ -1,0 +1,42 @@
+@startuml
+title LowCortisol Platform - IAM Context - Backend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Consumes IAM backend endpoints for authentication, account creation, password recovery, profile management, and access validation.")
+
+System_Ext(emailProvider, "Email Provider", "External service used to send password recovery instructions and account-related emails.")
+
+ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Stores users, access profiles, permissions, and authentication sessions.")
+
+Container_Boundary(iamContext, "IAM Bounded Context") {
+
+  Component(interfaceLayer, "Interface Layer", "ASP.NET Core Controllers", "Exposes authentication, user profile, access profile, and session endpoints through AuthController, UserController, and AccessProfileController.")
+
+  Component(applicationLayer, "Application Layer", "Application Services / Commands / DTOs", "Coordinates IAM use cases such as sign in, sign up, password recovery, sign out, profile update, and access profile queries.")
+
+  Component(domainLayer, "Domain Layer", "Domain Model / Business Rules", "Contains User, AccessProfile, Permission, AuthSession, and IAM business rules for account and access management.")
+
+  Component(infrastructureLayer, "Infrastructure Layer", "Repositories / Persistence Services", "Implements repositories, database access, session persistence, password hashing, and token generation.")
+
+  Component(securityConnector, "Security Connector", "JWT / Password Hashing", "Generates authentication tokens, validates credentials, hashes passwords, and manages secure authentication operations.")
+
+  Component(emailConnector, "Email Connector", "Email Service Adapter", "Sends password recovery instructions through the external email provider.")
+}
+
+Rel(spa, interfaceLayer, "Consumes IAM endpoints", "HTTPS/JSON")
+
+Rel(interfaceLayer, applicationLayer, "Delegates commands and queries")
+Rel(applicationLayer, domainLayer, "Applies IAM business rules")
+Rel(applicationLayer, infrastructureLayer, "Uses repositories and infrastructure services")
+
+Rel(infrastructureLayer, securityConnector, "Uses token generation and password hashing")
+Rel(infrastructureLayer, emailConnector, "Sends password recovery messages")
+Rel(infrastructureLayer, database, "Reads and writes IAM data", "EF Core")
+
+Rel(emailConnector, emailProvider, "Sends recovery emails", "SMTP/HTTPS")
+
+@enduml
