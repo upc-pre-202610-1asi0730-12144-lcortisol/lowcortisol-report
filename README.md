@@ -3126,13 +3126,13 @@ El diagrama de clases del backend muestra la estructura principal del sistema, i
 
 Además, el diagrama permite visualizar cómo se relacionan las distintas capas de la arquitectura, separando la lógica de negocio, la coordinación de casos de uso y el acceso a datos mediante componentes como **AppDbContext** y los repositorios concretos. En conjunto, refleja una organización modular, mantenible y alineada con una arquitectura orientada al dominio.
 
-![Backend Class Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/backend-class-diagram.puml)
+![Backend Class Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/backend-class-diagram.puml%3Fv%3D4)
 
 El diagrama de clases del frontend muestra la estructura principal de la capa de presentación, incluyendo las páginas, los servicios de interfaz y los modelos que permiten la interacción con el usuario. Entre los elementos más importantes se encuentran **LoginPage**, **RegisterPage**, **HomePage**, **DevicesPage**, **ReportsPage**, **AlertsPage** y **ProfilePage**, además de servicios como **I18nService**, **BrowserSessionService** y **UiSessionService**.
 
 Asimismo, el diagrama permite comprender cómo el frontend organiza la navegación, la gestión de sesión, el cambio de idioma y la comunicación con los servicios de aplicación. En conjunto, refleja una interfaz modular, interactiva y alineada con la arquitectura general del sistema.
 
-![Frontend Class Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/frontend-class-diagram.puml?v=4)
+![Frontend Class Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/frontend-class-diagram.puml%3Fv%3D4)
 
 ## 4.8. Database Design
 
@@ -3146,7 +3146,7 @@ El diagrama de base de datos representa la estructura de almacenamiento del sist
 
 Además, el diagrama muestra cómo se conectan estas tablas mediante claves primarias y foráneas, reflejando la organización de los datos y la integridad relacional del sistema. En conjunto, esta estructura permite almacenar de forma consistente la información necesaria para el funcionamiento del backend y facilita la escalabilidad y mantenibilidad de la aplicación.
 
-![Database Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/database-diagram.puml?v=4)
+![Database Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-webapp/main/docs/database-diagram.puml%3Fv%3D4)
 
 # Chapter V: Product Implementation, Validation & Deployment
 
