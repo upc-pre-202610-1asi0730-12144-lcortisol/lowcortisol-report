@@ -3278,8 +3278,8 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 Review Summary | Durante inicio del desarrollo del proyecto se organizó el repositorio en GitHub y se establecieron las actividades para cada integrante, definiendo los requisitos iniciales de la Landing Page. |
-| sprint 1 Retrospective Summary | Durante la fase inicial del proyecto, el equipo logró organizarse adecuadamente y establecer herramientas de trabajo colaborativo como Git y GitHub. Como aspecto positivo, se destaca la buena comunicación inicial y la correcta comprensión del alcance del proyecto. Como oportunidad de mejora, se identificó la necesidad de mejorar la planificación del tiempo y la asignación de responsabilidades para optimizar el desarrollo en los siguientes sprints.
+| Sprint 1 - 0 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
+| sprint 1 - 0 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint
 |  | Sprint Goal & User Stories |
 | Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
 | Sprint 1 Velocity | 10 Story Points |
@@ -3310,6 +3310,9 @@ detalla la distribución de roles para este primer ciclo:
 | Quiliano Motta, Kirk Douglas | @Kirkcito             | C |            C            | C |
 
 #### 5.2.1.3. Sprint Backlog 1. 
+
+![Sprint Backlog 1](./assets/md-images-chapter5/Sprint%20Backlog.PNG)
+
 #### 5.2.1.4. Development Evidence for Sprint Review
 
 En esta sección se presentan los avances de implementación correspondientes al Sprint Review. A continuación, se detallan los commits realizados por el equipo.
@@ -3420,10 +3423,42 @@ Durante el Sprint, se evidenció una participación activa de todos los integran
 
 ### 5.2.2. Sprint 2
 
+Durante el Sprint 2, el equipo continuó con el desarrollo de la plataforma LowCortisol, enfocándose en la implementación de la estructura funcional inicial del sistema. En esta iteración se trabajó en módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos, alertas y soporte técnico, además del diseño del modelo de base de datos y el despliegue de servicios mediante Render.
+
+Asimismo, se fortaleció el trabajo colaborativo mediante el uso de herramientas como GitHub y Trello, permitiendo una adecuada organización de tareas, control de versiones y seguimiento del avance del Sprint.
+
 #### 5.2.2.1. Sprint Planning 2
 
 
+El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial de la plataforma LowCortisol, implementando módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos y alertas. Asimismo, se desarrolló la arquitectura principal del sistema, el modelo de base de datos y el despliegue de servicios mediante Render, permitiendo establecer la integración entre frontend y backend.
+
+| Campo | Descripción |
+|:-----:|:-----------:|
+| Sprint # | Sprint 2 |
+| Sprint Planning Background | Desarrollo inicial de la Web Application y arquitectura del sistema |
+| Date | 2026-04-26 |
+| Time | 17:00 |
+| Location | Reunión virtual (Google Meet) |
+| Prepared By | Condori Torres, Miguel Anibal |
+| Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
+| Sprint 1 Review Summary | Durante el Sprint 1 se desarrolló e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
+| Sprint 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
+|  | Sprint Goal & User Stories |
+| Sprint 2 Goal | Desarrollar la estructura funcional inicial de la plataforma LowCortisol mediante la implementación de módulos de autenticación, monitoreo inteligente, gestión de dispositivos y alertas, integrando frontend, backend y despliegue de servicios en Render. Este objetivo se considerará cumplido cuando la plataforma permita visualizar información de monitoreo, gestionar funcionalidades principales y acceder a los servicios desplegados correctamente |
+| Sprint 2 Velocity | 34 Story Points |
+| Sum of Story Points | 34 Story Points |
+
 #### 5.2.2.2. Aspect Leaders and Collaborators
+
+Durante el Sprint 2, el equipo organizó las responsabilidades considerando los principales aspectos funcionales y técnicos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos, alertas, diseño de base de datos y despliegue de servicios en Render. Esto permitió mejorar la coordinación interna y distribuir de manera eficiente las tareas del Sprint.
+
+| Team Member | GitHub Username | Authentication | Monitoring | Device Management | Notifications | Database Design | Deployment |
+|-------------|----------------|---------------|------------|------------------|--------------|----------------|-----------|
+| Condori Torres, Miguel Anibal | Miguel1323z | L | C | C | C | C | C |
+| Delgado Perez, James Caleb | JAmsy06 | C | C | C | C | L | C |
+| Loa Rojas, Jean Franck | JeanLoa | C | L | C | C | C | L |
+| Montalvo Vasquez, Bruno Rodrigo | Bruno | C | C | L | C | C | C |
+| Quiliano Motta, Kirk Douglas | Kirkcito | C | C | C | L | C | C |
 
 
 #### 5.2.2.3. Sprint Backlog 2
