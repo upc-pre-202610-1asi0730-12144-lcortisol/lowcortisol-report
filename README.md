@@ -402,70 +402,89 @@ Intuitivo, moderno, accesible, con información clara y alertas fáciles de ente
 
 12. **Otra suposición crítica…** Que los usuarios utilizarán el sistema de forma constante para monitorear su consumo.
 
-#### 1.2.2.3 Lean UX Hypothesis Statements
+## 1.2.2.3 Lean UX Hypothesis Statements
 
-###### Hipótesis 1:
+### Hipótesis 1
+Creemos que ofrecer monitoreo en tiempo real permitirá que los usuarios detecten fugas con mayor rapidez y reduzcan pérdidas económicas.
 
-Creemos que, si implementamos monitoreo en tiempo real para detectar fugas de agua y gas, los usuarios podrán actuar más rápido y reducir pérdidas económicas.
+Sabremos que esto es cierto cuando al menos el 70% de los usuarios identifique incidentes antes de que generen daños mayores durante las pruebas del MVP.
 
-**Business Outcome:** Incrementar adopción del servicio y satisfacción del cliente.<br>
-**Users:** Hogares.<br>
-**User Outcome:** Detectan incidentes a tiempo y evitan daños mayores.<br>
-**Feature:** Monitoreo en tiempo real con panel de control.<br>
+Business Outcome: Incrementar adopción del servicio y satisfacción del cliente.  
+Users: Hogares.  
+User Outcome: Detectan incidentes a tiempo y evitan daños mayores.  
+Feature: Monitoreo en tiempo real con panel de control.
 
-###### Hipótesis 2:
+---
 
-Creemos que, si el sistema envía alertas inmediatas al detectar anomalías, se reducirá el tiempo de respuesta frente a emergencias.
+### Hipótesis 2
+Creemos que enviar alertas inmediatas ante anomalías permitirá reducir el tiempo de respuesta frente a emergencias.
 
-**Business Outcome:** Mejorar percepción de valor del servicio y retención de usuarios.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Responden rápidamente ante fugas o riesgos críticos.<br>
-**Feature:** Notificaciones push, correo y alertas automáticas.<br>
+Sabremos que esto es cierto cuando el tiempo promedio de reacción de los usuarios disminuya en un 40% durante las pruebas piloto.
 
-###### Hipótesis 3:
+Business Outcome: Mejorar percepción de valor del servicio y retención de usuarios.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Responden rápidamente ante fugas o riesgos críticos.  
+Feature: Notificaciones push, correo y alertas automáticas.
 
-Creemos que, si mostramos historial de consumo y reportes claros, los usuarios tomarán mejores decisiones para optimizar recursos.
+---
 
-**Business Outcome:** Mayor uso recurrente de la plataforma.<br>
-**Users:** Hogares y Hoteles.<br>
-**User Outcome:** Controlan gastos y detectan consumos inusuales.<br>
-**Feature:** Historial, gráficas y reportes descargables.<br>
+### Hipótesis 3
+Creemos que mostrar historial de consumo y reportes claros ayudará a los usuarios a optimizar el uso de recursos.
 
-###### Hipótesis 4:
+Sabremos que esto es cierto cuando al menos el 60% de los usuarios consulte los reportes semanalmente y reduzca consumos inusuales.
 
-Creemos que, si incorporamos control remoto de válvulas, los usuarios sentirán mayor seguridad y control ante incidentes.
+Business Outcome: Mayor uso recurrente de la plataforma.  
+Users: Hogares y hoteles.  
+User Outcome: Controlan gastos y detectan consumos inusuales.  
+Feature: Historial, gráficas y reportes descargables.
 
-**Business Outcome:** Diferenciación competitiva y mayor interés por planes avanzados.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reducen riesgos sin esperar intervención presencial.<br>
-**Feature:** Apertura y cierre remoto de válvulas.<br>
+---
 
-###### Hipótesis 5:
+### Hipótesis 4
+Creemos que permitir el control remoto de válvulas incrementará la sensación de seguridad y control de los usuarios.
 
-Creemos que, si ofrecemos gestión multiubicación y múltiples dispositivos, organizaciones con varias instalaciones adoptarán la solución con mayor facilidad.
+Sabremos que esto es cierto cuando al menos el 75% de los usuarios indique sentirse más seguro utilizando esta funcionalidad.
 
-**Business Outcome:** Captación de clientes empresariales e institucionales.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Supervisan varias zonas desde una sola plataforma.<br>
-**Feature:** Gestión por zonas y múltiples sensores.<br>
+Business Outcome: Diferenciación competitiva y mayor interés por planes avanzados.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reducen riesgos sin esperar intervención presencial.  
+Feature: Apertura y cierre remoto de válvulas.
 
-###### Hipótesis 6:
+---
 
-Creemos que, si aplicamos análisis inteligente de patrones de consumo, se podrán prevenir fallas antes de que ocurran.
+### Hipótesis 5
+Creemos que ofrecer gestión multiubicación facilitará la adopción de la plataforma en organizaciones con varias instalaciones.
 
-**Business Outcome:** Posicionamiento innovador y mayor valor percibido.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reciben advertencias tempranas y reducen incidentes repetitivos.<br>
-**Feature:** Detección temprana con IA y análisis predictivo.<br>
+Sabremos que esto es cierto cuando al menos el 50% de clientes empresariales registre más de una sede durante el piloto.
 
-###### Hipótesis 7:
+Business Outcome: Captación de clientes empresariales e institucionales.  
+Users: Hoteles y municipalidades.  
+User Outcome: Supervisan varias zonas desde una sola plataforma.  
+Feature: Gestión por zonas y múltiples sensores.
 
-Creemos que, si la plataforma ofrece planes diferenciados según necesidad del cliente, aumentará la conversión a suscripciones pagadas.
+---
 
-**Business Outcome:** Crecimiento sostenible de ingresos mensuales.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Contratan un plan ajustado a sus necesidades reales.<br>
-**Feature:** Plan Hogar, Plan Smart y Plan Full Service.<br>
+### Hipótesis 6
+Creemos que aplicar análisis inteligente de patrones de consumo permitirá prevenir incidentes antes de que ocurran.
+
+Sabremos que esto es cierto cuando el sistema detecte anomalías anticipadamente en al menos el 65% de los casos simulados.
+
+Business Outcome: Posicionamiento innovador y mayor valor percibido.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reciben advertencias tempranas y reducen incidentes repetitivos.  
+Feature: Detección temprana con IA y análisis predictivo.
+
+---
+
+### Hipótesis 7
+Creemos que ofrecer planes diferenciados según las necesidades del cliente incrementará la conversión a suscripciones pagadas.
+
+Sabremos que esto es cierto cuando al menos el 30% de usuarios interesados seleccione un plan de pago durante la validación del MVP.
+
+Business Outcome: Crecimiento sostenible de ingresos mensuales.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Contratan un plan ajustado a sus necesidades reales.  
+Feature: Plan Hogar, Plan Smart y Plan Full Service.
 
 #### 1.2.2.4 Lean UX Canvas
 <table>  
