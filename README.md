@@ -3309,7 +3309,12 @@ Asimismo, el trabajo en equipo fue fundamental para elevar el rigor de los artef
 ### 5.3.2. Registro de Entrevistas
 ### 5.3.3. Evaluaciones según heurísticas
 ## 5.4. Video About-the-Product.
+
 # Conclusiones
+Tras completar este nuevo avance en la implementación y validación del proyecto LowCortisol, el equipo concluye que se ha logrado consolidar una arquitectura de software robusta a través de un proceso de refactorización guiado por los estándares de la rúbrica docente. A diferencia de la etapa inicial, ahora contamos con un sistema funcional desplegado que integra de manera coherente el frontend con la infraestructura de servicios para las pruebas actuales. La aplicación rigurosa de Domain-Driven Design (DDD) y la corrección de los diagramas C4 han permitido que la aplicación evolucione hacia una plataforma con una lógica de dominio clara, sentando las bases para las funcionalidades que se implementarán en las siguientes etapas.
+
+Por otro lado, concluimos que la transición hacia un modelo de desarrollo basado en requisitos técnicos detallados ha sido fundamental para asegurar la viabilidad de lo avanzado en este Sprint. Al haber refinado las historias técnicas y las hipótesis de Lean UX, el proyecto ahora cuenta con métricas de éxito iniciales y una estructura de datos que utiliza las bibliotecas de persistencia adecuadas para el entorno .NET. Finalmente, el despliegue exitoso de los servicios y la gestión profesional del código confirman que el equipo ha interiorizado las mejores prácticas de ingeniería; sin embargo, somos conscientes de que el trabajo aún está en ejecución, y estos resultados parciales son el punto de partida para completar la solución integral de monitoreo en las entregas finales.
+
 ## Conclusiones y recomendaciones
 ## Video About-the-Team.
 # Bibliografía 
