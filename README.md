@@ -1899,6 +1899,45 @@ del agua en hogares y negocios. Los términos están en inglés, con su equivale
 </tr>
 
 <tr>
+<td>TS21</td>
+<td>Configurar sistema de internacionalización (i18n)</td>
+<td>Como Developer, quiero implementar una arquitectura de internacionalización mediante archivos JSON para permitir soporte de múltiples idiomas.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Estructura de archivos lista<br>
+Given que el sistema requiere soporte para español e inglés<br>
+When el developer configura las bibliotecas i18n<br>
+Then el sistema permite cargar etiquetas desde es.json y en.json<br>
+And retorna HTTP 200 OK al cargar recursos<br><br>
+
+Scenario 2: Fallback de idioma<br>
+Given que una etiqueta no existe en el idioma seleccionado<br>
+When la aplicación intenta renderizar el contenido<br>
+Then el sistema muestra el texto en español por defecto
+</td>
+<td>EP01</td>
+</tr>
+
+<tr>
+<td>TS22</td>
+<td>Implementar cambio dinámico de idioma</td>
+<td>Como Developer, quiero gestionar el estado global del idioma para actualizar la interfaz en tiempo real.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Cambio de idioma exitoso<br>
+Given que el usuario selecciona "English"<br>
+When el sistema procesa el cambio de idioma<br>
+Then el sistema actualiza el contexto global<br>
+And todos los componentes renderizan el nuevo idioma dinámicamente<br><br>
+
+Scenario 2: Idioma no soportado<br>
+Given que el usuario selecciona un idioma no registrado<br>
+When el sistema procesa la solicitud<br>
+Then el sistema mantiene el idioma por defecto
+</td>
+<td>EP01</td>
+</tr>
+<tr>
 <td>EP02</td>
 <td>Monitoreo inteligente</td>
 <td>Epic orientado a supervisión de sensores y consumo.</td>
@@ -1999,6 +2038,45 @@ del agua en hogares y negocios. Los términos están en inglés, con su equivale
 <td>Visualizar soluciones según perfil</td>
 <td>Como usuario, quiero ver soluciones adaptadas a mi tipo de uso.</td>
 <td>Given que el usuario accede a soluciones<br>When revisa opciones<br>Then el sistema muestra opciones residenciales y empresariales</td>
+<td>EP04</td>
+</tr>
+
+<tr>
+<td>TS23</td>
+<td>Implementar estructura de sección de planes</td>
+<td>Como Developer, quiero crear componentes modulares para la sección de planes y suscripciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Renderizado correcto<br>
+Given que el usuario accede a /planes<br>
+When el componente se monta en el DOM<br>
+Then el sistema muestra la cuadrícula de planes correctamente estructurada<br>
+And retorna HTTP 200 OK al obtener datos<br><br>
+
+Scenario 2: Sin planes disponibles<br>
+Given que no existen planes registrados<br>
+When el sistema intenta renderizar la sección<br>
+Then el sistema muestra un mensaje indicando ausencia de planes
+</td>
+<td>EP04</td>
+</tr>
+
+<tr>
+<td>TS24</td>
+<td>Desarrollar cards dinámicas para planes</td>
+<td>Como Developer, quiero diseñar componentes visuales dinámicos para mostrar información de suscripciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Visualización correcta<br>
+Given que existen datos de planes<br>
+When el componente recibe la información<br>
+Then el sistema renderiza nombre, precio y beneficios correctamente<br><br>
+
+Scenario 2: Datos incompletos<br>
+Given que un plan no contiene información obligatoria<br>
+When el sistema procesa los datos<br>
+Then el sistema muestra un mensaje de error controlado
+</td>
 <td>EP04</td>
 </tr>
 
@@ -2487,6 +2565,100 @@ Then retorna HTTP 404 Not Found
 <td>EP07</td>
 </tr>
 
+<tr>
+<td>TS25</td>
+<td>Implementar arquitectura responsive</td>
+<td>Como Developer, quiero aplicar Grid y Flexbox para adaptar la aplicación a distintas resoluciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Vista desktop/tablet<br>
+Given una resolución mayor a 768px<br>
+When el usuario visualiza la landing page<br>
+Then el sistema organiza el contenido en múltiples columnas<br><br>
+
+Scenario 2: Ajuste automático<br>
+Given que el usuario cambia el tamaño de la ventana<br>
+When el sistema detecta el cambio de resolución<br>
+Then la distribución visual se adapta automáticamente
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS26</td>
+<td>Ajustar componentes para dispositivos móviles</td>
+<td>Como Developer, quiero implementar media queries para optimizar la visualización móvil.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Vista móvil correcta<br>
+Given una resolución menor a 480px<br>
+When el usuario carga la página<br>
+Then el sistema muestra componentes apilados verticalmente<br><br>
+
+Scenario 2: Navegación optimizada<br>
+Given que el usuario navega desde un smartphone<br>
+When interactúa con la interfaz<br>
+Then el sistema mantiene legibilidad y accesibilidad visual
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS27</td>
+<td>Implementar navegación mediante anclas dinámicas</td>
+<td>Como Developer, quiero configurar navegación interna mediante IDs de secciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Navegación interna correcta<br>
+Given que el usuario hace clic en una opción del navbar<br>
+When el sistema procesa el ID correspondiente<br>
+Then el navegador se desplaza hacia la sección solicitada<br><br>
+
+Scenario 2: Sección inexistente<br>
+Given que el ID de la sección no existe<br>
+When el sistema intenta navegar<br>
+Then el sistema evita errores de navegación
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS28</td>
+<td>Configurar comportamiento Smooth Scroll</td>
+<td>Como Developer, quiero implementar desplazamiento suave entre secciones para mejorar la experiencia visual.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Scroll progresivo<br>
+Given que el usuario selecciona una sección desde el menú<br>
+When el sistema ejecuta el desplazamiento<br>
+Then el scroll se realiza de manera progresiva y fluida<br><br>
+
+Scenario 2: Compatibilidad de navegación<br>
+Given distintos navegadores compatibles<br>
+When el usuario navega entre secciones<br>
+Then el comportamiento smooth scroll se mantiene correctamente
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS29</td>
+<td>Desarrollar menú responsive tipo hamburguesa</td>
+<td>Como Developer, quiero implementar un menú colapsable para dispositivos móviles.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Apertura de menú móvil<br>
+Given que el usuario se encuentra en un dispositivo móvil<br>
+When hace clic en el icono hamburguesa<br>
+Then el sistema despliega el menú responsive correctamente<br><br>
+
+Scenario 2: Cierre automático del menú<br>
+Given que el menú móvil está desplegado<br>
+When el usuario selecciona una opción de navegación<br>
+Then el sistema oculta automáticamente el menú
+</td>
+<td>EP07</td>
+</tr>
 </table>
 
 ## 3.2. Impact Mapping
