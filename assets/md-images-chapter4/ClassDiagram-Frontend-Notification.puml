@@ -1,0 +1,127 @@
+@startuml
+title LowCortisol Platform - Notification Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Alert {
+    +id: string
+    +siteId: string
+    +sensorId: string
+    +resourceType: string
+    +title: string
+    +description: string
+    +severity: string
+    +status: string
+    +createdAt: string
+  }
+
+  class Threshold {
+    +id: string
+    +siteId: string
+    +sensorId: string
+    +resourceType: string
+    +warningLimit: number
+    +criticalLimit: number
+    +unit: string
+    +enabled: boolean
+  }
+
+  class Incident {
+    +id: string
+    +alertId: string
+    +siteId: string
+    +title: string
+    +description: string
+    +priority: string
+    +status: string
+  }
+
+  class NotificationChannel {
+    +id: string
+    +userId: string
+    +type: string
+    +target: string
+    +enabled: boolean
+  }
+
+  class AlertDelivery {
+    +id: string
+    +alertId: string
+    +channelId: string
+    +status: string
+    +sentAt: string
+  }
+}
+
+package "application" {
+  class NotificationStore {
+    +state: object
+    +loadNotification(): Promise
+    +createAlert(payload: object): Promise
+    +resolveAlert(alertId: string): Promise
+    +closeAlert(alertId: string): Promise
+    +createThreshold(payload: object): Promise
+    +sendAlert(alertId: string): Promise
+  }
+
+  class NotificationFacade {
+    +getAlert(): Promise
+    +getThreshold(): Promise
+    +getIncident(): Promise
+    +getChannel(): Promise
+    +getDelivery(): Promise
+    +createAlert(payload: object): Promise
+    +createThreshold(payload: object): Promise
+    +resolveAlert(alertId: string): Promise
+    +closeAlert(alertId: string): Promise
+    +sendAlert(alertId: string): Promise
+  }
+}
+
+package "infrastructure" {
+  class NotificationApiService {
+    +getAlert(): Promise<Alert[]>
+    +getThreshold(): Promise<Threshold[]>
+    +getIncident(): Promise<Incident[]>
+    +getChannel(): Promise<NotificationChannel[]>
+    +getDelivery(): Promise<AlertDelivery[]>
+    +createAlert(payload: object): Promise<Alert>
+    +createThreshold(payload: object): Promise<Threshold>
+    +resolveAlert(alertId: string): Promise<Alert>
+    +closeAlert(alertId: string): Promise<Alert>
+    +sendAlert(alertId: string): Promise<AlertDelivery[]>
+    +getSummary(): Promise<object>
+  }
+}
+
+package "presentation" {
+  class AlertScreen {
+    +loadNotification(): Promise
+    +createAlert(): Promise
+    +resolveAlert(alertId: string): Promise
+    +closeAlert(alertId: string): Promise
+    +createThreshold(): Promise
+    +sendAlert(alertId: string): Promise
+  }
+}
+
+AlertScreen --> NotificationStore
+NotificationStore --> NotificationFacade
+NotificationFacade --> NotificationApiService
+
+NotificationApiService --> Alert
+NotificationApiService --> Threshold
+NotificationApiService --> Incident
+NotificationApiService --> NotificationChannel
+NotificationApiService --> AlertDelivery
+
+Alert --> Incident
+Alert --> AlertDelivery
+Threshold --> Alert
+AlertDelivery --> NotificationChannel
+
+@enduml

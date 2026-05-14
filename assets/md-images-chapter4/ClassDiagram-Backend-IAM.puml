@@ -1,0 +1,81 @@
+@startuml
+title LowCortisol Platform - IAM Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class User
+  class AccessProfile
+  class Permission
+  class AuthSession
+
+  interface UserRepository
+  interface AccessProfileRepository
+  interface AuthSessionRepository
+}
+
+package "application" {
+  class SignInCommand
+  class SignUpCommand
+  class RecoverPasswordCommand
+  class UpdateProfileCommand
+  class UserDto
+  class AccessProfileDto
+  class AuthSessionDto
+  class AuthResult
+  class AuthApplicationService
+  class UserApplicationService
+}
+
+package "infrastructure" {
+  interface PasswordHashingService
+  interface TokenService
+  class BcryptPasswordHashingService
+  class JwtTokenService
+  class EfUserRepository
+  class EfAccessProfileRepository
+  class EfAuthSessionRepository
+}
+
+package "interface" {
+  class AuthController
+  class UserController
+  class AccessProfileController
+}
+
+User --> AccessProfile
+AccessProfile "1" o-- "*" Permission
+AuthSession --> User
+
+AuthApplicationService --> UserRepository
+AuthApplicationService --> AccessProfileRepository
+AuthApplicationService --> AuthSessionRepository
+AuthApplicationService --> PasswordHashingService
+AuthApplicationService --> TokenService
+
+UserApplicationService --> UserRepository
+
+UserRepository <|.. EfUserRepository
+AccessProfileRepository <|.. EfAccessProfileRepository
+AuthSessionRepository <|.. EfAuthSessionRepository
+PasswordHashingService <|.. BcryptPasswordHashingService
+TokenService <|.. JwtTokenService
+
+AuthController --> AuthApplicationService
+UserController --> UserApplicationService
+AccessProfileController --> AuthApplicationService
+
+AuthController ..> SignInCommand
+AuthController ..> SignUpCommand
+AuthController ..> RecoverPasswordCommand
+UserController ..> UpdateProfileCommand
+
+AuthApplicationService ..> AuthResult
+AuthResult --> UserDto
+AuthResult --> AccessProfileDto
+AuthResult --> AuthSessionDto
+
+@enduml

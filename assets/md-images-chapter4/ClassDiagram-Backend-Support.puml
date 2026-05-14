@@ -1,0 +1,68 @@
+@startuml
+title LowCortisol Platform - Support Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class SupportTicket
+  class SupportMessage
+  class SupportAgent
+  class SupportConversation
+  class KnowledgeArticle
+  class SupportPriorityService
+
+  interface SupportTicketRepository
+  interface SupportMessageRepository
+  interface SupportAgentRepository
+  interface KnowledgeArticleRepository
+}
+
+package "application" {
+  class CreateSupportTicketCommand
+  class SendSupportMessageCommand
+  class SupportSummaryDto
+  class SupportApplicationService
+}
+
+package "infrastructure" {
+  class EfSupportTicketRepository
+  class EfSupportMessageRepository
+  class EfSupportAgentRepository
+  class EfKnowledgeArticleRepository
+}
+
+package "interface" {
+  class SupportTicketController
+  class SupportMessageController
+  class KnowledgeArticleController
+}
+
+SupportTicket "1" o-- "*" SupportMessage
+SupportConversation --> SupportTicket
+SupportTicket --> SupportAgent
+
+SupportApplicationService --> SupportTicketRepository
+SupportApplicationService --> SupportMessageRepository
+SupportApplicationService --> SupportAgentRepository
+SupportApplicationService --> KnowledgeArticleRepository
+SupportApplicationService --> SupportPriorityService
+
+SupportTicketRepository <|.. EfSupportTicketRepository
+SupportMessageRepository <|.. EfSupportMessageRepository
+SupportAgentRepository <|.. EfSupportAgentRepository
+KnowledgeArticleRepository <|.. EfKnowledgeArticleRepository
+
+SupportTicketController --> SupportApplicationService
+SupportMessageController --> SupportApplicationService
+KnowledgeArticleController --> SupportApplicationService
+
+SupportTicketController ..> CreateSupportTicketCommand
+SupportMessageController ..> SendSupportMessageCommand
+
+SupportPriorityService ..> SupportTicket
+SupportPriorityService ..> SupportAgent
+
+@enduml

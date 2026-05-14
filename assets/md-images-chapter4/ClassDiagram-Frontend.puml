@@ -1,0 +1,180 @@
+@startuml
+title LowCortisol Platform - Frontend Class Diagram by Bounded Context
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "shared" {
+  class ApiClientService
+  class AuthSessionService
+  class TranslationService
+  class SubscriptionAccessService
+  class RouteGuard
+  class AppLayout
+  class LanguageSwitcher
+  class UiCard
+}
+
+package "iam" {
+  class User
+  class AccessProfile
+  class AuthSession
+  class IamStore
+  class IamFacade
+  class IamApiService
+  class Login
+  class Register
+  class RecoverPassword
+  class Profile
+}
+
+package "plan" {
+  class Plan
+  class PlanFeature
+  class Subscription
+  class Payment
+  class ServiceRequest
+  class PlanStore
+  class PlanFacade
+  class PlanApiService
+  class PlanScreen
+  class PaymentForm
+}
+
+package "workplace" {
+  class Workplace
+  class Site
+  class SiteMember
+  class SiteDeviceAssignment
+  class WorkplaceStore
+  class WorkplaceFacade
+  class WorkplaceApiService
+  class SiteScreen
+}
+
+package "device-control" {
+  class Device
+  class Sensor
+  class Valve
+  class DeviceCommand
+  class DeviceControlStore
+  class DeviceControlFacade
+  class DeviceControlApiService
+  class DeviceScreen
+}
+
+package "monitoring" {
+  class MonitoringSession
+  class Reading
+  class Anomaly
+  class Report
+  class MonitoringStore
+  class MonitoringFacade
+  class MonitoringApiService
+  class Dashboard
+  class ReportScreen
+}
+
+package "notification" {
+  class Alert
+  class Threshold
+  class Incident
+  class NotificationChannel
+  class AlertDelivery
+  class NotificationStore
+  class NotificationFacade
+  class NotificationApiService
+  class AlertScreen
+}
+
+package "support" {
+  class SupportTicket
+  class SupportMessage
+  class SupportAgent
+  class SupportConversation
+  class KnowledgeArticle
+  class SupportStore
+  class SupportFacade
+  class SupportApiService
+  class SupportScreen
+}
+
+RouteGuard --> AuthSessionService
+RouteGuard --> SubscriptionAccessService
+LanguageSwitcher --> TranslationService
+
+IamApiService ..> ApiClientService
+PlanApiService ..> ApiClientService
+WorkplaceApiService ..> ApiClientService
+DeviceControlApiService ..> ApiClientService
+MonitoringApiService ..> ApiClientService
+NotificationApiService ..> ApiClientService
+SupportApiService ..> ApiClientService
+
+Login --> IamStore
+Register --> IamStore
+RecoverPassword --> IamStore
+Profile --> IamStore
+IamStore --> IamFacade
+IamFacade --> IamApiService
+
+PlanScreen --> PlanStore
+PlanScreen --> PaymentForm
+PlanStore --> PlanFacade
+PlanFacade --> PlanApiService
+
+SiteScreen --> WorkplaceStore
+WorkplaceStore --> WorkplaceFacade
+WorkplaceFacade --> WorkplaceApiService
+
+DeviceScreen --> DeviceControlStore
+DeviceControlStore --> DeviceControlFacade
+DeviceControlFacade --> DeviceControlApiService
+
+Dashboard --> MonitoringStore
+ReportScreen --> MonitoringStore
+MonitoringStore --> MonitoringFacade
+MonitoringFacade --> MonitoringApiService
+
+AlertScreen --> NotificationStore
+NotificationStore --> NotificationFacade
+NotificationFacade --> NotificationApiService
+
+SupportScreen --> SupportStore
+SupportStore --> SupportFacade
+SupportFacade --> SupportApiService
+
+User --> AccessProfile
+AuthSession --> User
+
+Plan "1" o-- "*" PlanFeature
+Subscription --> Plan
+Subscription --> User
+Subscription --> Payment
+Subscription --> ServiceRequest
+
+Workplace "1" o-- "*" Site
+Site "1" o-- "*" SiteMember
+Site "1" o-- "*" SiteDeviceAssignment
+SiteDeviceAssignment --> Device
+
+Device "1" o-- "*" Sensor
+Device "1" o-- "*" Valve
+Device "1" o-- "*" DeviceCommand
+
+MonitoringSession "1" o-- "*" Reading
+Reading --> Anomaly
+Report --> Reading
+
+Alert --> Incident
+Alert --> AlertDelivery
+Threshold --> Sensor
+AlertDelivery --> NotificationChannel
+
+SupportTicket "1" o-- "*" SupportMessage
+SupportTicket --> SupportConversation
+SupportTicket --> SupportAgent
+
+@enduml

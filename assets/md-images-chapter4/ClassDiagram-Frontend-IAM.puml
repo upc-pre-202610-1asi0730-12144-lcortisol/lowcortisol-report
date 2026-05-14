@@ -1,0 +1,112 @@
+@startuml
+title LowCortisol Platform - IAM Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class User {
+    +id: string
+    +fullName: string
+    +email: string
+    +phone: string
+    +status: string
+    +accessProfileId: string
+  }
+
+  class AccessProfile {
+    +id: string
+    +name: string
+    +role: string
+    +permission: string[]
+  }
+
+  class AuthSession {
+    +id: string
+    +userId: string
+    +token: string
+    +isActive: boolean
+    +expiresAt: string
+  }
+}
+
+package "application" {
+  class IamStore {
+    +state: object
+    +signIn(email: string, password: string): Promise
+    +signUp(payload: object): Promise
+    +recoverPassword(email: string): Promise
+    +updateProfile(payload: object): Promise
+    +signOut(): void
+    +restoreSession(): void
+  }
+
+  class IamFacade {
+    +signIn(email: string, password: string): Promise
+    +signUp(payload: object): Promise
+    +recoverPassword(email: string): Promise
+    +getProfile(userId: string): Promise
+    +updateProfile(userId: string, payload: object): Promise
+    +signOut(): void
+  }
+}
+
+package "infrastructure" {
+  class IamApiService {
+    +getUser(): Promise<User[]>
+    +getUserByEmail(email: string): Promise<User>
+    +createUser(payload: object): Promise<User>
+    +updateUser(userId: string, payload: object): Promise<User>
+    +getAccessProfile(profileId: string): Promise<AccessProfile>
+    +createSession(payload: object): Promise<AuthSession>
+    +closeSession(sessionId: string): Promise
+  }
+}
+
+package "presentation" {
+  class Login {
+    +email: string
+    +password: string
+    +submit(): Promise
+  }
+
+  class Register {
+    +fullName: string
+    +email: string
+    +phone: string
+    +password: string
+    +submit(): Promise
+  }
+
+  class RecoverPassword {
+    +email: string
+    +submit(): Promise
+  }
+
+  class Profile {
+    +user: User
+    +accessProfile: AccessProfile
+    +session: AuthSession
+    +updateProfile(): Promise
+    +signOut(): void
+  }
+}
+
+Login --> IamStore
+Register --> IamStore
+RecoverPassword --> IamStore
+Profile --> IamStore
+
+IamStore --> IamFacade
+IamFacade --> IamApiService
+
+IamApiService --> User
+IamApiService --> AccessProfile
+IamApiService --> AuthSession
+
+User --> AccessProfile
+AuthSession --> User
+
+@enduml

@@ -1,0 +1,75 @@
+@startuml
+title LowCortisol Platform - Plan Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Plan
+  class PlanFeature
+  class Subscription
+  class Payment
+  class ServiceRequest
+  class SubscriptionPolicyService
+
+  interface PlanRepository
+  interface SubscriptionRepository
+  interface PaymentRepository
+  interface ServiceRequestRepository
+}
+
+package "application" {
+  class SubscribeCommand
+  class ChangePlanCommand
+  class CancelSubscriptionCommand
+  class PlanDto
+  class PlanFeatureDto
+  class SubscriptionDto
+  class PaymentDto
+  class ServiceRequestDto
+  class PlanSummaryDto
+  class PlanApplicationService
+}
+
+package "infrastructure" {
+  class EfPlanRepository
+  class EfSubscriptionRepository
+  class EfPaymentRepository
+  class EfServiceRequestRepository
+}
+
+package "interface" {
+  class PlanController
+  class SubscriptionController
+  class PaymentController
+}
+
+Plan "1" o-- "*" PlanFeature
+Subscription --> Plan
+Payment --> Subscription
+ServiceRequest --> Subscription
+
+PlanApplicationService --> PlanRepository
+PlanApplicationService --> SubscriptionRepository
+PlanApplicationService --> PaymentRepository
+PlanApplicationService --> ServiceRequestRepository
+PlanApplicationService --> SubscriptionPolicyService
+
+PlanRepository <|.. EfPlanRepository
+SubscriptionRepository <|.. EfSubscriptionRepository
+PaymentRepository <|.. EfPaymentRepository
+ServiceRequestRepository <|.. EfServiceRequestRepository
+
+PlanController --> PlanApplicationService
+SubscriptionController --> PlanApplicationService
+PaymentController --> PlanApplicationService
+
+SubscriptionController ..> SubscribeCommand
+SubscriptionController ..> ChangePlanCommand
+SubscriptionController ..> CancelSubscriptionCommand
+PlanApplicationService ..> PlanDto
+PlanDto --> PlanFeatureDto
+
+@enduml

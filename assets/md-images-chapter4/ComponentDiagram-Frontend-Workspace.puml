@@ -1,0 +1,31 @@
+@startuml
+title LowCortisol Platform - Workspace Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides site and workspace management.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides workspace, site, member, and assignment endpoints.")
+
+Container_Boundary(workspace, "Workspace") {
+
+  Component(presentation, "Presentation", "Vue Screens / Components", "Contains site screen, filters, site list, site detail, responsible assignment, device assignment, and summary.")
+
+  Component(application, "Application", "Pinia Store / Facade", "Coordinates workspace loading, site filtering, site creation, member assignment, device assignment, and summary loading.")
+
+  Component(domain, "Domain", "Domain Model", "Contains Workspace, Site, SiteMember, and SiteDeviceAssignment frontend concepts.")
+
+  Component(infrastructure, "Infrastructure", "API Service", "Consumes workspace backend endpoints and adapts responses to frontend models.")
+}
+
+Rel(spa, presentation, "Uses workspace screens", "Vue Router")
+
+Rel(presentation, application, "Dispatches workspace actions")
+Rel(application, domain, "Uses workspace models")
+Rel(application, infrastructure, "Delegates API operations")
+
+Rel(infrastructure, api, "Consumes workspace endpoints", "HTTPS/JSON")
+
+@enduml

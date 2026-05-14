@@ -1,0 +1,126 @@
+@startuml
+title LowCortisol Platform - Plan Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Plan {
+    +id: string
+    +name: string
+    +price: number
+    +billingPeriod: string
+    +siteLimit: number
+    +deviceLimit: number
+    +recommended: boolean
+  }
+
+  class PlanFeature {
+    +id: string
+    +planId: string
+    +name: string
+    +enabled: boolean
+  }
+
+  class Subscription {
+    +id: string
+    +userId: string
+    +planId: string
+    +status: string
+    +startedAt: string
+    +cancelledAt: string
+  }
+
+  class Payment {
+    +id: string
+    +subscriptionId: string
+    +amount: number
+    +method: string
+    +status: string
+    +paidAt: string
+  }
+
+  class ServiceRequest {
+    +id: string
+    +subscriptionId: string
+    +type: string
+    +status: string
+    +createdAt: string
+  }
+}
+
+package "application" {
+  class PlanStore {
+    +state: object
+    +loadPlan(): Promise
+    +selectPlan(planId: string): void
+    +buyPlan(payload: object): Promise
+    +cancelSubscription(): Promise
+    +loadPayment(): Promise
+    +loadServiceRequest(): Promise
+  }
+
+  class PlanFacade {
+    +getPlan(): Promise
+    +getPlanFeature(): Promise
+    +getSubscription(): Promise
+    +getPayment(): Promise
+    +getServiceRequest(): Promise
+    +buyPlan(payload: object): Promise
+    +cancelSubscription(subscriptionId: string): Promise
+  }
+}
+
+package "infrastructure" {
+  class PlanApiService {
+    +getPlan(): Promise<Plan[]>
+    +getPlanFeature(): Promise<PlanFeature[]>
+    +getSubscription(): Promise<Subscription>
+    +getPayment(): Promise<Payment[]>
+    +getServiceRequest(): Promise<ServiceRequest[]>
+    +buyPlan(payload: object): Promise<Subscription>
+    +cancelSubscription(subscriptionId: string): Promise<Subscription>
+  }
+}
+
+package "presentation" {
+  class PlanScreen {
+    +selectedPlan: Plan
+    +showPaymentForm: boolean
+    +loadPlan(): Promise
+    +openPaymentForm(planId: string): void
+    +confirmPurchase(): Promise
+    +cancelSubscription(): Promise
+  }
+
+  class PaymentForm {
+    +cardholderName: string
+    +cardNumber: string
+    +expirationDate: string
+    +cvv: string
+    +validatePaymentForm(): boolean
+    +submit(): Promise
+  }
+}
+
+PlanScreen --> PlanStore
+PlanScreen --> PaymentForm
+
+PlanStore --> PlanFacade
+PlanFacade --> PlanApiService
+
+PlanApiService --> Plan
+PlanApiService --> PlanFeature
+PlanApiService --> Subscription
+PlanApiService --> Payment
+PlanApiService --> ServiceRequest
+
+Plan "1" o-- "*" PlanFeature
+Subscription --> Plan
+Subscription --> Payment
+Subscription --> ServiceRequest
+PaymentForm --> Payment
+
+@enduml

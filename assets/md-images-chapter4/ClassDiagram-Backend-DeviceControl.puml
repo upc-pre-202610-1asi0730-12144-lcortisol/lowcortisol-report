@@ -1,0 +1,74 @@
+@startuml
+title LowCortisol Platform - Device Control Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Device
+  class Sensor
+  class Valve
+  class DeviceCommand
+
+  interface DeviceRepository
+  interface SensorRepository
+  interface ValveRepository
+  interface DeviceCommandRepository
+}
+
+package "application" {
+  class CreateDeviceCommand
+  class LinkSensorCommand
+  class ExecuteDeviceCommand
+  class DeviceDto
+  class SensorDto
+  class ValveDto
+  class DeviceCommandDto
+  class DeviceControlSummaryDto
+  class DeviceControlApplicationService
+}
+
+package "infrastructure" {
+  class EfDeviceRepository
+  class EfSensorRepository
+  class EfValveRepository
+  class EfDeviceCommandRepository
+}
+
+package "interface" {
+  class DeviceController
+  class SensorController
+  class ValveController
+  class DeviceCommandController
+}
+
+Device "1" o-- "*" Sensor
+Device "1" o-- "*" Valve
+Device "1" o-- "*" DeviceCommand
+
+DeviceControlApplicationService --> DeviceRepository
+DeviceControlApplicationService --> SensorRepository
+DeviceControlApplicationService --> ValveRepository
+DeviceControlApplicationService --> DeviceCommandRepository
+
+DeviceRepository <|.. EfDeviceRepository
+SensorRepository <|.. EfSensorRepository
+ValveRepository <|.. EfValveRepository
+DeviceCommandRepository <|.. EfDeviceCommandRepository
+
+DeviceController --> DeviceControlApplicationService
+SensorController --> DeviceControlApplicationService
+ValveController --> DeviceControlApplicationService
+DeviceCommandController --> DeviceControlApplicationService
+
+DeviceController ..> CreateDeviceCommand
+SensorController ..> LinkSensorCommand
+DeviceCommandController ..> ExecuteDeviceCommand
+
+DeviceDto --> SensorDto
+DeviceDto --> ValveDto
+DeviceDto --> DeviceCommandDto
+
+@enduml

@@ -1,0 +1,66 @@
+@startuml
+title LowCortisol Platform - Monitoring Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class MonitoringSession
+  class Reading
+  class Anomaly
+  class Report
+  class AnomalyDetectionService
+
+  interface MonitoringSessionRepository
+  interface ReadingRepository
+  interface AnomalyRepository
+  interface ReportRepository
+}
+
+package "application" {
+  class CreateReadingCommand
+  class CreateReportCommand
+  class MonitoringSummaryDto
+  class MonitoringApplicationService
+}
+
+package "infrastructure" {
+  class EfMonitoringSessionRepository
+  class EfReadingRepository
+  class EfAnomalyRepository
+  class EfReportRepository
+}
+
+package "interface" {
+  class MonitoringController
+  class ReadingController
+  class ReportController
+}
+
+MonitoringSession "1" o-- "*" Reading
+Reading --> Anomaly
+
+MonitoringApplicationService --> MonitoringSessionRepository
+MonitoringApplicationService --> ReadingRepository
+MonitoringApplicationService --> AnomalyRepository
+MonitoringApplicationService --> ReportRepository
+MonitoringApplicationService --> AnomalyDetectionService
+
+MonitoringSessionRepository <|.. EfMonitoringSessionRepository
+ReadingRepository <|.. EfReadingRepository
+AnomalyRepository <|.. EfAnomalyRepository
+ReportRepository <|.. EfReportRepository
+
+MonitoringController --> MonitoringApplicationService
+ReadingController --> MonitoringApplicationService
+ReportController --> MonitoringApplicationService
+
+ReadingController ..> CreateReadingCommand
+ReportController ..> CreateReportCommand
+
+AnomalyDetectionService ..> Reading
+AnomalyDetectionService ..> Anomaly
+
+@enduml

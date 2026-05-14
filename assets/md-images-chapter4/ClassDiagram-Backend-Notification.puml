@@ -1,0 +1,72 @@
+@startuml
+title LowCortisol Platform - Notification Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Alert
+  class Threshold
+  class Incident
+  class NotificationChannel
+  class AlertDelivery
+  class AlertPolicyService
+
+  interface AlertRepository
+  interface ThresholdRepository
+  interface IncidentRepository
+  interface NotificationChannelRepository
+  interface AlertDeliveryRepository
+}
+
+package "application" {
+  class CreateAlertCommand
+  class CreateThresholdCommand
+  class NotificationSummaryDto
+  class NotificationApplicationService
+}
+
+package "infrastructure" {
+  class EfAlertRepository
+  class EfThresholdRepository
+  class EfIncidentRepository
+  class EfNotificationChannelRepository
+  class EfAlertDeliveryRepository
+}
+
+package "interface" {
+  class AlertController
+  class ThresholdController
+  class IncidentController
+}
+
+Alert "1" --> "0..*" Incident
+Alert "1" --> "0..*" AlertDelivery
+AlertDelivery --> NotificationChannel
+
+NotificationApplicationService --> AlertRepository
+NotificationApplicationService --> ThresholdRepository
+NotificationApplicationService --> IncidentRepository
+NotificationApplicationService --> NotificationChannelRepository
+NotificationApplicationService --> AlertDeliveryRepository
+NotificationApplicationService --> AlertPolicyService
+
+AlertRepository <|.. EfAlertRepository
+ThresholdRepository <|.. EfThresholdRepository
+IncidentRepository <|.. EfIncidentRepository
+NotificationChannelRepository <|.. EfNotificationChannelRepository
+AlertDeliveryRepository <|.. EfAlertDeliveryRepository
+
+AlertController --> NotificationApplicationService
+ThresholdController --> NotificationApplicationService
+IncidentController --> NotificationApplicationService
+
+AlertController ..> CreateAlertCommand
+ThresholdController ..> CreateThresholdCommand
+
+AlertPolicyService ..> Alert
+AlertPolicyService ..> Incident
+
+@enduml

@@ -1,0 +1,70 @@
+@startuml
+title LowCortisol Platform - Workplace Backend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Workplace
+  class Site
+  class SiteMember
+  class SiteDeviceAssignment
+
+  interface WorkplaceRepository
+  interface SiteRepository
+  interface SiteMemberRepository
+  interface SiteDeviceAssignmentRepository
+}
+
+package "application" {
+  class CreateSiteCommand
+  class AssignMemberToSiteCommand
+  class AssignDeviceToSiteCommand
+  class WorkplaceDto
+  class SiteDto
+  class SiteMemberDto
+  class SiteDeviceAssignmentDto
+  class WorkplaceSummaryDto
+  class WorkplaceApplicationService
+}
+
+package "infrastructure" {
+  class EfWorkplaceRepository
+  class EfSiteRepository
+  class EfSiteMemberRepository
+  class EfSiteDeviceAssignmentRepository
+}
+
+package "interface" {
+  class WorkplaceController
+  class SiteController
+  class SiteMemberController
+  class SiteDeviceAssignmentController
+}
+
+Workplace "1" o-- "*" Site
+Site "1" o-- "*" SiteMember
+Site "1" o-- "*" SiteDeviceAssignment
+
+WorkplaceApplicationService --> WorkplaceRepository
+WorkplaceApplicationService --> SiteRepository
+WorkplaceApplicationService --> SiteMemberRepository
+WorkplaceApplicationService --> SiteDeviceAssignmentRepository
+
+WorkplaceRepository <|.. EfWorkplaceRepository
+SiteRepository <|.. EfSiteRepository
+SiteMemberRepository <|.. EfSiteMemberRepository
+SiteDeviceAssignmentRepository <|.. EfSiteDeviceAssignmentRepository
+
+WorkplaceController --> WorkplaceApplicationService
+SiteController --> WorkplaceApplicationService
+SiteMemberController --> WorkplaceApplicationService
+SiteDeviceAssignmentController --> WorkplaceApplicationService
+
+SiteController ..> CreateSiteCommand
+SiteMemberController ..> AssignMemberToSiteCommand
+SiteDeviceAssignmentController ..> AssignDeviceToSiteCommand
+
+@enduml

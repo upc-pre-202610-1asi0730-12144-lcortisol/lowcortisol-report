@@ -1,0 +1,106 @@
+@startuml
+title LowCortisol Platform - Monitoring Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class MonitoringSession {
+    +id: string
+    +siteId: string
+    +status: string
+    +startedAt: string
+    +finishedAt: string
+  }
+
+  class Reading {
+    +id: string
+    +sensorId: string
+    +siteId: string
+    +resourceType: string
+    +value: number
+    +unit: string
+    +createdAt: string
+  }
+
+  class Anomaly {
+    +id: string
+    +readingId: string
+    +type: string
+    +severity: string
+    +description: string
+    +createdAt: string
+  }
+
+  class Report {
+    +id: string
+    +siteId: string
+    +title: string
+    +period: string
+    +totalWater: number
+    +totalGas: number
+    +createdAt: string
+  }
+}
+
+package "application" {
+  class MonitoringStore {
+    +state: object
+    +loadDashboard(): Promise
+    +simulateReading(): Promise
+    +loadReport(): Promise
+    +generateReport(): Promise
+  }
+
+  class MonitoringFacade {
+    +getDashboard(): Promise
+    +getReading(): Promise
+    +getAnomaly(): Promise
+    +getReport(): Promise
+    +createReading(payload: object): Promise
+    +createReport(payload: object): Promise
+  }
+}
+
+package "infrastructure" {
+  class MonitoringApiService {
+    +getSession(): Promise<MonitoringSession[]>
+    +getReading(): Promise<Reading[]>
+    +getAnomaly(): Promise<Anomaly[]>
+    +getReport(): Promise<Report[]>
+    +createReading(payload: object): Promise<Reading>
+    +createReport(payload: object): Promise<Report>
+    +getSummary(): Promise<object>
+  }
+}
+
+package "presentation" {
+  class Dashboard {
+    +loadDashboard(): Promise
+    +simulateReading(): Promise
+  }
+
+  class ReportScreen {
+    +loadReport(): Promise
+    +generateReport(): Promise
+  }
+}
+
+Dashboard --> MonitoringStore
+ReportScreen --> MonitoringStore
+
+MonitoringStore --> MonitoringFacade
+MonitoringFacade --> MonitoringApiService
+
+MonitoringApiService --> MonitoringSession
+MonitoringApiService --> Reading
+MonitoringApiService --> Anomaly
+MonitoringApiService --> Report
+
+MonitoringSession "1" o-- "*" Reading
+Reading --> Anomaly
+Report --> Reading
+
+@enduml

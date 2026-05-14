@@ -1,0 +1,117 @@
+@startuml
+title LowCortisol Platform - Device Control Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Device {
+    +id: string
+    +siteId: string
+    +name: string
+    +type: string
+    +status: string
+    +isOnline: boolean
+  }
+
+  class Sensor {
+    +id: string
+    +deviceId: string
+    +siteId: string
+    +name: string
+    +resourceType: string
+    +currentValue: number
+    +unit: string
+    +threshold: number
+    +status: string
+    +hasExceededThreshold: boolean
+  }
+
+  class Valve {
+    +id: string
+    +deviceId: string
+    +name: string
+    +resourceType: string
+    +status: string
+    +openingPercentage: number
+    +isOpen: boolean
+  }
+
+  class DeviceCommand {
+    +id: string
+    +deviceId: string
+    +commandType: string
+    +status: string
+    +createdAt: string
+  }
+}
+
+package "application" {
+  class DeviceControlStore {
+    +state: object
+    +loadDevice(): Promise
+    +selectDevice(deviceId: string): void
+    +createDevice(payload: object): Promise
+    +linkSensor(payload: object): Promise
+    +openValve(valveId: string): Promise
+    +closeValve(valveId: string): Promise
+    +executeSyncCommand(deviceId: string): Promise
+  }
+
+  class DeviceControlFacade {
+    +getDevice(): Promise
+    +getSensor(): Promise
+    +getValve(): Promise
+    +getCommand(): Promise
+    +createDevice(payload: object): Promise
+    +linkSensor(payload: object): Promise
+    +openValve(valveId: string): Promise
+    +closeValve(valveId: string): Promise
+    +executeSyncCommand(deviceId: string): Promise
+  }
+}
+
+package "infrastructure" {
+  class DeviceControlApiService {
+    +getDevice(): Promise<Device[]>
+    +getSensor(): Promise<Sensor[]>
+    +getValve(): Promise<Valve[]>
+    +getCommand(): Promise<DeviceCommand[]>
+    +createDevice(payload: object): Promise<Device>
+    +linkSensor(payload: object): Promise<Sensor>
+    +openValve(valveId: string): Promise<Valve>
+    +closeValve(valveId: string): Promise<Valve>
+    +executeSyncCommand(deviceId: string): Promise<DeviceCommand>
+    +getSummary(): Promise<object>
+  }
+}
+
+package "presentation" {
+  class DeviceScreen {
+    +selectedDevice: Device
+    +loadDevice(): Promise
+    +selectDevice(deviceId: string): void
+    +createDevice(): Promise
+    +linkSensor(): Promise
+    +openValve(valveId: string): Promise
+    +closeValve(valveId: string): Promise
+    +syncDevice(): Promise
+  }
+}
+
+DeviceScreen --> DeviceControlStore
+DeviceControlStore --> DeviceControlFacade
+DeviceControlFacade --> DeviceControlApiService
+
+DeviceControlApiService --> Device
+DeviceControlApiService --> Sensor
+DeviceControlApiService --> Valve
+DeviceControlApiService --> DeviceCommand
+
+Device "1" o-- "*" Sensor
+Device "1" o-- "*" Valve
+Device "1" o-- "*" DeviceCommand
+
+@enduml

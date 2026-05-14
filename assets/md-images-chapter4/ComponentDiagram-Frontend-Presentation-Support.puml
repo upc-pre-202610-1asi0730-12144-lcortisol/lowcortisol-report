@@ -1,0 +1,39 @@
+@startuml
+title LowCortisol Platform - Support Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders support and help interfaces.")
+
+Container_Boundary(supportPresentation, "Support Presentation") {
+
+  Component(router, "Support Routes", "Vue Router", "Defines access to support.")
+
+  Component(support, "Support", "Vue Screen", "Displays tickets, selected ticket, conversation, and help articles.")
+
+  Component(ticketList, "Ticket List", "Vue Component", "Displays support tickets.")
+  Component(ticketCard, "Ticket Card", "Vue Component", "Displays one ticket summary.")
+  Component(ticketDetail, "Ticket Detail", "Vue Component", "Displays selected ticket information.")
+  Component(conversationPanel, "Conversation Panel", "Vue Component", "Displays ticket messages.")
+  Component(messageForm, "Message Form", "Vue Component", "Sends new support messages.")
+  Component(articleList, "Article List", "Vue Component", "Displays knowledge articles.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, support, "Routes to")
+
+Rel(support, ticketList, "Uses")
+Rel(support, ticketDetail, "Uses")
+Rel(support, conversationPanel, "Uses")
+Rel(support, messageForm, "Uses")
+Rel(support, articleList, "Uses")
+
+Rel(ticketList, ticketCard, "Contains")
+Rel(ticketCard, ticketDetail, "Selects ticket")
+Rel(ticketDetail, conversationPanel, "Shows conversation")
+Rel(conversationPanel, messageForm, "Uses")
+
+@enduml

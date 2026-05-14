@@ -1,0 +1,31 @@
+@startuml
+title LowCortisol Platform - Device Control Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides device control management.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides device, sensor, valve, and command endpoints.")
+
+Container_Boundary(deviceControl, "Device Control") {
+
+  Component(presentation, "Presentation", "Vue Screens / Components", "Contains device screen, device list, device detail, sensor list, valve controls, and command history.")
+
+  Component(application, "Application", "Pinia Store / Facade", "Coordinates device loading, device selection, device creation, sensor linking, valve control, and command execution.")
+
+  Component(domain, "Domain", "Domain Model", "Contains Device, Sensor, Valve, and DeviceCommand frontend concepts.")
+
+  Component(infrastructure, "Infrastructure", "API Service", "Consumes device control backend endpoints and adapts responses to frontend models.")
+}
+
+Rel(spa, presentation, "Uses device control screens", "Vue Router")
+
+Rel(presentation, application, "Dispatches device control actions")
+Rel(application, domain, "Uses device control models")
+Rel(application, infrastructure, "Delegates API operations")
+
+Rel(infrastructure, api, "Consumes device control endpoints", "HTTPS/JSON")
+
+@enduml

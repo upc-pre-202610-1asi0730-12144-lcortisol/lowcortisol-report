@@ -1,0 +1,44 @@
+@startuml
+title LowCortisol Platform - C4 Container Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(user, "User", "Person who monitors consumption, manages sites, devices, subscriptions, alerts, reports, support, and profile information.")
+
+System_Ext(emailProvider, "Email Provider", "External service for password recovery emails, alerts, and notifications.")
+System_Ext(paymentProvider, "Payment Provider", "External service projected for subscription payment processing.")
+System_Ext(sensorNetwork, "IoT Sensor and Device Network", "External network of sensors, hubs, and valves for water and gas monitoring.")
+System_Ext(renderHosting, "Render", "Cloud platform used to deploy the web application and backend API.")
+
+System_Boundary(lowCortisol, "LowCortisol Platform") {
+
+  Container(landingPage, "Landing Page", "HTML / CSS / JavaScript", "Public page that presents the product and redirects users to the web application.")
+
+  Container(webApp, "WebApp", "Vue 3 / Vite / JavaScript", "Frontend web application container served to the browser.")
+
+  Container(spa, "Single Page Application", "Vue / Pinia / Vue Router", "Client-side application that manages navigation, state, screens, and communication with the backend API.")
+
+  Container(api, "Backend API", "ASP.NET Core Web API", "Backend service that exposes REST endpoints for all bounded contexts.")
+
+  ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Relational database for users, subscriptions, sites, devices, readings, alerts, reports, and support data.")
+}
+
+Rel(user, landingPage, "Visits", "HTTPS/Web")
+Rel(landingPage, webApp, "Redirects to", "HTTPS/Web")
+Rel(user, webApp, "Accesses directly", "HTTPS/Web")
+
+Rel(webApp, spa, "Loads and renders")
+Rel(spa, api, "Consumes backend services", "HTTPS/JSON")
+
+Rel(api, database, "Reads and writes data", "EF Core")
+Rel(api, emailProvider, "Sends recovery emails, alerts, and notifications", "SMTP/HTTPS")
+Rel(api, paymentProvider, "Processes subscription payments", "HTTPS")
+Rel(api, sensorNetwork, "Retrieves readings and sends remote commands", "HTTP/MQTT/IoT API")
+
+Rel(webApp, renderHosting, "Is deployed on", "Docker/Nginx")
+Rel(api, renderHosting, "Is deployed on", "Docker/.NET")
+
+@enduml

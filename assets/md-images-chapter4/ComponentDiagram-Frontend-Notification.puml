@@ -1,0 +1,31 @@
+@startuml
+title LowCortisol Platform - Notification Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides alert and notification management.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides alert, threshold, incident, channel, and delivery endpoints.")
+
+Container_Boundary(notification, "Notification") {
+
+  Component(presentation, "Presentation", "Vue Screens / Components", "Contains alert screen, active alert cards, threshold list, incident panel, channel summary, and alert actions.")
+
+  Component(application, "Application", "Pinia Store / Facade", "Coordinates alert loading, alert creation, alert resolution, alert closing, threshold creation, and alert delivery.")
+
+  Component(domain, "Domain", "Domain Model", "Contains Alert, Threshold, Incident, NotificationChannel, and AlertDelivery frontend concepts.")
+
+  Component(infrastructure, "Infrastructure", "API Service", "Consumes notification backend endpoints and adapts responses to frontend models.")
+}
+
+Rel(spa, presentation, "Uses notification screens", "Vue Router")
+
+Rel(presentation, application, "Dispatches notification actions")
+Rel(application, domain, "Uses notification models")
+Rel(application, infrastructure, "Delegates API operations")
+
+Rel(infrastructure, api, "Consumes notification endpoints", "HTTPS/JSON")
+
+@enduml

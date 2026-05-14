@@ -1,0 +1,100 @@
+@startuml
+title LowCortisol Platform - Workplace Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class Workplace {
+    +id: string
+    +ownerId: string
+    +name: string
+    +status: string
+  }
+
+  class Site {
+    +id: string
+    +workplaceId: string
+    +name: string
+    +type: string
+    +location: string
+    +status: string
+  }
+
+  class SiteMember {
+    +id: string
+    +siteId: string
+    +userId: string
+    +role: string
+  }
+
+  class SiteDeviceAssignment {
+    +id: string
+    +siteId: string
+    +deviceId: string
+    +assignedAt: string
+  }
+}
+
+package "application" {
+  class WorkplaceStore {
+    +state: object
+    +loadWorkplace(): Promise
+    +loadSite(type: string): Promise
+    +selectSite(siteId: string): void
+    +createSite(payload: object): Promise
+    +assignMember(payload: object): Promise
+    +assignDevice(payload: object): Promise
+  }
+
+  class WorkplaceFacade {
+    +getWorkplace(): Promise
+    +getSite(type: string): Promise
+    +getSiteById(siteId: string): Promise
+    +createSite(payload: object): Promise
+    +assignMemberToSite(payload: object): Promise
+    +assignDeviceToSite(payload: object): Promise
+    +getSummary(): Promise
+  }
+}
+
+package "infrastructure" {
+  class WorkplaceApiService {
+    +getWorkplace(): Promise<Workplace>
+    +getSite(type: string): Promise<Site[]>
+    +getSiteById(siteId: string): Promise<Site>
+    +createSite(payload: object): Promise<Site>
+    +assignMemberToSite(payload: object): Promise<SiteMember>
+    +assignDeviceToSite(payload: object): Promise<SiteDeviceAssignment>
+    +getSummary(): Promise<object>
+  }
+}
+
+package "presentation" {
+  class SiteScreen {
+    +selectedSite: Site
+    +filterType: string
+    +loadSite(): Promise
+    +selectSite(siteId: string): void
+    +createSite(): Promise
+    +assignMember(): Promise
+    +assignDevice(): Promise
+  }
+}
+
+SiteScreen --> WorkplaceStore
+WorkplaceStore --> WorkplaceFacade
+WorkplaceFacade --> WorkplaceApiService
+
+WorkplaceApiService --> Workplace
+WorkplaceApiService --> Site
+WorkplaceApiService --> SiteMember
+WorkplaceApiService --> SiteDeviceAssignment
+
+Workplace "1" o-- "*" Site
+Site "1" o-- "*" SiteMember
+Site "1" o-- "*" SiteDeviceAssignment
+
+@enduml

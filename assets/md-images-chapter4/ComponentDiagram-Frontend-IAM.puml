@@ -1,0 +1,31 @@
+@startuml
+title LowCortisol Platform - IAM Frontend Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Provides authentication and profile access.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides IAM endpoints.")
+
+Container_Boundary(iam, "IAM") {
+
+  Component(presentation, "Presentation", "Vue Screens / Components", "Contains login, register, recover password, and profile screens.")
+
+  Component(application, "Application", "Pinia Store / Facade", "Coordinates sign in, sign up, password recovery, profile update, session restoration, and sign out.")
+
+  Component(domain, "Domain", "Domain Model", "Contains User, AccessProfile, and AuthSession frontend concepts.")
+
+  Component(infrastructure, "Infrastructure", "API Service", "Consumes IAM backend endpoints and adapts responses to frontend models.")
+}
+
+Rel(spa, presentation, "Uses IAM screens", "Vue Router")
+
+Rel(presentation, application, "Dispatches IAM actions")
+Rel(application, domain, "Uses IAM models")
+Rel(application, infrastructure, "Delegates API operations")
+
+Rel(infrastructure, api, "Consumes IAM endpoints", "HTTPS/JSON")
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+title LowCortisol Platform - Plan Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders plan and subscription user interfaces.")
+
+Container_Boundary(planPresentation, "Plan Presentation") {
+
+  Component(router, "Plan Routes", "Vue Router", "Defines access to the plan screen.")
+
+  Component(plan, "Plan", "Vue Screen", "Displays active subscription, available plans, payment history, and service requests.")
+
+  Component(planCard, "Plan Card", "Vue Component", "Displays plan name, price, capacity, features, and action button.")
+  Component(paymentForm, "Payment Form", "Vue Component", "Collects cardholder name, card number, expiration date, and CVV.")
+  Component(paymentHistory, "Payment History", "Vue Component", "Displays registered payments.")
+  Component(serviceRequestList, "Service Request List", "Vue Component", "Displays subscription-related requests.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, plan, "Routes to")
+
+Rel(plan, planCard, "Uses")
+Rel(plan, paymentForm, "Uses")
+Rel(plan, paymentHistory, "Uses")
+Rel(plan, serviceRequestList, "Uses")
+
+Rel(planCard, paymentForm, "Starts purchase flow")
+
+@enduml

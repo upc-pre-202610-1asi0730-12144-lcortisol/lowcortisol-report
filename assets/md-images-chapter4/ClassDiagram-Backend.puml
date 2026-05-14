@@ -1,0 +1,158 @@
+@startuml
+title LowCortisol Platform - Backend Class Diagram by Bounded Context
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "iam" {
+  class User
+  class AccessProfile
+  class Permission
+  class AuthSession
+  class AuthApplicationService
+  class UserApplicationService
+  class AuthController
+  class UserController
+}
+
+package "plan" {
+  class Plan
+  class PlanFeature
+  class Subscription
+  class Payment
+  class ServiceRequest
+  class PlanApplicationService
+  class PlanController
+  class SubscriptionController
+}
+
+package "workplace" {
+  class Workplace
+  class Site
+  class SiteMember
+  class SiteDeviceAssignment
+  class WorkplaceApplicationService
+  class WorkplaceController
+  class SiteController
+}
+
+package "device-control" {
+  class Device
+  class Sensor
+  class Valve
+  class DeviceCommand
+  class DeviceControlApplicationService
+  class DeviceController
+  class SensorController
+  class ValveController
+}
+
+package "monitoring" {
+  class MonitoringSession
+  class Reading
+  class Anomaly
+  class Report
+  class MonitoringApplicationService
+  class MonitoringController
+  class ReadingController
+  class ReportController
+}
+
+package "notification" {
+  class Alert
+  class Threshold
+  class Incident
+  class NotificationChannel
+  class AlertDelivery
+  class NotificationApplicationService
+  class AlertController
+  class ThresholdController
+  class IncidentController
+}
+
+package "support" {
+  class SupportTicket
+  class SupportMessage
+  class SupportAgent
+  class SupportConversation
+  class KnowledgeArticle
+  class SupportApplicationService
+  class SupportTicketController
+  class SupportMessageController
+  class KnowledgeArticleController
+}
+
+User --> AccessProfile
+AccessProfile "1" o-- "*" Permission
+AuthSession --> User
+
+Plan "1" o-- "*" PlanFeature
+Subscription --> User
+Subscription --> Workplace
+Subscription --> Plan
+Payment --> Subscription
+ServiceRequest --> Subscription
+
+Workplace --> User
+Workplace "1" o-- "*" Site
+Site "1" o-- "*" SiteMember
+Site "1" o-- "*" SiteDeviceAssignment
+SiteMember --> User
+SiteDeviceAssignment --> Device
+
+Site "1" o-- "*" Device
+Device "1" o-- "*" Sensor
+Device "1" o-- "*" Valve
+Device "1" o-- "*" DeviceCommand
+Sensor --> Site
+Valve --> Site
+
+MonitoringSession "1" o-- "*" Reading
+Reading --> Sensor
+Reading --> Site
+Reading --> Anomaly
+Report --> Site
+
+Alert --> Site
+Alert --> Sensor
+Threshold --> Site
+Threshold --> Sensor
+Incident --> Alert
+Incident --> Site
+AlertDelivery --> Alert
+AlertDelivery --> NotificationChannel
+
+SupportTicket --> User
+SupportTicket --> Site
+SupportTicket --> SupportAgent
+SupportTicket "1" o-- "*" SupportMessage
+SupportConversation --> SupportTicket
+
+AuthController --> AuthApplicationService
+UserController --> UserApplicationService
+
+PlanController --> PlanApplicationService
+SubscriptionController --> PlanApplicationService
+
+WorkplaceController --> WorkplaceApplicationService
+SiteController --> WorkplaceApplicationService
+
+DeviceController --> DeviceControlApplicationService
+SensorController --> DeviceControlApplicationService
+ValveController --> DeviceControlApplicationService
+
+MonitoringController --> MonitoringApplicationService
+ReadingController --> MonitoringApplicationService
+ReportController --> MonitoringApplicationService
+
+AlertController --> NotificationApplicationService
+ThresholdController --> NotificationApplicationService
+IncidentController --> NotificationApplicationService
+
+SupportTicketController --> SupportApplicationService
+SupportMessageController --> SupportApplicationService
+KnowledgeArticleController --> SupportApplicationService
+
+@enduml

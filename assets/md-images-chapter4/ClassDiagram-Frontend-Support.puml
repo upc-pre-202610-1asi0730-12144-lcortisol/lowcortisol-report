@@ -1,0 +1,117 @@
+@startuml
+title LowCortisol Platform - Support Frontend Class Diagram
+
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "domain" {
+  class SupportTicket {
+    +id: string
+    +userId: string
+    +siteId: string
+    +title: string
+    +description: string
+    +category: string
+    +priority: string
+    +status: string
+  }
+
+  class SupportMessage {
+    +id: string
+    +ticketId: string
+    +senderType: string
+    +message: string
+    +createdAt: string
+  }
+
+  class SupportAgent {
+    +id: string
+    +fullName: string
+    +email: string
+    +status: string
+  }
+
+  class SupportConversation {
+    +id: string
+    +ticketId: string
+    +status: string
+  }
+
+  class KnowledgeArticle {
+    +id: string
+    +title: string
+    +category: string
+    +content: string
+    +usefulCount: number
+  }
+}
+
+package "application" {
+  class SupportStore {
+    +state: object
+    +loadSupport(): Promise
+    +selectTicket(ticketId: string): void
+    +createTicket(payload: object): Promise
+    +sendMessage(payload: object): Promise
+    +resolveTicket(ticketId: string): Promise
+    +closeTicket(ticketId: string): Promise
+  }
+
+  class SupportFacade {
+    +getTicket(): Promise
+    +getMessage(ticketId: string): Promise
+    +getAgent(): Promise
+    +getConversation(): Promise
+    +getKnowledgeArticle(): Promise
+    +createTicket(payload: object): Promise
+    +sendMessage(payload: object): Promise
+    +resolveTicket(ticketId: string): Promise
+    +closeTicket(ticketId: string): Promise
+  }
+}
+
+package "infrastructure" {
+  class SupportApiService {
+    +getTicket(): Promise<SupportTicket[]>
+    +getMessage(ticketId: string): Promise<SupportMessage[]>
+    +getAgent(): Promise<SupportAgent[]>
+    +getConversation(): Promise<SupportConversation[]>
+    +getKnowledgeArticle(): Promise<KnowledgeArticle[]>
+    +createTicket(payload: object): Promise<SupportTicket>
+    +sendMessage(payload: object): Promise<SupportMessage>
+    +resolveTicket(ticketId: string): Promise<SupportTicket>
+    +closeTicket(ticketId: string): Promise<SupportTicket>
+    +getSummary(): Promise<object>
+  }
+}
+
+package "presentation" {
+  class SupportScreen {
+    +selectedTicket: SupportTicket
+    +message: string
+    +loadSupport(): Promise
+    +selectTicket(ticketId: string): void
+    +createTicket(): Promise
+    +sendMessage(): Promise
+    +resolveTicket(ticketId: string): Promise
+    +closeTicket(ticketId: string): Promise
+  }
+}
+
+SupportScreen --> SupportStore
+SupportStore --> SupportFacade
+SupportFacade --> SupportApiService
+
+SupportApiService --> SupportTicket
+SupportApiService --> SupportMessage
+SupportApiService --> SupportAgent
+SupportApiService --> SupportConversation
+SupportApiService --> KnowledgeArticle
+
+SupportTicket "1" o-- "*" SupportMessage
+SupportTicket --> SupportConversation
+SupportTicket --> SupportAgent
+
+@enduml
