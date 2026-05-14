@@ -441,70 +441,77 @@ Intuitivo, moderno, accesible, con información clara y alertas fáciles de ente
 
 12. **Otra suposición crítica…** Que los usuarios utilizarán el sistema de forma constante para monitorear su consumo.
 
-#### 1.2.2.3 Lean UX Hypothesis Statements
+## 1.2.2.3 Lean UX Hypothesis Statements
 
-###### Hipótesis 1:
+### Hipótesis 1
+Creemos que ofrecer monitoreo en tiempo real permitirá que los usuarios detecten fugas con mayor rapidez y reduzcan pérdidas económicas.
 
-Creemos que, si implementamos monitoreo en tiempo real para detectar fugas de agua y gas, los usuarios podrán actuar más rápido y reducir pérdidas económicas.
+Sabremos que esto es cierto cuando al menos el 70% de los usuarios identifique incidentes antes de que generen daños mayores durante las pruebas del MVP.
 
-**Business Outcome:** Incrementar adopción del servicio y satisfacción del cliente.<br>
-**Users:** Hogares.<br>
-**User Outcome:** Detectan incidentes a tiempo y evitan daños mayores.<br>
-**Feature:** Monitoreo en tiempo real con panel de control.<br>
+Business Outcome: Incrementar adopción del servicio y satisfacción del cliente.  
+Users: Hogares.  
+User Outcome: Detectan incidentes a tiempo y evitan daños mayores.  
+Feature: Monitoreo en tiempo real con panel de control.
 
-###### Hipótesis 2:
+### Hipótesis 2
+Creemos que enviar alertas inmediatas ante anomalías permitirá reducir el tiempo de respuesta frente a emergencias.
 
-Creemos que, si el sistema envía alertas inmediatas al detectar anomalías, se reducirá el tiempo de respuesta frente a emergencias.
+Sabremos que esto es cierto cuando el tiempo promedio de reacción de los usuarios disminuya en un 40% durante las pruebas piloto.
 
-**Business Outcome:** Mejorar percepción de valor del servicio y retención de usuarios.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Responden rápidamente ante fugas o riesgos críticos.<br>
-**Feature:** Notificaciones push, correo y alertas automáticas.<br>
+Business Outcome: Mejorar percepción de valor del servicio y retención de usuarios.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Responden rápidamente ante fugas o riesgos críticos.  
+Feature: Notificaciones push, correo y alertas automáticas.
 
-###### Hipótesis 3:
+### Hipótesis 3
+Creemos que mostrar historial de consumo y reportes claros ayudará a los usuarios a optimizar el uso de recursos.
 
-Creemos que, si mostramos historial de consumo y reportes claros, los usuarios tomarán mejores decisiones para optimizar recursos.
+Sabremos que esto es cierto cuando al menos el 60% de los usuarios consulte los reportes semanalmente y reduzca consumos inusuales.
 
-**Business Outcome:** Mayor uso recurrente de la plataforma.<br>
-**Users:** Hogares y Hoteles.<br>
-**User Outcome:** Controlan gastos y detectan consumos inusuales.<br>
-**Feature:** Historial, gráficas y reportes descargables.<br>
+Business Outcome: Mayor uso recurrente de la plataforma.  
+Users: Hogares y hoteles.  
+User Outcome: Controlan gastos y detectan consumos inusuales.  
+Feature: Historial, gráficas y reportes descargables.
 
-###### Hipótesis 4:
+### Hipótesis 4
+Creemos que permitir el control remoto de válvulas incrementará la sensación de seguridad y control de los usuarios.
 
-Creemos que, si incorporamos control remoto de válvulas, los usuarios sentirán mayor seguridad y control ante incidentes.
+Sabremos que esto es cierto cuando al menos el 75% de los usuarios indique sentirse más seguro utilizando esta funcionalidad.
 
-**Business Outcome:** Diferenciación competitiva y mayor interés por planes avanzados.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reducen riesgos sin esperar intervención presencial.<br>
-**Feature:** Apertura y cierre remoto de válvulas.<br>
+Business Outcome: Diferenciación competitiva y mayor interés por planes avanzados.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reducen riesgos sin esperar intervención presencial.  
+Feature: Apertura y cierre remoto de válvulas.
 
-###### Hipótesis 5:
+### Hipótesis 5
+Creemos que ofrecer gestión multiubicación facilitará la adopción de la plataforma en organizaciones con varias instalaciones.
 
-Creemos que, si ofrecemos gestión multiubicación y múltiples dispositivos, organizaciones con varias instalaciones adoptarán la solución con mayor facilidad.
+Sabremos que esto es cierto cuando al menos el 50% de clientes empresariales registre más de una sede durante el piloto.
 
-**Business Outcome:** Captación de clientes empresariales e institucionales.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Supervisan varias zonas desde una sola plataforma.<br>
-**Feature:** Gestión por zonas y múltiples sensores.<br>
+Business Outcome: Captación de clientes empresariales e institucionales.  
+Users: Hoteles y municipalidades.  
+User Outcome: Supervisan varias zonas desde una sola plataforma.  
+Feature: Gestión por zonas y múltiples sensores.
 
-###### Hipótesis 6:
+### Hipótesis 6
+Creemos que aplicar análisis inteligente de patrones de consumo permitirá prevenir incidentes antes de que ocurran.
 
-Creemos que, si aplicamos análisis inteligente de patrones de consumo, se podrán prevenir fallas antes de que ocurran.
+Sabremos que esto es cierto cuando el sistema detecte anomalías anticipadamente en al menos el 65% de los casos simulados.
 
-**Business Outcome:** Posicionamiento innovador y mayor valor percibido.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reciben advertencias tempranas y reducen incidentes repetitivos.<br>
-**Feature:** Detección temprana con IA y análisis predictivo.<br>
+Business Outcome: Posicionamiento innovador y mayor valor percibido.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reciben advertencias tempranas y reducen incidentes repetitivos.  
+Feature: Detección temprana con IA y análisis predictivo.
 
-###### Hipótesis 7:
+### Hipótesis 7
+Creemos que ofrecer planes diferenciados según las necesidades del cliente incrementará la conversión a suscripciones pagadas.
 
-Creemos que, si la plataforma ofrece planes diferenciados según necesidad del cliente, aumentará la conversión a suscripciones pagadas.
+Sabremos que esto es cierto cuando al menos el 30% de usuarios interesados seleccione un plan de pago durante la validación del MVP.
 
-**Business Outcome:** Crecimiento sostenible de ingresos mensuales.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Contratan un plan ajustado a sus necesidades reales.<br>
-**Feature:** Plan Hogar, Plan Smart y Plan Full Service.<br>
+Business Outcome: Crecimiento sostenible de ingresos mensuales.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Contratan un plan ajustado a sus necesidades reales.  
+Feature: Plan Hogar, Plan Smart y Plan Full Service.
 
 #### 1.2.2.4 Lean UX Canvas
 <table>  
@@ -555,11 +562,11 @@ Creemos que, si la plataforma ofrece planes diferenciados según necesidad del c
 <tr>  
 <td>  
 <h2>Hypotheses</h2>  
-- Si implementamos monitoreo en tiempo real, los usuarios actuarán más rápido y reducirán pérdidas.<br>
-- Si el sistema envía alertas inmediatas, disminuirá el tiempo de respuesta ante emergencias.<br>
-- Si mostramos historial y reportes claros, los usuarios optimizarán su consumo.<br>
-- Si existe control remoto de válvulas, aumentará la percepción de seguridad.<br>
-- Si ofrecemos planes diferenciados, crecerá la conversión a suscripciones pagadas.
+- Creemos que el monitoreo en tiempo real permitirá que los usuarios detecten fugas más rápido y reduzcan pérdidas económicas. Validaremos esto si al menos el 70% de usuarios identifica incidentes antes de que generen daños mayores.
+- Creemos que las alertas inmediatas reducirán el tiempo de respuesta ante emergencias. Validaremos esto si el tiempo promedio de reacción disminuye en un 40%.
+- Creemos que el historial y reportes de consumo ayudarán a los usuarios a optimizar recursos. Validaremos esto si al menos el 60% de usuarios consulta reportes frecuentemente y reduce consumos inusuales.
+- Creemos que el control remoto de válvulas aumentará la percepción de seguridad de los usuarios. Validaremos esto si el 75% de usuarios reporta sentirse más seguro utilizando la plataforma.
+- Creemos que ofrecer planes diferenciados incrementará la conversión a suscripciones pagadas. Validaremos esto si al menos el 30% de usuarios interesados selecciona un plan premium.
 </td>  
 <td>  
 <h2>What’s the most important thing we need to learn first?</h2>  
@@ -3987,7 +3994,6 @@ En esta sección se describe el proceso de implementación, pruebas, documentaci
 Durante el Sprint 1, el equipo se enfocó en la implementación de la Landing Page del proyecto, desarrollando la estructura base, diseño visual y organización del contenido, alineados a la arquitectura de información definida previamente.
 
 #### 5.2.1.1. Sprint Planning 1
-
 El Sprint Planning permitió definir el alcance del Sprint, asignar responsabilidades y organizar las tareas necesarias para el desarrollo de la Landing Page. 
 
 A continuación, se presenta la tabla resumen del Sprint Planning 1:
@@ -4001,13 +4007,10 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 - 1 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
-| sprint 1 - 1 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint
-|  | Sprint Goal & User Stories |
+| Sprint Goal & User Stories |
 | Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
 | Sprint 1 Velocity | 10 Story Points |
 | Sum of Story Points | 10 Story Points |
-
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
@@ -4033,7 +4036,6 @@ detalla la distribución de roles para este primer ciclo:
 | Quiliano Motta, Kirk Douglas | @Kirkcito             | C |            C            | C |
 
 #### 5.2.1.3. Sprint Backlog 1. 
-
 ![Sprint Backlog 1](./assets/md-images-chapter5/Sprint%20Backlog.PNG)
 
 | Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
@@ -4303,18 +4305,14 @@ El despliegue permitió comprobar la navegación entre módulos principales, el 
 El despliegue permitió validar que la aplicación puede ejecutarse fuera del entorno local y que los módulos principales consumen información desde la Fake API. Esto evidencia un avance funcional para la revisión del sprint, ya que la solución puede ser mostrada mediante una URL pública y se encuentra preparada para futuras integraciones con el backend real.
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
+Durante este segundo Sprint, la colaboración del equipo se volcó plenamente hacia la consolidación técnica del proyecto, abarcando desde la estructuración de la arquitectura de software hasta la configuración de los entornos de despliegue. El foco principal de nuestra sinergia fue la ejecución del nuevo avance funcional, donde nos organizamos para que el desarrollo de la interfaz de usuario avanzara en paralelo con la infraestructura en la nube. Basándonos estrictamente en los criterios de la rúbrica de evaluación, realizamos sesiones de revisión conjunta para asegurar que se cumplieran con los estándares de calidad exigidos, corrigiendo inconsistencias en la lógica de navegación y asegurando que el flujo de datos a través de la Fake API en Render fuera transparente y eficiente.
 
-
+Asimismo, el trabajo en equipo fue fundamental para elevar el rigor de los artefactos técnicos. No nos limitamos a generar código, sino que colaboramos estrechamente para refinar las historias técnicas y los diagramas de arquitectura, asegurando que cada componente reflejara fielmente los requisitos del sistema. Esta etapa de colaboración nos permitió estandarizar el uso de bibliotecas para la persistencia de datos y unificar criterios en el manejo del repositorio mediante GitFlow. Esta coordinación no solo facilitó la integración de las nuevas funcionalidades de monitoreo, sino que garantizó que el progreso actual del proyecto posea una base sólida, coherente y alineada con las expectativas académicas y profesionales del curso.
 
 # Conclusiones
+Tras completar este nuevo avance en la implementación y validación del proyecto LowCortisol, el equipo concluye que se ha logrado consolidar una arquitectura de software robusta a través de un proceso de refactorización guiado por los estándares de la rúbrica docente. A diferencia de la etapa inicial, ahora contamos con un sistema funcional desplegado que integra de manera coherente el frontend con la infraestructura de servicios para las pruebas actuales. La aplicación rigurosa de Domain-Driven Design (DDD) y la corrección de los diagramas C4 han permitido que la aplicación evolucione hacia una plataforma con una lógica de dominio clara, sentando las bases para las funcionalidades que se implementarán en las siguientes etapas.
 
-Hasta el momento, el proyecto LowCortisol ha logrado construir una base sólida a nivel de investigación, diseño y una primera implementación. Se partió de una problemática real relacionada con la detección tardía de fugas de agua y gas, identificando impactos como pérdidas económicas, riesgos de seguridad y desperdicio de recursos.
-
-A partir de esto, se definió una propuesta de valor basada en una solución IoT que permite el monitoreo en tiempo real, generación de alertas y control preventivo de los sistemas. Durante el desarrollo, se trabajaron aspectos clave como el perfil de la startup, análisis competitivo, Lean UX y entrevistas, lo que ayudó a validar la necesidad del producto en los usuarios.
-
-También se estructuraron los requerimientos mediante user stories, technical stories y product backlog, dejando claras las funcionalidades principales del sistema. Además, se logró implementar y desplegar la Landing Page, evidenciando el uso de herramientas como GitHub y el trabajo en equipo mediante sprints.
-
-En general, LowCortisol ya cuenta con una buena base para continuar el proyecto. Como siguiente paso, se deberá avanzar en el desarrollo de la aplicación web y la integración de funcionalidades más completas.
+Por otro lado, concluimos que la transición hacia un modelo de desarrollo basado en requisitos técnicos detallados ha sido fundamental para asegurar la viabilidad de lo avanzado en este Sprint. Al haber refinado las historias técnicas y las hipótesis de Lean UX, el proyecto ahora cuenta con métricas de éxito iniciales y una estructura de datos que utiliza las bibliotecas de persistencia adecuadas para el entorno .NET. Finalmente, el despliegue exitoso de los servicios y la gestión profesional del código confirman que el equipo ha interiorizado las mejores prácticas de ingeniería; sin embargo, somos conscientes de que el trabajo aún está en ejecución, y estos resultados parciales son el punto de partida para completar la solución integral de monitoreo en las entregas finales.
 
 # Bibliografía 
 
