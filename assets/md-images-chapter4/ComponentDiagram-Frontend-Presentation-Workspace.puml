@@ -1,0 +1,39 @@
+@startuml
+title LowCortisol Platform - Workspace Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders workspace and site management interfaces.")
+
+Container_Boundary(workspacePresentation, "Workspace Presentation") {
+
+  Component(router, "Workspace Routes", "Vue Router", "Defines access to site management.")
+
+  Component(site, "Site", "Vue Screen", "Displays sites, selected site detail, members, assignments, and summary.")
+
+  Component(siteFilter, "Site Filter", "Vue Component", "Filters sites by type.")
+  Component(siteList, "Site List", "Vue Component", "Displays registered sites.")
+  Component(siteDetail, "Site Detail", "Vue Component", "Shows selected site information and consumption metrics.")
+  Component(memberPanel, "Member Panel", "Vue Component", "Displays and assigns responsible users.")
+  Component(assignmentPanel, "Assignment Panel", "Vue Component", "Displays and assigns devices.")
+  Component(summaryPanel, "Summary Panel", "Vue Component", "Displays consolidated workspace metrics.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, site, "Routes to")
+
+Rel(site, siteFilter, "Uses")
+Rel(site, siteList, "Uses")
+Rel(site, siteDetail, "Uses")
+Rel(site, memberPanel, "Uses")
+Rel(site, assignmentPanel, "Uses")
+Rel(site, summaryPanel, "Uses")
+
+Rel(siteList, siteDetail, "Selects site")
+Rel(siteDetail, memberPanel, "Shows assigned members")
+Rel(siteDetail, assignmentPanel, "Shows assigned devices")
+
+@enduml

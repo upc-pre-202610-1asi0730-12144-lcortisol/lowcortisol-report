@@ -1,0 +1,39 @@
+@startuml
+title LowCortisol Platform - Monitoring Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders monitoring and reporting interfaces.")
+
+Container_Boundary(monitoringPresentation, "Monitoring Presentation") {
+
+  Component(router, "Monitoring Routes", "Vue Router", "Defines dashboard and report routes.")
+
+  Component(dashboard, "Dashboard", "Vue Screen", "Displays recent readings, active session, and anomalies.")
+  Component(report, "Report", "Vue Screen", "Displays generated reports, readings, and anomalies.")
+
+  Component(metricCard, "Metric Card", "Vue Component", "Displays summary values.")
+  Component(readingPanel, "Reading Panel", "Vue Component", "Displays readings and monitored values.")
+  Component(sessionPanel, "Session Panel", "Vue Component", "Displays active monitoring session.")
+  Component(anomalyPanel, "Anomaly Panel", "Vue Component", "Displays detected anomalies.")
+  Component(reportList, "Report List", "Vue Component", "Displays generated reports.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, dashboard, "Routes to")
+Rel(router, report, "Routes to")
+
+Rel(dashboard, metricCard, "Uses")
+Rel(dashboard, readingPanel, "Uses")
+Rel(dashboard, sessionPanel, "Uses")
+Rel(dashboard, anomalyPanel, "Uses")
+
+Rel(report, metricCard, "Uses")
+Rel(report, reportList, "Uses")
+Rel(report, readingPanel, "Uses")
+Rel(report, anomalyPanel, "Uses")
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+title LowCortisol Platform - Device Control Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders device control interfaces.")
+
+Container_Boundary(devicePresentation, "Device Control Presentation") {
+
+  Component(router, "Device Control Routes", "Vue Router", "Defines access to device control.")
+
+  Component(device, "Device", "Vue Screen", "Displays devices, selected device detail, sensors, valves, and commands.")
+
+  Component(deviceList, "Device List", "Vue Component", "Displays registered devices.")
+  Component(deviceDetail, "Device Detail", "Vue Component", "Shows selected device information.")
+  Component(sensorList, "Sensor List", "Vue Component", "Displays linked sensors.")
+  Component(valveControl, "Valve Control", "Vue Component", "Allows opening and closing valves.")
+  Component(commandHistory, "Command History", "Vue Component", "Displays recent commands.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, device, "Routes to")
+
+Rel(device, deviceList, "Uses")
+Rel(device, deviceDetail, "Uses")
+Rel(device, sensorList, "Uses")
+Rel(device, valveControl, "Uses")
+Rel(device, commandHistory, "Uses")
+
+Rel(deviceList, deviceDetail, "Selects device")
+Rel(deviceDetail, sensorList, "Shows linked sensors")
+Rel(deviceDetail, valveControl, "Shows available valves")
+Rel(deviceDetail, commandHistory, "Shows command history")
+
+@enduml

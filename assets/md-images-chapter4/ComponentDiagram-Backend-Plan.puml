@@ -1,42 +1,38 @@
 @startuml
-title LowCortisol Platform - Plan Context - Backend Component Diagram
+title LowCortisol Platform - Plan Backend Component Diagram
 
 !define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
 !includeurl C4Puml/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container(spa, "Single Page Application", "Vue / Vite", "Consumes plan backend endpoints for listing plans, buying subscriptions, changing plans, cancelling subscriptions, and reviewing payments.")
+Container(spa, "Single Page Application", "Vue / Vite", "Consumes plan backend endpoints.")
 
-System_Ext(paymentProvider, "Payment Provider", "External payment service projected for processing real subscription payments.")
+System_Ext(paymentProvider, "Payment Provider", "External service projected for real subscription payment processing.")
 
-ContainerDb(database, "LowCortisol Database", "SQL Server / PostgreSQL", "Stores plans, plan features, subscriptions, payments, service requests, users, and workplaces.")
+ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores plans, features, subscriptions, payments, and service requests.")
 
-Container_Boundary(planContext, "Plan Bounded Context") {
+Container_Boundary(plan, "Plan") {
 
-  Component(interfaceLayer, "Interface Layer", "ASP.NET Core Controllers", "Exposes plan, subscription, payment, and service request endpoints through PlanController, SubscriptionController, PaymentController, and ServiceRequestController.")
+  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes plan, subscription, payment, and service request endpoints through PlanController, SubscriptionController, PaymentController, and ServiceRequestController.")
 
-  Component(applicationLayer, "Application Layer", "Application Services / Commands / DTOs", "Coordinates plan use cases such as listing plans, subscribing, changing plans, cancelling subscriptions, recording payments, and generating summaries.")
+  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates listing plans, subscribing, changing plans, cancelling subscriptions, recording payments, and loading service requests.")
 
-  Component(domainLayer, "Domain Layer", "Domain Model / Business Rules", "Contains Plan, PlanFeature, Subscription, Payment, ServiceRequest, and subscription business rules.")
+  Component(domain, "Domain", "Domain Model / Business Rules", "Contains Plan, PlanFeature, Subscription, Payment, ServiceRequest, and subscription business rules.")
 
-  Component(infrastructureLayer, "Infrastructure Layer", "Repositories / Persistence Services", "Implements repositories and database access for plans, subscriptions, payments, and service requests.")
+  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for plans, subscriptions, payments, and service requests.")
 
-  Component(paymentConnector, "Payment Connector", "Payment Service Adapter", "Processes subscription payments through an external payment provider.")
-
-  Component(subscriptionPolicy, "Subscription Policy", "Domain Service", "Validates rules for subscribing, changing plans, cancelling subscriptions, and requiring payments.")
+  Component(paymentConnector, "Payment Connector", "Payment Service Adapter", "Processes subscription payments through an external provider.")
 }
 
-Rel(spa, interfaceLayer, "Consumes plan endpoints", "HTTPS/JSON")
+Rel(spa, interface, "Consumes plan endpoints", "HTTPS/JSON")
 
-Rel(interfaceLayer, applicationLayer, "Delegates commands and queries")
-Rel(applicationLayer, domainLayer, "Applies plan and subscription business rules")
-Rel(applicationLayer, infrastructureLayer, "Uses repositories and persistence services")
+Rel(interface, application, "Delegates commands and queries")
+Rel(application, domain, "Applies plan and subscription rules")
+Rel(application, infrastructure, "Uses repositories and persistence services")
+Rel(application, paymentConnector, "Processes payment operations")
 
-Rel(applicationLayer, subscriptionPolicy, "Validates subscription rules")
-Rel(applicationLayer, paymentConnector, "Processes payment operations")
+Rel(infrastructure, database, "Reads and writes plan data", "EF Core")
 Rel(paymentConnector, paymentProvider, "Processes real payments", "HTTPS")
-
-Rel(infrastructureLayer, database, "Reads and writes plan context data", "EF Core")
 
 @enduml

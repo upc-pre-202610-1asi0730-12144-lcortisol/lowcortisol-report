@@ -1,40 +1,31 @@
 @startuml
-title LowCortisol Platform - Support Context - Frontend Component Diagram
+title LowCortisol Platform - Support Frontend Component Diagram
 
 !define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
 !includeurl C4Puml/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container(spa, "Single Page Application", "Vue / Vite", "Provides support ticket, support message, support conversation, support agent, and knowledge article management through the web browser.")
+Container(spa, "Single Page Application", "Vue / Vite", "Provides support ticket management.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides support endpoints.")
 
-System_Ext(api, "LowCortisol API", "Backend API that provides support ticket, support message, support agent, support conversation, and knowledge article endpoints.")
-System_Ext(i18nFiles, "i18n JSON Files", "Translation files: es.json, en.json, pt.json.")
+Container_Boundary(support, "Support") {
 
-Container_Boundary(supportContext, "Support Bounded Context") {
+  Component(presentation, "Presentation", "Vue Screens / Components", "Contains support screen, ticket list, ticket detail, conversation area, message form, and knowledge article section.")
 
-  Component(presentationLayer, "Presentation Layer", "Vue Page / Components", "Contains the support page, ticket cards, knowledge article cards, ticket forms, message form, and conversation area.")
+  Component(application, "Application", "Pinia Store / Facade", "Coordinates ticket loading, ticket creation, ticket selection, message sending, ticket resolution, ticket closing, and article loading.")
 
-  Component(applicationLayer, "Application Layer", "Pinia Store / Facade", "Coordinates support use cases such as loading tickets, creating tickets, resolving tickets, closing tickets, sending messages, loading agents, and loading knowledge articles.")
+  Component(domain, "Domain", "Domain Model", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, and KnowledgeArticle frontend concepts.")
 
-  Component(domainLayer, "Domain Layer", "Domain Model", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, and KnowledgeArticle business concepts.")
-
-  Component(infrastructureLayer, "Infrastructure Layer", "API Services", "Consumes support ticket, support message, support agent, support conversation, and knowledge article backend endpoints and adapts API responses to frontend models.")
-
-  Component(sharedLayer, "Shared Layer", "Shared Services / Components", "Provides reusable layout, translated texts, route guards, subscription access validation, reusable UI components, and HTTP communication.")
+  Component(infrastructure, "Infrastructure", "API Service", "Consumes support backend endpoints and adapts responses to frontend models.")
 }
 
-Rel(spa, presentationLayer, "Uses support views", "Vue Router")
+Rel(spa, presentation, "Uses support screens", "Vue Router")
 
-Rel(presentationLayer, applicationLayer, "Dispatches support actions")
-Rel(applicationLayer, domainLayer, "Uses domain models")
-Rel(applicationLayer, infrastructureLayer, "Delegates API operations")
+Rel(presentation, application, "Dispatches support actions")
+Rel(application, domain, "Uses support models")
+Rel(application, infrastructure, "Delegates API operations")
 
-Rel(presentationLayer, sharedLayer, "Uses shared layout, cards, language switcher, and route guards")
-Rel(applicationLayer, sharedLayer, "Uses session and subscription access services")
-Rel(infrastructureLayer, sharedLayer, "Uses ApiClientService")
-
-Rel(sharedLayer, i18nFiles, "Loads translations", "HTTP GET")
-Rel(infrastructureLayer, api, "Consumes support context endpoints", "HTTPS/JSON")
+Rel(infrastructure, api, "Consumes support endpoints", "HTTPS/JSON")
 
 @enduml

@@ -1,0 +1,56 @@
+@startuml
+title LowCortisol Platform - Frontend General Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Client-side application that organizes the frontend into bounded contexts.")
+Container(api, "Backend API", "ASP.NET Core Web API", "Provides REST endpoints consumed by the frontend.")
+System_Ext(i18nFiles, "i18n JSON Files", "Translation files loaded from public assets.")
+
+Container_Boundary(frontend, "Frontend") {
+
+  Component(router, "Router", "Vue Router", "Controls navigation, public routes, protected routes, and subscription access.")
+
+  Component(iam, "IAM", "Bounded Context", "Manages authentication, registration, recovery, profile, session, and access profile.")
+  Component(plan, "Plan", "Bounded Context", "Manages plans, subscriptions, payments, and service requests.")
+  Component(workspace, "Workspace", "Bounded Context", "Manages sites, members, and device assignments.")
+  Component(deviceControl, "Device Control", "Bounded Context", "Manages devices, sensors, valves, and commands.")
+  Component(monitoring, "Monitoring", "Bounded Context", "Manages dashboard, readings, anomalies, sessions, and reports.")
+  Component(notification, "Notification", "Bounded Context", "Manages alerts, thresholds, incidents, channels, and deliveries.")
+  Component(support, "Support", "Bounded Context", "Manages tickets, messages, conversations, agents, and help articles.")
+
+  Component(shared, "Shared", "Shared Components / Services", "Provides reusable layout, navigation, language switching, session handling, guards, subscription access, and HTTP communication.")
+}
+
+Rel(spa, router, "Uses")
+
+Rel(router, iam, "Routes to")
+Rel(router, plan, "Routes to")
+Rel(router, workspace, "Routes to")
+Rel(router, deviceControl, "Routes to")
+Rel(router, monitoring, "Routes to")
+Rel(router, notification, "Routes to")
+Rel(router, support, "Routes to")
+
+Rel(iam, shared, "Uses")
+Rel(plan, shared, "Uses")
+Rel(workspace, shared, "Uses")
+Rel(deviceControl, shared, "Uses")
+Rel(monitoring, shared, "Uses")
+Rel(notification, shared, "Uses")
+Rel(support, shared, "Uses")
+
+Rel(iam, api, "Consumes IAM endpoints", "HTTPS/JSON")
+Rel(plan, api, "Consumes plan endpoints", "HTTPS/JSON")
+Rel(workspace, api, "Consumes workspace endpoints", "HTTPS/JSON")
+Rel(deviceControl, api, "Consumes device control endpoints", "HTTPS/JSON")
+Rel(monitoring, api, "Consumes monitoring endpoints", "HTTPS/JSON")
+Rel(notification, api, "Consumes notification endpoints", "HTTPS/JSON")
+Rel(support, api, "Consumes support endpoints", "HTTPS/JSON")
+
+Rel(shared, i18nFiles, "Loads translations", "HTTP GET")
+
+@enduml

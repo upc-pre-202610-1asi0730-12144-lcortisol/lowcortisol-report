@@ -1,0 +1,36 @@
+@startuml
+title LowCortisol Platform - IAM Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders IAM user interfaces.")
+
+Container_Boundary(iamPresentation, "IAM Presentation") {
+
+  Component(router, "IAM Routes", "Vue Router", "Defines login, register, recover password, and profile routes.")
+
+  Component(login, "Login", "Vue Screen", "Allows registered users to sign in.")
+  Component(register, "Register", "Vue Screen", "Allows new users to create an account.")
+  Component(recoverPassword, "Recover Password", "Vue Screen", "Allows users to request password recovery.")
+  Component(profile, "Profile", "Vue Screen", "Displays user information, access profile, and active session.")
+
+  Component(authenticationCard, "Authentication Card", "Vue Component", "Provides the visual container used by authentication screens.")
+  Component(profileCard, "Profile Card", "Vue Component", "Displays user and access profile information.")
+}
+
+Rel(spa, router, "Uses")
+
+Rel(router, login, "Routes to")
+Rel(router, register, "Routes to")
+Rel(router, recoverPassword, "Routes to")
+Rel(router, profile, "Routes to")
+
+Rel(login, authenticationCard, "Uses")
+Rel(register, authenticationCard, "Uses")
+Rel(recoverPassword, authenticationCard, "Uses")
+Rel(profile, profileCard, "Uses")
+
+@enduml

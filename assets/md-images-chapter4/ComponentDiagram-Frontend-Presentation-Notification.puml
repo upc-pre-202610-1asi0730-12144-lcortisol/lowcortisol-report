@@ -1,0 +1,36 @@
+@startuml
+title LowCortisol Platform - Notification Presentation Component Diagram
+
+!define C4Puml https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4Puml/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container(spa, "Single Page Application", "Vue / Vite", "Renders notification and alert management interfaces.")
+
+Container_Boundary(notificationPresentation, "Notification Presentation") {
+
+  Component(router, "Notification Routes", "Vue Router", "Defines access to alerts.")
+
+  Component(alert, "Alert", "Vue Screen", "Displays alerts, thresholds, incidents, channels, and deliveries.")
+
+  Component(alertList, "Alert List", "Vue Component", "Displays active alerts.")
+  Component(alertCard, "Alert Card", "Vue Component", "Displays one alert and its actions.")
+  Component(thresholdList, "Threshold List", "Vue Component", "Displays configured thresholds.")
+  Component(incidentPanel, "Incident Panel", "Vue Component", "Displays incidents generated from alerts.")
+  Component(channelPanel, "Channel Panel", "Vue Component", "Displays channels and delivery summary.")
+}
+
+Rel(spa, router, "Uses")
+Rel(router, alert, "Routes to")
+
+Rel(alert, alertList, "Uses")
+Rel(alert, thresholdList, "Uses")
+Rel(alert, incidentPanel, "Uses")
+Rel(alert, channelPanel, "Uses")
+
+Rel(alertList, alertCard, "Contains")
+Rel(alertCard, incidentPanel, "May create incident")
+Rel(alertCard, channelPanel, "May send delivery")
+
+@enduml

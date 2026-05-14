@@ -2992,129 +2992,224 @@ El diagrama de contexto presenta una visión general del sistema **LowCortisol P
 
 ### 4.6.3. Software Architecture Container Diagram
 
-El diagrama de contenedores muestra la descomposición general de **LowCortisol Platform** en sus principales unidades ejecutables y de almacenamiento. Este nivel permite identificar cómo se distribuyen las responsabilidades entre el frontend, la API, la Fake API actual y la base de datos proyectada.
+El diagrama de contenedores presenta la descomposición general de **LowCortisol Platform** en sus principales unidades ejecutables, mostrando cómo el usuario puede acceder a la solución desde la landing page o directamente desde la aplicación web.
+
+La arquitectura considera una **Landing Page** como punto público de entrada, una **WebApp** que entrega la aplicación frontend al navegador, una **Single Page Application** encargada de la navegación y la experiencia del usuario, una **Backend API** responsable de exponer los servicios del sistema y una **Database** para la persistencia de la información.
 
 **Contenedores principales:**
 
-* **LowCortisol WebApp:** Aplicación frontend desarrollada con Vue 3 y Vite. Permite al usuario iniciar sesión, crear una cuenta, comprar planes, gestionar sedes, administrar dispositivos, revisar alertas, visualizar reportes y acceder al soporte.
-* **LowCortisol Fake API:** API temporal construida con JSON Server y desplegada en Render. Actualmente permite simular recursos REST para usuarios, planes, suscripciones, sedes, dispositivos, lecturas, alertas y soporte.
-* **LowCortisol API:** Backend real proyectado para ser desarrollado con ASP.NET Core Web API. Este contenedor reemplazará a la Fake API y centralizará la lógica de negocio del sistema.
-* **LowCortisol Database:** Base de datos relacional proyectada para almacenar usuarios, perfiles de acceso, planes, suscripciones, sedes, dispositivos, sensores, lecturas, alertas, reportes y tickets de soporte.
+* **Landing Page:** Página pública que presenta la propuesta de valor del producto y redirige al usuario hacia la aplicación web.
+* **WebApp:** Aplicación web desarrollada con Vue 3 y Vite, encargada de servir la interfaz frontend.
+* **Single Page Application:** Aplicación cliente que gestiona navegación, estado, vistas y comunicación con la API.
+* **Backend API:** Servicio backend desarrollado en ASP.NET Core Web API, encargado de exponer endpoints para los bounded contexts del sistema.
+* **Database:** Base de datos relacional proyectada para almacenar usuarios, sesiones, planes, suscripciones, sedes, dispositivos, lecturas, alertas, reportes y soporte.
 
 **Relaciones principales:**
 
-* Los usuarios acceden a la plataforma mediante la **Single Page Application**.
-* La SPA consume actualmente la **Fake API** mediante HTTPS/JSON.
-* En la arquitectura proyectada, la SPA consumirá la **LowCortisol API** desarrollada en ASP.NET Core.
-* La API real persistirá información en una base de datos relacional y podrá integrarse con servicios externos de correo, pagos y red IoT.
+* El usuario puede ingresar mediante la **Landing Page**, que redirige hacia la **WebApp**.
+* El usuario también puede acceder directamente a la **WebApp** mediante una URL.
+* La **WebApp** carga y renderiza la **Single Page Application**.
+* La **Single Page Application** consume los servicios expuestos por la **Backend API**.
+* La **Backend API** persiste y consulta información en la **Database**.
+* La **Backend API** puede integrarse con servicios externos como proveedor de correo, pagos y red IoT.
 
-![Container Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ContainerDiagram.puml)
+![Container Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ContainerDiagram.puml)
 
 ### 4.6.4. Software Architecture Component Diagrams
 
-Los diagramas de componentes presentan la organización interna de cada bounded context de la plataforma. Para evitar diagramas sobrecargados, se decidió separar la arquitectura por contexto y por lado de la aplicación: **frontend** y **backend**.
+Los diagramas de componentes muestran la organización interna de la arquitectura de **LowCortisol Platform**. Para mantener claridad y evitar diagramas demasiado sobrecargados, se separaron los componentes por lado de la aplicación y por bounded context.
 
-En el frontend, cada bounded context mantiene una estructura consistente basada en:
+En el frontend, la arquitectura se organiza alrededor de la **Single Page Application**, la cual integra los bounded contexts principales de la aplicación. Cada bounded context mantiene una organización modular basada en **Presentation**, **Application**, **Domain** e **Infrastructure**, permitiendo separar la interfaz visual, la coordinación de casos de uso, los conceptos del dominio y la comunicación con servicios externos.
 
-* **Presentation Layer:** Contiene páginas, componentes visuales, formularios y navegación del módulo.
-* **Application Layer:** Coordina los casos de uso del módulo mediante stores y facades.
-* **Domain Layer:** Representa los conceptos principales del dominio usados por el frontend.
-* **Infrastructure Layer:** Consume los endpoints del backend o Fake API mediante servicios API.
-* **Shared Layer:** Provee servicios y componentes reutilizables como layout, i18n, manejo de sesión, guards y cliente HTTP.
+En el backend, la arquitectura se organiza alrededor de la **Backend API**, separando los bounded contexts principales del sistema. Cada contexto mantiene responsabilidades independientes para exponer endpoints, coordinar casos de uso, aplicar reglas de dominio y persistir información.
 
-En el backend proyectado, cada bounded context mantiene una arquitectura basada en:
+Esta organización permite mantener modularidad, escalabilidad, separación de responsabilidades y trazabilidad entre las funcionalidades del sistema y los componentes técnicos.
 
-* **Interface Layer:** Expone endpoints REST mediante controllers de ASP.NET Core.
-* **Application Layer:** Coordina comandos, consultas, DTOs y servicios de aplicación.
-* **Domain Layer:** Contiene entidades, reglas de negocio y servicios de dominio.
-* **Infrastructure Layer:** Implementa repositorios, persistencia y conectores externos.
-* **Database / External Systems:** Representan la persistencia relacional y servicios externos como correo, pagos o red IoT.
+---
 
-Esta organización permite mantener modularidad, separación de responsabilidades y trazabilidad entre historias de usuario, funcionalidades del sistema y componentes técnicos.
+#### Frontend General Component Diagram
 
-#### 4.6.4.1. IAM Bounded Context
+El diagrama general de componentes frontend muestra cómo la **Single Page Application** organiza sus bounded contexts principales. También se muestra el uso de componentes y servicios compartidos, como navegación, layout, manejo de sesión, traducciones, guards y comunicación HTTP.
 
-El bounded context **IAM** gestiona la identidad y el acceso de los usuarios. Incluye inicio de sesión, registro, recuperación de contraseña, cierre de sesión, perfil de usuario, perfil de acceso y permisos.
+![Frontend General Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend.puml)
 
-En el frontend, el contexto IAM contiene las vistas de autenticación y perfil. La **Presentation Layer** agrupa las páginas de login, registro, recuperación y perfil; la **Application Layer** coordina las acciones mediante store y facade; la **Infrastructure Layer** consume los endpoints de autenticación; y la **Shared Layer** proporciona sesión, traducciones, guards y cliente HTTP.
+---
 
-![IAM Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-IAM.puml)
+#### IAM Frontend Component Diagram
 
-En el backend proyectado, IAM expone endpoints mediante controllers, coordina los casos de uso de autenticación desde servicios de aplicación, aplica reglas de dominio sobre usuarios, sesiones y perfiles de acceso, y usa infraestructura para persistencia, hashing de contraseñas, generación de tokens y recuperación por correo.
+El bounded context **IAM** gestiona la autenticación y acceso del usuario. Incluye inicio de sesión, registro, recuperación de contraseña, perfil de usuario, sesión activa y perfil de acceso.
 
-![IAM Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-IAM.puml)
+En el frontend, IAM separa sus responsabilidades en presentación de pantallas, coordinación de acciones mediante store/facade, modelos de dominio frontend y consumo de endpoints de autenticación.
 
-#### 4.6.4.2. Plan Bounded Context
+![IAM Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-IAM.puml)
 
-El bounded context **Plan** gestiona los planes, suscripciones, pagos simulados y solicitudes de servicio. Este módulo permite visualizar planes disponibles, comprar una suscripción, cambiar de plan, cancelar una suscripción y revisar pagos.
+---
 
-En el frontend, la **Presentation Layer** contiene la página de planes, tarjetas de planes y formulario de compra. La **Application Layer** coordina la carga de planes, activación de suscripciones y cancelación. La **Domain Layer** representa conceptos como Plan, PlanFeature, Subscription, Payment y ServiceRequest. La **Infrastructure Layer** consume los endpoints relacionados con planes y suscripciones.
+#### Plan Frontend Component Diagram
 
-![Plan Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Plan.puml)
+El bounded context **Plan** gestiona planes, suscripciones, pagos y solicitudes de servicio. Permite visualizar planes disponibles, comprar o activar un plan, revisar pagos y administrar el estado de la suscripción.
 
-En el backend proyectado, el contexto Plan expone endpoints de planes, suscripciones, pagos y solicitudes. La capa de aplicación coordina los casos de uso de suscripción, mientras que el dominio contiene reglas como validación de cambio de plan, cancelación y requerimiento de pago. También se considera un conector externo para procesar pagos reales en una futura implementación.
+![Plan Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Plan.puml)
 
-![Plan Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Plan.puml)
+---
 
-#### 4.6.4.3. Workspace Bounded Context
+#### Workspace Frontend Component Diagram
 
-El bounded context **Workspace** gestiona la organización multi-sede de la plataforma. Incluye workspace, sedes, miembros asignados y asignación de dispositivos a sedes.
+El bounded context **Workspace** gestiona las sedes, responsables, miembros asignados y asignación de dispositivos. Permite visualizar sedes registradas, filtrar por tipo, revisar detalles y observar métricas consolidadas.
 
-En el frontend, este contexto permite listar sedes, filtrar por tipo, registrar nuevas sedes, asignar miembros y asociar dispositivos. La **Presentation Layer** contiene las vistas y componentes de interacción; la **Application Layer** coordina las acciones; la **Domain Layer** representa Workspace, Site, SiteMember y SiteDeviceAssignment; y la **Infrastructure Layer** consume endpoints de sedes, miembros y asignaciones.
+![Workspace Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Workspace.puml)
 
-![Workspace Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Workspace.puml)
+---
 
-En el backend proyectado, Workspace expone controllers para gestionar workspace, sedes, miembros y asignaciones. La capa de aplicación valida operaciones como creación de sedes y asignación de dispositivos, mientras que la capa de dominio mantiene las reglas del contexto. Además, se considera una política de acceso por suscripción para validar límites del plan activo.
+#### Device Control Frontend Component Diagram
 
-![Workspace Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Workspace.puml)
+El bounded context **Device Control** gestiona dispositivos, sensores, válvulas y comandos remotos. Permite visualizar dispositivos registrados, revisar sensores vinculados, controlar válvulas y ejecutar comandos asociados al monitoreo.
 
-#### 4.6.4.4. Device Control Bounded Context
+![Device Control Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-DeviceControl.puml)
 
-El bounded context **Device Control** gestiona dispositivos, sensores, válvulas y comandos remotos. Este módulo permite registrar dispositivos, vincular sensores, controlar válvulas y ejecutar comandos de sincronización.
+---
 
-En el frontend, la **Presentation Layer** contiene la página de dispositivos, tarjetas de dispositivos, tarjetas de sensores y controles de válvulas. La **Application Layer** coordina acciones como crear dispositivos, vincular sensores, abrir/cerrar válvulas y ejecutar comandos. La **Domain Layer** representa Device, Sensor, Valve y DeviceCommand. La **Infrastructure Layer** consume endpoints del contexto Device Control.
+#### Monitoring Frontend Component Diagram
 
-![Device Control Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-DeviceControl.puml)
+El bounded context **Monitoring** gestiona el panel de monitoreo, lecturas recientes, sesiones activas, anomalías y reportes. Representa el núcleo visual del seguimiento de consumo de agua y gas dentro de la aplicación.
 
-En el backend proyectado, Device Control expone endpoints para dispositivos, sensores, válvulas y comandos. La capa de aplicación coordina operaciones remotas, la capa de dominio valida reglas de estado de dispositivos, y la infraestructura se encarga de persistir información y comunicarse con la red IoT mediante un conector especializado.
+![Monitoring Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Monitoring.puml)
 
-![Device Control Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-DeviceControl.puml)
+---
 
-#### 4.6.4.5. Monitoring Bounded Context
+#### Notification Frontend Component Diagram
 
-El bounded context **Monitoring** gestiona las lecturas, sesiones de monitoreo, anomalías, métricas y reportes. Este módulo constituye el núcleo operativo de la plataforma, ya que permite visualizar el estado del consumo de agua y gas.
+El bounded context **Notification** gestiona alertas, umbrales, incidentes, canales y entregas. Permite visualizar alertas activas, configurar umbrales, revisar incidentes y administrar el flujo de notificación.
 
-En el frontend, la **Presentation Layer** contiene el dashboard, la página de reportes, tarjetas de métricas y visualización de consumo. La **Application Layer** coordina la carga de lecturas, anomalías, sesiones activas y reportes. La **Domain Layer** representa MonitoringSession, Reading, Anomaly y Report. La **Infrastructure Layer** consume endpoints de monitoreo.
+![Notification Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Notification.puml)
 
-![Monitoring Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Monitoring.puml)
+---
 
-En el backend proyectado, Monitoring expone endpoints para sesiones, lecturas, anomalías y reportes. La capa de aplicación coordina la generación de métricas y reportes, mientras que la capa de dominio contiene reglas de detección de anomalías. También se considera un conector de ingesta de lecturas desde la red IoT.
+#### Support Frontend Component Diagram
 
-![Monitoring Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Monitoring.puml)
+El bounded context **Support** gestiona tickets, mensajes, conversaciones, agentes y artículos de ayuda. Permite registrar incidencias, revisar el detalle de tickets y mantener comunicación de soporte.
 
-#### 4.6.4.6. Notification Bounded Context
+![Support Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Support.puml)
 
-El bounded context **Notification** gestiona alertas, umbrales, incidentes, canales de notificación y entregas de alertas. Su objetivo es permitir que el sistema reaccione ante condiciones anómalas o riesgos operativos.
+---
 
-En el frontend, este contexto permite visualizar alertas, crear alertas, resolverlas, cerrarlas, configurar umbrales y revisar incidentes. La **Presentation Layer** contiene la página de alertas y componentes visuales; la **Application Layer** coordina acciones sobre alertas y umbrales; la **Domain Layer** representa Alert, Threshold, Incident, NotificationChannel y AlertDelivery; y la **Infrastructure Layer** consume los endpoints correspondientes.
+#### IAM Frontend Presentation Component Diagram
 
-![Notification Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Notification.puml)
+El diagrama de presentación de **IAM** muestra las pantallas y componentes visuales usados en autenticación y perfil. Incluye rutas de IAM, login, registro, recuperación de contraseña, perfil y componentes visuales asociados.
 
-En el backend proyectado, Notification expone endpoints para alertas, umbrales, incidentes, canales y entregas. La capa de dominio incluye reglas para escalar alertas a incidentes. Además, se considera un conector de entrega de notificaciones que puede integrarse con un proveedor externo de correo.
+![IAM Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-IAM.puml)
 
-![Notification Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Notification.puml)
+---
 
-#### 4.6.4.7. Support Bounded Context
+#### Plan Frontend Presentation Component Diagram
 
-El bounded context **Support** gestiona tickets, mensajes, conversaciones, agentes de soporte y artículos de ayuda. Este módulo permite atender incidencias, dudas y solicitudes generadas por los usuarios.
+El diagrama de presentación de **Plan** muestra la estructura visual relacionada con planes, tarjetas de plan, formulario de pago, historial de pagos y solicitudes de servicio.
 
-En el frontend, la **Presentation Layer** contiene la página de soporte, tarjetas de tickets, artículos de ayuda y área de conversación. La **Application Layer** coordina la creación de tickets, envío de mensajes, resolución y cierre. La **Domain Layer** representa SupportTicket, SupportMessage, SupportAgent, SupportConversation y KnowledgeArticle. La **Infrastructure Layer** consume endpoints del módulo de soporte.
+![Plan Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-Plan.puml)
 
-![Support Frontend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Support.puml)
+---
 
-En el backend proyectado, Support expone endpoints para tickets, mensajes, agentes, conversaciones y artículos. La capa de aplicación coordina los casos de uso de soporte, la capa de dominio define reglas como prioridad y asignación, y la infraestructura persiste la información y puede enviar notificaciones mediante un proveedor externo de correo.
+#### Workspace Frontend Presentation Component Diagram
 
-![Support Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Support.puml)
+El diagrama de presentación de **Workspace** representa la organización visual de la pantalla de sedes, incluyendo listado, detalle, filtros, miembros, asignaciones y resumen consolidado.
+
+![Workspace Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-Workspace.puml)
+
+---
+
+#### Device Control Frontend Presentation Component Diagram
+
+El diagrama de presentación de **Device Control** muestra los componentes visuales para administrar dispositivos, sensores, válvulas y comandos recientes.
+
+![Device Control Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-DeviceControl.puml)
+
+---
+
+#### Monitoring Frontend Presentation Component Diagram
+
+El diagrama de presentación de **Monitoring** muestra las pantallas de panel y reportes, junto con componentes como métricas, lecturas, sesiones, anomalías y reportes generados.
+
+![Monitoring Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-Monitoring.puml)
+
+---
+
+#### Notification Frontend Presentation Component Diagram
+
+El diagrama de presentación de **Notification** muestra la estructura visual del módulo de alertas, incluyendo alertas activas, umbrales, incidentes y canales de notificación.
+
+![Notification Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-Notification.puml)
+
+---
+
+#### Support Frontend Presentation Component Diagram
+
+El diagrama de presentación de **Support** muestra las pantallas y componentes visuales para tickets, detalle del ticket, conversación, formulario de mensaje y artículos de ayuda.
+
+![Support Frontend Presentation Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Frontend-Presentation-Support.puml)
+
+---
+
+#### Backend General Component Diagram
+
+El diagrama general de componentes backend muestra cómo la **Backend API** agrupa los bounded contexts principales del sistema. Cada contexto concentra capacidades específicas y se conecta con la base de datos para persistir su información.
+
+![Backend General Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend.puml)
+
+---
+
+#### IAM Backend Component Diagram
+
+El bounded context **IAM** en backend expone endpoints de autenticación, usuario, perfil de acceso y sesión. Coordina casos de uso como login, registro, recuperación de contraseña, cierre de sesión y actualización de perfil.
+
+![IAM Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-IAM.puml)
+
+---
+
+#### Plan Backend Component Diagram
+
+El bounded context **Plan** en backend gestiona endpoints para planes, suscripciones, pagos y solicitudes de servicio. También considera integración futura con un proveedor de pagos.
+
+![Plan Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Plan.puml)
+
+---
+
+#### Workspace Backend Component Diagram
+
+El bounded context **Workspace** en backend gestiona workspaces, sedes, miembros y asignaciones de dispositivos. Permite mantener organizada la estructura multi-sede de la plataforma.
+
+![Workspace Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Workspace.puml)
+
+---
+
+#### Device Control Backend Component Diagram
+
+El bounded context **Device Control** en backend expone endpoints para dispositivos, sensores, válvulas y comandos. Además, considera comunicación con una red IoT para operaciones remotas.
+
+![Device Control Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-DeviceControl.puml)
+
+---
+
+#### Monitoring Backend Component Diagram
+
+El bounded context **Monitoring** en backend gestiona sesiones, lecturas, anomalías y reportes. Coordina el registro de lecturas, detección de anomalías y generación de reportes.
+
+![Monitoring Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Monitoring.puml)
+
+---
+
+#### Notification Backend Component Diagram
+
+El bounded context **Notification** en backend gestiona alertas, umbrales, incidentes, canales y entregas. Permite escalar eventos importantes y notificar al usuario mediante servicios externos.
+
+![Notification Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Notification.puml)
+
+---
+
+#### Support Backend Component Diagram
+
+El bounded context **Support** en backend gestiona tickets, mensajes, agentes, conversaciones y artículos de ayuda. Permite atender incidencias y solicitudes generadas por los usuarios.
+
+![Support Backend Component Diagram](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/upc-pre-202610-1asi0730-12144-lcortisol/lowcortisol-report/main/assets/md-images-chapter4/ComponentDiagram-Backend-Support.puml)
 
 ## 4.7. Software Object-Oriented Design
 The object-oriented design of the LowCortisol system is represented through two class diagrams: one for the backend and another for the frontend. This separation allows a clearer view of the responsibilities of each layer of the application.
