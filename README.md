@@ -3430,6 +3430,24 @@ Se definen los estándares de codificación para garantizar la fiabilidad del si
 ## 5.2. Landing Page, Services & Applications Implementation
 ### 5.2.1. Sprint 1 
 #### 5.2.1.1. Sprint Planning 1
+El Sprint Planning permitió definir el alcance del Sprint, asignar responsabilidades y organizar las tareas necesarias para el desarrollo de la Landing Page. 
+
+A continuación, se presenta la tabla resumen del Sprint Planning 1:
+
+| Campo | Descripción |
+|:-----:|:-----------:|
+| Sprint # | Sprint 1 |
+| Sprint Planning Background | Desarrollo de la Landing Page |
+| Date | 2026-04-17 |
+| Time | 17:00 |
+| Location | Reunión virtual (Google Meet) |
+| Prepared By | Condori Torres, Miguel Anibal |
+| Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
+| Sprint Goal & User Stories |
+| Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
+| Sprint 1 Velocity | 10 Story Points |
+| Sum of Story Points | 10 Story Points |
+
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
 Durante el Sprint 1, la ejecución del proyecto se estructuró bajo un modelo de 
