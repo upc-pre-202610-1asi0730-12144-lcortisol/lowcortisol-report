@@ -3477,8 +3477,8 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 - 0 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
-| sprint 1 - 0 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint
+| Sprint 1 - 1 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
+| sprint 1 - 1 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint
 |  | Sprint Goal & User Stories |
 | Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
 | Sprint 1 Velocity | 10 Story Points |
@@ -3512,6 +3512,20 @@ detalla la distribución de roles para este primer ciclo:
 
 ![Sprint Backlog 1](./assets/md-images-chapter5/Sprint%20Backlog.PNG)
 
+| Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| US06 | Cambiar idioma | TS21 | Sistema de traducciones | Configuración de textos multilenguaje para el landing page | 4 hrs | Miguel | Done |
+| US06 | Cambiar idioma | TS22 | Cambio dinámico idioma | Implementación del cambio dinámico de idioma sin recargar la página | 3 hrs | Miguel | Done |
+| US12 | Visualizar planes | TS23 | Sección planes frontend | Desarrollo de la estructura visual de la sección de planes | 4 hrs | Bruno | Done |
+| US12 | Visualizar planes | TS24 | Diseño de planes | Implementación de cards de precios y beneficios de cada plan | 3 hrs | Bruno | Done |
+| US20 | Acceso multidispositivo | TS25 | Responsive layout | Adaptación responsive del landing page para distintos dispositivos | 4 hrs | James | Done |
+| US20 | Acceso multidispositivo | TS26 | Componentes responsive | Ajuste responsive de botones, cards y componentes visuales | 3 hrs | James | Done |
+| US21 | Navegación entre secciones | TS27 | Navegación con anclas | Implementación de navegación interna mediante anchor links | 2 hrs | Rodrigo | Done |
+| US21 | Navegación entre secciones | TS28 | Scroll suave | Implementación de smooth scrolling entre secciones | 2 hrs | Rodrigo | Done |
+| US21 | Navegación entre secciones | TS29 | Menú responsive | Desarrollo del menú hamburguesa adaptable a móviles | 3 hrs | Rodrigo | Done |
+
+LINK URL TRELLO: https://trello.com/invite/b/69eac1f8457512a2f55d9699/ATTI0db4f1b2fac4ca47db5b72f302c1b7e9FDE35BBF/sprint-backlog-1-lowcortisol 
+
 #### 5.2.1.4. Development Evidence for Sprint Review
 
 En esta sección se presentan los avances de implementación correspondientes al Sprint Review. A continuación, se detallan los commits realizados por el equipo.
@@ -3521,23 +3535,22 @@ En esta sección se presentan los avances de implementación correspondientes al
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |----------|--------|----------|---------------|--------------------|--------------------|
-| Lowcortisol-LadingPage | develop / section-payment | 77f8ae2 | feat: event carousel | Se implementó un carrusel de eventos en la sección beneficios para mejorar la visualización de información dinámica. | 25/04/2026 |
-| Lowcortisol-LadingPage | develop | b198c08 | fix: landing page update | Se realizaron ajustes generales en la landing page para mejorar estructura y estilos. | 25/04/2026 |
-| Lowcortisol-LadingPage | develop | 6bd24d1 | feat: add English button | Se agregó un botón de cambio de idioma para permitir visualización en inglés. | 23/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | b5c977c | feat: features section | Se añadieron nuevas funcionalidades en la sección de beneficios. | 22/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | b0237ea | style: responsive benefits | Se ajustó el diseño responsive de la sección beneficios para mejorar visualización en móviles. | 22/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | 9cb7c89 | feat: HTML y CSS beneficios | Se implementó la estructura HTML y estilos CSS de la sección beneficios. | 22/04/2026 |
-| Lowcortisol-LadingPage | Soluciones-Kirk | 86876ff | fix: imágenes solución | Se corrigieron imágenes dentro de la sección soluciones para mejorar la presentación visual. | 21/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 48838f6 | style: footer logo | Se realizaron cambios en el estilo del logo ubicado en el footer. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 49ae582 | feat: header home | Se actualizaron componentes del header y sección home. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | bfb0a3f | feat: add images | Se agregaron imágenes necesarias para el diseño de la landing page. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 8f359a1 | feat: landing structure | Se implementó la estructura principal del header, home, contacto y footer. | 20/04/2026 |
-| Lowcortisol-LadingPage | Soluciones-Kirk | c5ae431 | feat: tarjetas UI | Se agregaron tarjetas para usuarios residenciales e infraestructura junto con estilos. | 20/04/2026 |
-| Lowcortisol-LadingPage | section-payment | 65b1ebf | feat: payment section | Se completó la sección de planes y pagos con su estructura visual. | 20/04/2026 |
-| Lowcortisol-LadingPage | section-about | 8486712 | feat: about section | Se desarrolló la sección "About" de la landing page. | 20/04/2026 |
-| Lowcortisol-LadingPage | main | e2b28de | init: project setup | Se realizó el commit inicial del proyecto con la configuración base. | 19/04/2026 |
+| lowcortisol-website | develop / section-payment | 77f8ae2 | feat: event carousel | Se implementó un carrusel de eventos en la sección beneficios para mejorar la visualización de información dinámica. | 25/04/2026 |
+| lowcortisol-website | develop | b198c08 | fix: landing page update | Se realizaron ajustes generales en la landing page para mejorar estructura y estilos. | 25/04/2026 |
+| lowcortisol-website | develop | 6bd24d1 | feat: add English button | Se agregó un botón de cambio de idioma para permitir visualización en inglés. | 23/04/2026 |
+| lowcortisol-website | feature/section-benefits | b5c977c | feat: features section | Se añadieron nuevas funcionalidades en la sección de beneficios. | 22/04/2026 |
+| lowcortisol-website | feature/section-benefits | b0237ea | style: responsive benefits | Se ajustó el diseño responsive de la sección beneficios para mejorar visualización en móviles. | 22/04/2026 |
+| lowcortisol-website | feature/section-benefits | 9cb7c89 | feat: HTML y CSS beneficios | Se implementó la estructura HTML y estilos CSS de la sección beneficios. | 22/04/2026 |
+| lowcortisol-website | feature/section-soluction | 86876ff | fix: imágenes solución | Se corrigieron imágenes dentro de la sección soluciones para mejorar la presentación visual. | 21/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 48838f6 | style: footer logo | Se realizaron cambios en el estilo del logo ubicado en el footer. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 49ae582 | feat: header home | Se actualizaron componentes del header y sección home. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | bfb0a3f | feat: add images | Se agregaron imágenes necesarias para el diseño de la landing page. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 8f359a1 | feat: landing structure | Se implementó la estructura principal del header, home, contacto y footer. | 20/04/2026 |
+| lowcortisol-website | feature/section-soluction | c5ae431 | feat: tarjetas UI | Se agregaron tarjetas para usuarios residenciales e infraestructura junto con estilos. | 20/04/2026 |
+| lowcortisol-website | feature/section-payment | 65b1ebf | feat: payment section | Se completó la sección de planes y pagos con su estructura visual. | 20/04/2026 |
+| lowcortisol-website | feature/section-about | 8486712 | feat: about section | Se desarrolló la sección "About" de la landing page. | 20/04/2026 |
+| lowcortisol-website | main | e2b28de | init: project setup | Se realizó el commit inicial del proyecto con la configuración base. | 19/04/2026 |
 
-LINK URL TRELLO: https://trello.com/invite/b/69eac1f8457512a2f55d9699/ATTI0db4f1b2fac4ca47db5b72f302c1b7e9FDE35BBF/sprint-backlog-1-lowcortisol 
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
@@ -3629,7 +3642,7 @@ Asimismo, se fortaleció el trabajo colaborativo mediante el uso de herramientas
 #### 5.2.2.1. Sprint Planning 2
 
 
-El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial de la plataforma LowCortisol, implementando módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos y alertas. Asimismo, se desarrolló la arquitectura principal del sistema, el modelo de base de datos y el despliegue de servicios mediante Render, permitiendo establecer la integración entre frontend y backend.
+El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial de la plataforma LowCortisol, implementando módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos y alertas. Asimismo, se desarrolló la arquitectura principal del sistema, el modelo de base de datos y el despliegue de servicios mediante Render, permitiendo establecer la integración entre frontend.
 
 | Campo | Descripción |
 |:-----:|:-----------:|
@@ -3640,8 +3653,8 @@ El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial 
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 Review Summary | Durante el Sprint 1 se desarrolló e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
-| Sprint 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
+| Sprint 2- 1 Review Summary | Durante el Sprint 1 se desarrolló las correciones del informe e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
+| Sprint 2 - 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
 |  | Sprint Goal & User Stories |
 | Sprint 2 Goal | Desarrollar la estructura funcional inicial de la plataforma LowCortisol mediante la implementación de módulos de autenticación, monitoreo inteligente, gestión de dispositivos y alertas, integrando frontend, backend y despliegue de servicios en Render. Este objetivo se considerará cumplido cuando la plataforma permita visualizar información de monitoreo, gestionar funcionalidades principales y acceder a los servicios desplegados correctamente |
 | Sprint 2 Velocity | 34 Story Points |
