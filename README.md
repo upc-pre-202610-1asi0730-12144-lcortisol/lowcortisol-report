@@ -441,70 +441,77 @@ Intuitivo, moderno, accesible, con información clara y alertas fáciles de ente
 
 12. **Otra suposición crítica…** Que los usuarios utilizarán el sistema de forma constante para monitorear su consumo.
 
-#### 1.2.2.3 Lean UX Hypothesis Statements
+## 1.2.2.3 Lean UX Hypothesis Statements
 
-###### Hipótesis 1:
+### Hipótesis 1
+Creemos que ofrecer monitoreo en tiempo real permitirá que los usuarios detecten fugas con mayor rapidez y reduzcan pérdidas económicas.
 
-Creemos que, si implementamos monitoreo en tiempo real para detectar fugas de agua y gas, los usuarios podrán actuar más rápido y reducir pérdidas económicas.
+Sabremos que esto es cierto cuando al menos el 70% de los usuarios identifique incidentes antes de que generen daños mayores durante las pruebas del MVP.
 
-**Business Outcome:** Incrementar adopción del servicio y satisfacción del cliente.<br>
-**Users:** Hogares.<br>
-**User Outcome:** Detectan incidentes a tiempo y evitan daños mayores.<br>
-**Feature:** Monitoreo en tiempo real con panel de control.<br>
+Business Outcome: Incrementar adopción del servicio y satisfacción del cliente.  
+Users: Hogares.  
+User Outcome: Detectan incidentes a tiempo y evitan daños mayores.  
+Feature: Monitoreo en tiempo real con panel de control.
 
-###### Hipótesis 2:
+### Hipótesis 2
+Creemos que enviar alertas inmediatas ante anomalías permitirá reducir el tiempo de respuesta frente a emergencias.
 
-Creemos que, si el sistema envía alertas inmediatas al detectar anomalías, se reducirá el tiempo de respuesta frente a emergencias.
+Sabremos que esto es cierto cuando el tiempo promedio de reacción de los usuarios disminuya en un 40% durante las pruebas piloto.
 
-**Business Outcome:** Mejorar percepción de valor del servicio y retención de usuarios.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Responden rápidamente ante fugas o riesgos críticos.<br>
-**Feature:** Notificaciones push, correo y alertas automáticas.<br>
+Business Outcome: Mejorar percepción de valor del servicio y retención de usuarios.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Responden rápidamente ante fugas o riesgos críticos.  
+Feature: Notificaciones push, correo y alertas automáticas.
 
-###### Hipótesis 3:
+### Hipótesis 3
+Creemos que mostrar historial de consumo y reportes claros ayudará a los usuarios a optimizar el uso de recursos.
 
-Creemos que, si mostramos historial de consumo y reportes claros, los usuarios tomarán mejores decisiones para optimizar recursos.
+Sabremos que esto es cierto cuando al menos el 60% de los usuarios consulte los reportes semanalmente y reduzca consumos inusuales.
 
-**Business Outcome:** Mayor uso recurrente de la plataforma.<br>
-**Users:** Hogares y Hoteles.<br>
-**User Outcome:** Controlan gastos y detectan consumos inusuales.<br>
-**Feature:** Historial, gráficas y reportes descargables.<br>
+Business Outcome: Mayor uso recurrente de la plataforma.  
+Users: Hogares y hoteles.  
+User Outcome: Controlan gastos y detectan consumos inusuales.  
+Feature: Historial, gráficas y reportes descargables.
 
-###### Hipótesis 4:
+### Hipótesis 4
+Creemos que permitir el control remoto de válvulas incrementará la sensación de seguridad y control de los usuarios.
 
-Creemos que, si incorporamos control remoto de válvulas, los usuarios sentirán mayor seguridad y control ante incidentes.
+Sabremos que esto es cierto cuando al menos el 75% de los usuarios indique sentirse más seguro utilizando esta funcionalidad.
 
-**Business Outcome:** Diferenciación competitiva y mayor interés por planes avanzados.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reducen riesgos sin esperar intervención presencial.<br>
-**Feature:** Apertura y cierre remoto de válvulas.<br>
+Business Outcome: Diferenciación competitiva y mayor interés por planes avanzados.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reducen riesgos sin esperar intervención presencial.  
+Feature: Apertura y cierre remoto de válvulas.
 
-###### Hipótesis 5:
+### Hipótesis 5
+Creemos que ofrecer gestión multiubicación facilitará la adopción de la plataforma en organizaciones con varias instalaciones.
 
-Creemos que, si ofrecemos gestión multiubicación y múltiples dispositivos, organizaciones con varias instalaciones adoptarán la solución con mayor facilidad.
+Sabremos que esto es cierto cuando al menos el 50% de clientes empresariales registre más de una sede durante el piloto.
 
-**Business Outcome:** Captación de clientes empresariales e institucionales.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Supervisan varias zonas desde una sola plataforma.<br>
-**Feature:** Gestión por zonas y múltiples sensores.<br>
+Business Outcome: Captación de clientes empresariales e institucionales.  
+Users: Hoteles y municipalidades.  
+User Outcome: Supervisan varias zonas desde una sola plataforma.  
+Feature: Gestión por zonas y múltiples sensores.
 
-###### Hipótesis 6:
+### Hipótesis 6
+Creemos que aplicar análisis inteligente de patrones de consumo permitirá prevenir incidentes antes de que ocurran.
 
-Creemos que, si aplicamos análisis inteligente de patrones de consumo, se podrán prevenir fallas antes de que ocurran.
+Sabremos que esto es cierto cuando el sistema detecte anomalías anticipadamente en al menos el 65% de los casos simulados.
 
-**Business Outcome:** Posicionamiento innovador y mayor valor percibido.<br>
-**Users:** Hoteles y Municipalidades.<br>
-**User Outcome:** Reciben advertencias tempranas y reducen incidentes repetitivos.<br>
-**Feature:** Detección temprana con IA y análisis predictivo.<br>
+Business Outcome: Posicionamiento innovador y mayor valor percibido.  
+Users: Hoteles y municipalidades.  
+User Outcome: Reciben advertencias tempranas y reducen incidentes repetitivos.  
+Feature: Detección temprana con IA y análisis predictivo.
 
-###### Hipótesis 7:
+### Hipótesis 7
+Creemos que ofrecer planes diferenciados según las necesidades del cliente incrementará la conversión a suscripciones pagadas.
 
-Creemos que, si la plataforma ofrece planes diferenciados según necesidad del cliente, aumentará la conversión a suscripciones pagadas.
+Sabremos que esto es cierto cuando al menos el 30% de usuarios interesados seleccione un plan de pago durante la validación del MVP.
 
-**Business Outcome:** Crecimiento sostenible de ingresos mensuales.<br>
-**Users:** Hogares, Hoteles y Municipalidades.<br>
-**User Outcome:** Contratan un plan ajustado a sus necesidades reales.<br>
-**Feature:** Plan Hogar, Plan Smart y Plan Full Service.<br>
+Business Outcome: Crecimiento sostenible de ingresos mensuales.  
+Users: Hogares, hoteles y municipalidades.  
+User Outcome: Contratan un plan ajustado a sus necesidades reales.  
+Feature: Plan Hogar, Plan Smart y Plan Full Service.
 
 #### 1.2.2.4 Lean UX Canvas
 <table>  
@@ -555,11 +562,11 @@ Creemos que, si la plataforma ofrece planes diferenciados según necesidad del c
 <tr>  
 <td>  
 <h2>Hypotheses</h2>  
-- Si implementamos monitoreo en tiempo real, los usuarios actuarán más rápido y reducirán pérdidas.<br>
-- Si el sistema envía alertas inmediatas, disminuirá el tiempo de respuesta ante emergencias.<br>
-- Si mostramos historial y reportes claros, los usuarios optimizarán su consumo.<br>
-- Si existe control remoto de válvulas, aumentará la percepción de seguridad.<br>
-- Si ofrecemos planes diferenciados, crecerá la conversión a suscripciones pagadas.
+- Creemos que el monitoreo en tiempo real permitirá que los usuarios detecten fugas más rápido y reduzcan pérdidas económicas. Validaremos esto si al menos el 70% de usuarios identifica incidentes antes de que generen daños mayores.
+- Creemos que las alertas inmediatas reducirán el tiempo de respuesta ante emergencias. Validaremos esto si el tiempo promedio de reacción disminuye en un 40%.
+- Creemos que el historial y reportes de consumo ayudarán a los usuarios a optimizar recursos. Validaremos esto si al menos el 60% de usuarios consulta reportes frecuentemente y reduce consumos inusuales.
+- Creemos que el control remoto de válvulas aumentará la percepción de seguridad de los usuarios. Validaremos esto si el 75% de usuarios reporta sentirse más seguro utilizando la plataforma.
+- Creemos que ofrecer planes diferenciados incrementará la conversión a suscripciones pagadas. Validaremos esto si al menos el 30% de usuarios interesados selecciona un plan premium.
 </td>  
 <td>  
 <h2>What’s the most important thing we need to learn first?</h2>  
@@ -1944,6 +1951,45 @@ del agua en hogares y negocios. Los términos están en inglés, con su equivale
 </tr>
 
 <tr>
+<td>TS21</td>
+<td>Configurar sistema de internacionalización (i18n)</td>
+<td>Como Developer, quiero implementar una arquitectura de internacionalización mediante archivos JSON para permitir soporte de múltiples idiomas.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Estructura de archivos lista<br>
+Given que el sistema requiere soporte para español e inglés<br>
+When el developer configura las bibliotecas i18n<br>
+Then el sistema permite cargar etiquetas desde es.json y en.json<br>
+And retorna HTTP 200 OK al cargar recursos<br><br>
+
+Scenario 2: Fallback de idioma<br>
+Given que una etiqueta no existe en el idioma seleccionado<br>
+When la aplicación intenta renderizar el contenido<br>
+Then el sistema muestra el texto en español por defecto
+</td>
+<td>EP01</td>
+</tr>
+
+<tr>
+<td>TS22</td>
+<td>Implementar cambio dinámico de idioma</td>
+<td>Como Developer, quiero gestionar el estado global del idioma para actualizar la interfaz en tiempo real.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Cambio de idioma exitoso<br>
+Given que el usuario selecciona "English"<br>
+When el sistema procesa el cambio de idioma<br>
+Then el sistema actualiza el contexto global<br>
+And todos los componentes renderizan el nuevo idioma dinámicamente<br><br>
+
+Scenario 2: Idioma no soportado<br>
+Given que el usuario selecciona un idioma no registrado<br>
+When el sistema procesa la solicitud<br>
+Then el sistema mantiene el idioma por defecto
+</td>
+<td>EP01</td>
+</tr>
+<tr>
 <td>EP02</td>
 <td>Monitoreo inteligente</td>
 <td>Epic orientado a supervisión de sensores y consumo.</td>
@@ -2048,6 +2094,45 @@ del agua en hogares y negocios. Los términos están en inglés, con su equivale
 </tr>
 
 <tr>
+<td>TS23</td>
+<td>Implementar estructura de sección de planes</td>
+<td>Como Developer, quiero crear componentes modulares para la sección de planes y suscripciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Renderizado correcto<br>
+Given que el usuario accede a /planes<br>
+When el componente se monta en el DOM<br>
+Then el sistema muestra la cuadrícula de planes correctamente estructurada<br>
+And retorna HTTP 200 OK al obtener datos<br><br>
+
+Scenario 2: Sin planes disponibles<br>
+Given que no existen planes registrados<br>
+When el sistema intenta renderizar la sección<br>
+Then el sistema muestra un mensaje indicando ausencia de planes
+</td>
+<td>EP04</td>
+</tr>
+
+<tr>
+<td>TS24</td>
+<td>Desarrollar cards dinámicas para planes</td>
+<td>Como Developer, quiero diseñar componentes visuales dinámicos para mostrar información de suscripciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Visualización correcta<br>
+Given que existen datos de planes<br>
+When el componente recibe la información<br>
+Then el sistema renderiza nombre, precio y beneficios correctamente<br><br>
+
+Scenario 2: Datos incompletos<br>
+Given que un plan no contiene información obligatoria<br>
+When el sistema procesa los datos<br>
+Then el sistema muestra un mensaje de error controlado
+</td>
+<td>EP04</td>
+</tr>
+
+<tr>
 <td>EP05</td>
 <td>Gestión multi-sede</td>
 <td>Epic orientado a múltiples ubicaciones.</td>
@@ -2123,63 +2208,509 @@ Then el sistema muestra un resumen general
 <td>-</td>
 </tr>
 
-<tr><td>TS01</td><td>API registrar usuario</td><td>Como Developer, quiero registrar usuarios mediante API.</td><td>Given que se envían datos válidos<br>When se procesa la solicitud<br>Then el sistema crea el usuario</td><td>EP07</td></tr>
+<tr>
+<td>TS01</td>
+<td>API registrar usuario</td>
+<td>Como Developer, quiero registrar usuarios mediante la API para permitir la creación segura de cuentas.</td>
+<td>
+Criterio de Aceptación
+Scenario 1: Registro exitoso<br>
+Given que el developer envía datos válidos mediante POST /users<br>
+When el servidor procesa la solicitud<br>
+Then el sistema crea la cuenta<br>
+And retorna HTTP 201 Created<br>
+And retorna los datos básicos del usuario<br><br>
 
-<tr><td>TS02</td><td>API obtener sensores</td><td>Como Developer, quiero consultar sensores.</td><td>Given que se solicita información<br>When se procesa<br>Then el sistema retorna sensores</td><td>EP07</td></tr>
+Scenario 2: Correo ya registrado<br>
+Given que el developer envía un correo existente<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza el registro<br>
+And retorna HTTP 409 Conflict
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS03</td><td>API sensores por usuario</td><td>Como Developer, quiero obtener sensores de un usuario.</td><td>Given que se envía ID usuario<br>When se consulta<br>Then retorna sensores asociados</td><td>EP07</td></tr>
+<tr>
+<td>TS02</td>
+<td>API obtener sensores</td>
+<td>Como Developer, quiero consultar sensores registrados mediante la API para visualizar dispositivos asociados.</td>
+<td>
+Criterio de Aceptación
+Scenario 1: Consulta exitosa<br>
+Given que existen sensores registrados<br>
+When el developer envía GET /sensors<br>
+Then el sistema retorna la lista de sensores<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS04</td><td>API generar alerta</td><td>Como Developer, quiero registrar alertas.</td><td>Given que ocurre evento<br>When se envía alerta<br>Then el sistema la almacena</td><td>EP07</td></tr>
+Scenario 2: Sin sensores registrados<br>
+Given que no existen sensores registrados<br>
+When el developer envía GET /sensors<br>
+Then el sistema retorna una lista vacía<br>
+And retorna HTTP 200 OK
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS05</td><td>API historial</td><td>Como Developer, quiero consultar historial.</td><td>Given que se solicita historial<br>When se procesa<br>Then retorna datos</td><td>EP07</td></tr>
+<tr>
+<td>TS03</td>
+<td>API sensores por usuario</td>
+<td>Como Developer, quiero obtener sensores asociados a un usuario para mostrar información personalizada.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Usuario con sensores<br>
+Given que el usuario tiene sensores asociados<br>
+When el developer envía GET /users/{id}/sensors<br>
+Then el sistema retorna sensores asociados<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS06</td><td>API login</td><td>Como Developer, quiero autenticar usuarios.</td><td>Given credenciales<br>When son válidas<br>Then retorna acceso</td><td>EP07</td></tr>
+Scenario 2: Usuario inexistente<br>
+Given que el ID del usuario no existe<br>
+When el developer realiza la consulta<br>
+Then el sistema rechaza la solicitud<br>
+And retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS07</td><td>API logout</td><td>Como Developer, quiero cerrar sesión.</td><td>Given sesión activa<br>When se solicita cierre<br>Then se invalida</td><td>EP07</td></tr>
+<tr>
+<td>TS04</td>
+<td>API generar alerta</td>
+<td>Como Developer, quiero registrar alertas automáticamente para notificar incidentes detectados.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Alerta generada correctamente<br>
+Given que un sensor detecta una anomalía<br>
+When el sistema envía POST /alerts<br>
+Then el sistema registra la alerta<br>
+And retorna HTTP 201 Created<br><br>
 
-<tr><td>TS08</td><td>API recuperar contraseña</td><td>Como Developer, quiero recuperación.</td><td>Given solicitud<br>When se procesa<br>Then envía recuperación</td><td>EP07</td></tr>
+Scenario 2: Datos inválidos<br>
+Given que la alerta contiene datos incompletos<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza el registro<br>
+And retorna HTTP 400 Bad Request
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS09</td><td>API registrar sensor</td><td>Como Developer, quiero registrar sensores.</td><td>Given datos sensor<br>When se envía<br>Then se almacena</td><td>EP07</td></tr>
+<tr>
+<td>TS05</td>
+<td>API historial de consumo</td>
+<td>Como Developer, quiero consultar historial de consumo para mostrar reportes al usuario.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Consulta exitosa<br>
+Given que existen registros de consumo<br>
+When el developer envía GET /history<br>
+Then el sistema retorna el historial solicitado<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS10</td><td>API vincular sensor</td><td>Como Developer, quiero vincular sensor.</td><td>Given IDs<br>When se procesa<br>Then se vincula</td><td>EP07</td></tr>
+Scenario 2: Historial inexistente<br>
+Given que no existen registros para el periodo solicitado<br>
+When el developer realiza la consulta<br>
+Then el sistema retorna una lista vacía<br>
+And retorna HTTP 200 OK
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS11</td><td>API actualizar lectura</td><td>Como Developer, quiero actualizar lecturas.</td><td>Given nueva lectura<br>When se envía<br>Then se guarda</td><td>EP07</td></tr>
+<tr>
+<td>TS06</td>
+<td>API login</td>
+<td>Como Developer, quiero autenticar usuarios mediante la API para permitir acceso seguro.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Inicio de sesión exitoso<br>
+Given que el usuario envía credenciales válidas mediante POST /auth/login<br>
+When el servidor valida los datos<br>
+Then el sistema autentica al usuario<br>
+And retorna HTTP 200 OK<br>
+And retorna token de autenticación<br><br>
 
-<tr><td>TS12</td><td>API desvincular sensor</td><td>Como Developer, quiero desvincular sensor.</td><td>Given solicitud<br>When se procesa<br>Then se elimina relación</td><td>EP07</td></tr>
+Scenario 2: Credenciales inválidas<br>
+Given que las credenciales son incorrectas<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza el acceso<br>
+And retorna HTTP 401 Unauthorized
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS13</td><td>API listar alertas</td><td>Como Developer, quiero listar alertas.</td><td>Given consulta<br>When se procesa<br>Then retorna alertas</td><td>EP07</td></tr>
+<tr>
+<td>TS07</td>
+<td>API logout</td>
+<td>Como Developer, quiero cerrar sesiones activas para finalizar accesos de usuarios.</td>
+<td>
+Criterio de Aceptación
+Scenario 1: Logout exitoso<br>
+Given que el usuario posee una sesión válida<br>
+When el developer envía POST /auth/logout<br>
+Then el sistema invalida la sesión<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS14</td><td>API actualizar alerta</td><td>Como Developer, quiero actualizar alertas.</td><td>Given alerta<br>When se modifica<br>Then se actualiza</td><td>EP07</td></tr>
+Scenario 2: Token inválido<br>
+Given que el token es inválido o expiró<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza la operación<br>
+And retorna HTTP 401 Unauthorized
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS15</td><td>API configurar umbrales</td><td>Como Developer, quiero configurar límites.</td><td>Given datos<br>When se envían<br>Then se guardan</td><td>EP07</td></tr>
+<tr>
+<td>TS08</td>
+<td>API recuperar contraseña</td>
+<td>Como Developer, quiero permitir recuperación de contraseña mediante correo electrónico.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Solicitud válida<br>
+Given que el usuario envía un correo registrado mediante POST /auth/recovery<br>
+When el sistema procesa la solicitud<br>
+Then el sistema envía instrucciones de recuperación<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS16</td><td>API reporte por fechas</td><td>Como Developer, quiero reportes.</td><td>Given rango<br>When se consulta<br>Then retorna datos</td><td>EP07</td></tr>
+Scenario 2: Correo inexistente<br>
+Given que el correo no está registrado<br>
+When el sistema procesa la solicitud<br>
+Then el sistema rechaza la operación<br>
+And retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS17</td><td>API resumen consumo</td><td>Como Developer, quiero resumen.</td><td>Given solicitud<br>When se procesa<br>Then retorna métricas</td><td>EP07</td></tr>
+<tr>
+<td>TS09</td>
+<td>API registrar sensor</td>
+<td>Como Developer, quiero registrar sensores IoT para asociarlos a usuarios o sedes.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Registro exitoso<br>
+Given que el developer envía datos válidos mediante POST /sensors<br>
+When el servidor procesa la solicitud<br>
+Then el sistema registra el sensor<br>
+And retorna HTTP 201 Created<br><br>
 
-<tr><td>TS18</td><td>API consultar planes</td><td>Como Developer, quiero obtener planes.</td><td>Given solicitud<br>When se consulta<br>Then retorna planes</td><td>EP07</td></tr>
+Scenario 2: Sensor duplicado<br>
+Given que el código del sensor ya existe<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza el registro<br>
+And retorna HTTP 409 Conflict
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS19</td><td>API activar suscripción</td><td>Como Developer, quiero activar suscripción.</td><td>Given datos<br>When se procesa<br>Then se activa</td><td>EP07</td></tr>
+<tr>
+<td>TS10</td>
+<td>API vincular sensor</td>
+<td>Como Developer, quiero vincular sensores a usuarios o sedes.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Vinculación exitosa<br>
+Given que el usuario y sensor existen<br>
+When el developer envía POST /sensor-links<br>
+Then el sistema crea la relación<br>
+And retorna HTTP 201 Created<br><br>
 
-<tr><td>TS20</td><td>API cambiar suscripción</td><td>Como Developer, quiero cambiar plan.</td><td>Given solicitud<br>When se procesa<br>Then se actualiza</td><td>EP07</td></tr>
+Scenario 2: Sensor inexistente<br>
+Given que el sensor no existe<br>
+When el servidor procesa la solicitud<br>
+Then el sistema rechaza la operación<br>
+And retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS21</td><td>Configurar sistema de traducciones</td><td>Como Developer, quiero definir textos en múltiples idiomas.</td><td>Given que existen textos en la aplicación<br>When se configuran los archivos de idioma<br>Then el sistema puede mostrar contenido traducido</td><td>EP01</td></tr>
+<tr>
+<td>TS11</td>
+<td>API actualizar lectura</td>
+<td>Como Developer, quiero actualizar lecturas de sensores para mantener monitoreo en tiempo real.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Actualización correcta<br>
+Given que el sensor existe<br>
+When el dispositivo envía PUT /readings/{id}<br>
+Then el sistema actualiza la lectura<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS22</td><td>Aplicar cambio dinámico de idioma</td><td>Como Developer, quiero actualizar el contenido sin recargar la página.</td><td>Given que el usuario cambia el idioma<br>When se ejecuta la acción<br>Then el sistema actualiza los textos dinámicamente</td><td>EP01</td></tr>
+Scenario 2: Sensor inexistente<br>
+Given que el sensor no existe<br>
+When el servidor procesa la actualización<br>
+Then el sistema rechaza la solicitud<br>
+And retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS23</td><td>Implementar sección de planes</td><td>Como Developer, quiero crear la estructura de la sección planes.</td><td>Given que el usuario accede a la landing<br>When navega a la sección planes<br>Then el sistema muestra la estructura correctamente</td><td>EP04</td></tr>
+<tr>
+<td>TS12</td>
+<td>API desvincular sensor</td>
+<td>Como Developer, quiero desvincular sensores de usuarios o sedes.</td>
+<td>
+Criterio de Aceptación
+Scenario 1: Eliminación exitosa<br>
+Given que existe una relación activa<br>
+When el developer envía DELETE /sensor-links/{id}<br>
+Then el sistema elimina la relación<br>
+And retorna HTTP 204 No Content<br><br>
 
-<tr><td>TS24</td><td>Diseñar cards de planes</td><td>Como Developer, quiero mostrar planes con diseño visual.</td><td>Given que existen planes<br>When se renderiza la sección<br>Then el sistema muestra precios y beneficios</td><td>EP04</td></tr>
+Scenario 2: Relación inexistente<br>
+Given que la relación no existe<br>
+When el servidor procesa la solicitud<br>
+Then retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS25</td><td>Diseñar responsive layout</td><td>Como Developer, quiero adaptar la interfaz a distintos dispositivos.</td><td>Given diferentes tamaños de pantalla<br>When el usuario accede<br>Then el sistema ajusta el diseño correctamente</td><td>EP06</td></tr>
+<tr>
+<td>TS13</td>
+<td>API listar alertas</td>
+<td>Como Developer, quiero consultar alertas generadas para visualizarlas en el dashboard.</td>
+<td>
+Criterio de Aceptación
+Scenario 1: Consulta exitosa<br>
+Given que existen alertas registradas<br>
+When el developer envía GET /alerts<br>
+Then el sistema retorna las alertas<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS26</td><td>Ajustar componentes responsive</td><td>Como Developer, quiero adaptar componentes a mobile.</td><td>Given que el usuario usa un dispositivo móvil<br>When visualiza la página<br>Then los componentes se adaptan correctamente</td><td>EP06</td></tr>
+Scenario 2: Sin alertas<br>
+Given que no existen alertas registradas<br>
+When el developer realiza la consulta<br>
+Then el sistema retorna una lista vacía<br>
+And retorna HTTP 200 OK
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS27</td><td>Implementar navegación con anclas</td><td>Como Developer, quiero navegar entre secciones.</td><td>Given que existen secciones<br>When el usuario hace clic en el menú<br>Then el sistema navega a la sección correspondiente</td><td>EP06</td></tr>
+<tr>
+<td>TS14</td>
+<td>API actualizar alerta</td>
+<td>Como Developer, quiero actualizar el estado de una alerta.</td>
+<td>
+Criterio de Aceptación 
+Scenario 1: Actualización correcta<br>
+Given que la alerta existe<br>
+When el developer envía PUT /alerts/{id}<br>
+Then el sistema actualiza el estado<br>
+And retorna HTTP 200 OK<br><br>
 
-<tr><td>TS28</td><td>Implementar scroll suave</td><td>Como Developer, quiero mejorar la navegación.</td><td>Given que el usuario navega<br>When cambia de sección<br>Then el sistema aplica scroll suave</td><td>EP06</td></tr>
+Scenario 2: Alerta inexistente<br>
+Given que la alerta no existe<br>
+When el sistema procesa la solicitud<br>
+Then retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
 
-<tr><td>TS29</td><td>Implementar menú responsive</td><td>Como Developer, quiero agregar menú hamburguesa.</td><td>Given que el usuario está en mobile<br>When abre el menú<br>Then el sistema muestra navegación adaptable</td><td>EP06</td></tr>
+<tr>
+<td>TS15</td>
+<td>API configurar umbrales</td>
+<td>Como Developer, quiero configurar límites de sensores para personalizar alertas.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Configuración exitosa<br>
+Given que el sensor existe<br>
+When el developer envía PUT /thresholds/{id}<br>
+Then el sistema actualiza los límites<br>
+And retorna HTTP 200 OK<br><br>
+
+Scenario 2: Datos inválidos<br>
+Given que los valores enviados son inválidos<br>
+When el sistema procesa la solicitud<br>
+Then retorna HTTP 400 Bad Request
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS16</td>
+<td>API reporte por fechas</td>
+<td>Como Developer, quiero generar reportes filtrados por rango de fechas.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Generación exitosa<br>
+Given que existen datos registrados<br>
+When el developer envía GET /reports?startDate=2026-01-01&endDate=2026-01-31<br>
+Then el sistema retorna el reporte solicitado<br>
+And retorna HTTP 200 OK<br><br>
+
+Scenario 2: Fechas inválidas<br>
+Given que la fecha inicial es mayor que la final<br>
+When el servidor procesa la solicitud<br>
+Then retorna HTTP 400 Bad Request
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS17</td>
+<td>API resumen consumo</td>
+<td>Como Developer, quiero consultar métricas generales de consumo.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Consulta exitosa<br>
+Given que existen datos registrados<br>
+When el developer envía GET /consumption/summary<br>
+Then el sistema retorna métricas consolidadas<br>
+And retorna HTTP 200 OK<br><br>
+
+Scenario 2: Usuario inexistente<br>
+Given que el usuario no existe<br>
+When el sistema procesa la consulta<br>
+Then retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS18</td>
+<td>API consultar planes</td>
+<td>Como Developer, quiero obtener los planes de suscripción disponibles.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Consulta exitosa<br>
+Given que existen planes registrados<br>
+When el developer envía GET /plans<br>
+Then el sistema retorna los planes disponibles<br>
+And retorna HTTP 200 OK
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS19</td>
+<td>API activar suscripción</td>
+<td>Como Developer, quiero activar suscripciones para usuarios registrados.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Activación exitosa<br>
+Given que el usuario y plan existen<br>
+When el developer envía POST /subscriptions<br>
+Then el sistema activa la suscripción<br>
+And retorna HTTP 201 Created<br><br>
+
+Scenario 2: Plan inexistente<br>
+Given que el plan no existe<br>
+When el servidor procesa la solicitud<br>
+Then retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS20</td>
+<td>API cambiar suscripción</td>
+<td>Como Developer, quiero actualizar el plan de suscripción de un usuario.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Cambio exitoso<br>
+Given que el usuario posee una suscripción activa<br>
+When el developer envía PUT /subscriptions/{id}<br>
+Then el sistema actualiza el plan<br>
+And retorna HTTP 200 OK<br><br>
+
+Scenario 2: Suscripción inexistente<br>
+Given que la suscripción no existe<br>
+When el servidor procesa la solicitud<br>
+Then retorna HTTP 404 Not Found
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS25</td>
+<td>Implementar arquitectura responsive</td>
+<td>Como Developer, quiero aplicar Grid y Flexbox para adaptar la aplicación a distintas resoluciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Vista desktop/tablet<br>
+Given una resolución mayor a 768px<br>
+When el usuario visualiza la landing page<br>
+Then el sistema organiza el contenido en múltiples columnas<br><br>
+
+Scenario 2: Ajuste automático<br>
+Given que el usuario cambia el tamaño de la ventana<br>
+When el sistema detecta el cambio de resolución<br>
+Then la distribución visual se adapta automáticamente
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS26</td>
+<td>Ajustar componentes para dispositivos móviles</td>
+<td>Como Developer, quiero implementar media queries para optimizar la visualización móvil.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Vista móvil correcta<br>
+Given una resolución menor a 480px<br>
+When el usuario carga la página<br>
+Then el sistema muestra componentes apilados verticalmente<br><br>
+
+Scenario 2: Navegación optimizada<br>
+Given que el usuario navega desde un smartphone<br>
+When interactúa con la interfaz<br>
+Then el sistema mantiene legibilidad y accesibilidad visual
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS27</td>
+<td>Implementar navegación mediante anclas dinámicas</td>
+<td>Como Developer, quiero configurar navegación interna mediante IDs de secciones.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Navegación interna correcta<br>
+Given que el usuario hace clic en una opción del navbar<br>
+When el sistema procesa el ID correspondiente<br>
+Then el navegador se desplaza hacia la sección solicitada<br><br>
+
+Scenario 2: Sección inexistente<br>
+Given que el ID de la sección no existe<br>
+When el sistema intenta navegar<br>
+Then el sistema evita errores de navegación
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS28</td>
+<td>Configurar comportamiento Smooth Scroll</td>
+<td>Como Developer, quiero implementar desplazamiento suave entre secciones para mejorar la experiencia visual.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Scroll progresivo<br>
+Given que el usuario selecciona una sección desde el menú<br>
+When el sistema ejecuta el desplazamiento<br>
+Then el scroll se realiza de manera progresiva y fluida<br><br>
+
+Scenario 2: Compatibilidad de navegación<br>
+Given distintos navegadores compatibles<br>
+When el usuario navega entre secciones<br>
+Then el comportamiento smooth scroll se mantiene correctamente
+</td>
+<td>EP07</td>
+</tr>
+
+<tr>
+<td>TS29</td>
+<td>Desarrollar menú responsive tipo hamburguesa</td>
+<td>Como Developer, quiero implementar un menú colapsable para dispositivos móviles.</td>
+<td>
+Criterio de Aceptación  
+Scenario 1: Apertura de menú móvil<br>
+Given que el usuario se encuentra en un dispositivo móvil<br>
+When hace clic en el icono hamburguesa<br>
+Then el sistema despliega el menú responsive correctamente<br><br>
+
+Scenario 2: Cierre automático del menú<br>
+Given que el menú móvil está desplegado<br>
+When el usuario selecciona una opción de navegación<br>
+Then el sistema oculta automáticamente el menú
+</td>
+<td>EP07</td>
+</tr>
 </table>
 
 ## 3.2. Impact Mapping
@@ -3463,7 +3994,6 @@ En esta sección se describe el proceso de implementación, pruebas, documentaci
 Durante el Sprint 1, el equipo se enfocó en la implementación de la Landing Page del proyecto, desarrollando la estructura base, diseño visual y organización del contenido, alineados a la arquitectura de información definida previamente.
 
 #### 5.2.1.1. Sprint Planning 1
-
 El Sprint Planning permitió definir el alcance del Sprint, asignar responsabilidades y organizar las tareas necesarias para el desarrollo de la Landing Page. 
 
 A continuación, se presenta la tabla resumen del Sprint Planning 1:
@@ -3477,13 +4007,10 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 - 0 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
-| sprint 1 - 0 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint
-|  | Sprint Goal & User Stories |
+| Sprint Goal & User Stories |
 | Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
 | Sprint 1 Velocity | 10 Story Points |
 | Sum of Story Points | 10 Story Points |
-
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
@@ -3509,8 +4036,21 @@ detalla la distribución de roles para este primer ciclo:
 | Quiliano Motta, Kirk Douglas | @Kirkcito             | C |            C            | C |
 
 #### 5.2.1.3. Sprint Backlog 1. 
-
 ![Sprint Backlog 1](./assets/md-images-chapter5/Sprint%20Backlog.PNG)
+
+| Id | Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| US06 | Cambiar idioma | TS21 | Sistema de traducciones | Configuración de textos multilenguaje para el landing page | 4 hrs | Miguel | Done |
+| US06 | Cambiar idioma | TS22 | Cambio dinámico idioma | Implementación del cambio dinámico de idioma sin recargar la página | 3 hrs | Miguel | Done |
+| US12 | Visualizar planes | TS23 | Sección planes frontend | Desarrollo de la estructura visual de la sección de planes | 4 hrs | Bruno | Done |
+| US12 | Visualizar planes | TS24 | Diseño de planes | Implementación de cards de precios y beneficios de cada plan | 3 hrs | Bruno | Done |
+| US20 | Acceso multidispositivo | TS25 | Responsive layout | Adaptación responsive del landing page para distintos dispositivos | 4 hrs | James | Done |
+| US20 | Acceso multidispositivo | TS26 | Componentes responsive | Ajuste responsive de botones, cards y componentes visuales | 3 hrs | James | Done |
+| US21 | Navegación entre secciones | TS27 | Navegación con anclas | Implementación de navegación interna mediante anchor links | 2 hrs | Rodrigo | Done |
+| US21 | Navegación entre secciones | TS28 | Scroll suave | Implementación de smooth scrolling entre secciones | 2 hrs | Rodrigo | Done |
+| US21 | Navegación entre secciones | TS29 | Menú responsive | Desarrollo del menú hamburguesa adaptable a móviles | 3 hrs | Rodrigo | Done |
+
+LINK URL TRELLO: https://trello.com/invite/b/69eac1f8457512a2f55d9699/ATTI0db4f1b2fac4ca47db5b72f302c1b7e9FDE35BBF/sprint-backlog-1-lowcortisol 
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
@@ -3521,23 +4061,22 @@ En esta sección se presentan los avances de implementación correspondientes al
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |----------|--------|----------|---------------|--------------------|--------------------|
-| Lowcortisol-LadingPage | develop / section-payment | 77f8ae2 | feat: event carousel | Se implementó un carrusel de eventos en la sección beneficios para mejorar la visualización de información dinámica. | 25/04/2026 |
-| Lowcortisol-LadingPage | develop | b198c08 | fix: landing page update | Se realizaron ajustes generales en la landing page para mejorar estructura y estilos. | 25/04/2026 |
-| Lowcortisol-LadingPage | develop | 6bd24d1 | feat: add English button | Se agregó un botón de cambio de idioma para permitir visualización en inglés. | 23/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | b5c977c | feat: features section | Se añadieron nuevas funcionalidades en la sección de beneficios. | 22/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | b0237ea | style: responsive benefits | Se ajustó el diseño responsive de la sección beneficios para mejorar visualización en móviles. | 22/04/2026 |
-| Lowcortisol-LadingPage | RamaBruno | 9cb7c89 | feat: HTML y CSS beneficios | Se implementó la estructura HTML y estilos CSS de la sección beneficios. | 22/04/2026 |
-| Lowcortisol-LadingPage | Soluciones-Kirk | 86876ff | fix: imágenes solución | Se corrigieron imágenes dentro de la sección soluciones para mejorar la presentación visual. | 21/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 48838f6 | style: footer logo | Se realizaron cambios en el estilo del logo ubicado en el footer. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 49ae582 | feat: header home | Se actualizaron componentes del header y sección home. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | bfb0a3f | feat: add images | Se agregaron imágenes necesarias para el diseño de la landing page. | 20/04/2026 |
-| Lowcortisol-LadingPage | landing-page-james | 8f359a1 | feat: landing structure | Se implementó la estructura principal del header, home, contacto y footer. | 20/04/2026 |
-| Lowcortisol-LadingPage | Soluciones-Kirk | c5ae431 | feat: tarjetas UI | Se agregaron tarjetas para usuarios residenciales e infraestructura junto con estilos. | 20/04/2026 |
-| Lowcortisol-LadingPage | section-payment | 65b1ebf | feat: payment section | Se completó la sección de planes y pagos con su estructura visual. | 20/04/2026 |
-| Lowcortisol-LadingPage | section-about | 8486712 | feat: about section | Se desarrolló la sección "About" de la landing page. | 20/04/2026 |
-| Lowcortisol-LadingPage | main | e2b28de | init: project setup | Se realizó el commit inicial del proyecto con la configuración base. | 19/04/2026 |
+| lowcortisol-website | develop / section-payment | 77f8ae2 | feat: event carousel | Se implementó un carrusel de eventos en la sección beneficios para mejorar la visualización de información dinámica. | 25/04/2026 |
+| lowcortisol-website | develop | b198c08 | fix: landing page update | Se realizaron ajustes generales en la landing page para mejorar estructura y estilos. | 25/04/2026 |
+| lowcortisol-website | develop | 6bd24d1 | feat: add English button | Se agregó un botón de cambio de idioma para permitir visualización en inglés. | 23/04/2026 |
+| lowcortisol-website | feature/section-benefits | b5c977c | feat: features section | Se añadieron nuevas funcionalidades en la sección de beneficios. | 22/04/2026 |
+| lowcortisol-website | feature/section-benefits | b0237ea | style: responsive benefits | Se ajustó el diseño responsive de la sección beneficios para mejorar visualización en móviles. | 22/04/2026 |
+| lowcortisol-website | feature/section-benefits | 9cb7c89 | feat: HTML y CSS beneficios | Se implementó la estructura HTML y estilos CSS de la sección beneficios. | 22/04/2026 |
+| lowcortisol-website | feature/section-soluction | 86876ff | fix: imágenes solución | Se corrigieron imágenes dentro de la sección soluciones para mejorar la presentación visual. | 21/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 48838f6 | style: footer logo | Se realizaron cambios en el estilo del logo ubicado en el footer. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 49ae582 | feat: header home | Se actualizaron componentes del header y sección home. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | bfb0a3f | feat: add images | Se agregaron imágenes necesarias para el diseño de la landing page. | 20/04/2026 |
+| lowcortisol-website | feature/sections-home-contact | 8f359a1 | feat: landing structure | Se implementó la estructura principal del header, home, contacto y footer. | 20/04/2026 |
+| lowcortisol-website | feature/section-soluction | c5ae431 | feat: tarjetas UI | Se agregaron tarjetas para usuarios residenciales e infraestructura junto con estilos. | 20/04/2026 |
+| lowcortisol-website | feature/section-payment | 65b1ebf | feat: payment section | Se completó la sección de planes y pagos con su estructura visual. | 20/04/2026 |
+| lowcortisol-website | feature/section-about | 8486712 | feat: about section | Se desarrolló la sección "About" de la landing page. | 20/04/2026 |
+| lowcortisol-website | main | e2b28de | init: project setup | Se realizó el commit inicial del proyecto con la configuración base. | 19/04/2026 |
 
-LINK URL TRELLO: https://trello.com/invite/b/69eac1f8457512a2f55d9699/ATTI0db4f1b2fac4ca47db5b72f302c1b7e9FDE35BBF/sprint-backlog-1-lowcortisol 
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
@@ -3629,7 +4168,7 @@ Asimismo, se fortaleció el trabajo colaborativo mediante el uso de herramientas
 #### 5.2.2.1. Sprint Planning 2
 
 
-El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial de la plataforma LowCortisol, implementando módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos y alertas. Asimismo, se desarrolló la arquitectura principal del sistema, el modelo de base de datos y el despliegue de servicios mediante Render, permitiendo establecer la integración entre frontend y backend.
+El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial de la plataforma LowCortisol, implementando módulos relacionados con autenticación, monitoreo inteligente, gestión de dispositivos y alertas. Asimismo, se desarrolló la arquitectura principal del sistema, el modelo de base de datos y el despliegue de servicios mediante Render, permitiendo establecer la integración entre frontend.
 
 | Campo | Descripción |
 |:-----:|:-----------:|
@@ -3640,8 +4179,8 @@ El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial 
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 Review Summary | Durante el Sprint 1 se desarrolló e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
-| Sprint 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
+| Sprint 2- 1 Review Summary | Durante el Sprint 1 se desarrolló las correciones del informe e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
+| Sprint 2 - 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
 |  | Sprint Goal & User Stories |
 | Sprint 2 Goal | Desarrollar la estructura funcional inicial de la plataforma LowCortisol mediante la implementación de módulos de autenticación, monitoreo inteligente, gestión de dispositivos y alertas, integrando frontend, backend y despliegue de servicios en Render. Este objetivo se considerará cumplido cuando la plataforma permita visualizar información de monitoreo, gestionar funcionalidades principales y acceder a los servicios desplegados correctamente |
 | Sprint 2 Velocity | 34 Story Points |
@@ -3766,18 +4305,14 @@ El despliegue permitió comprobar la navegación entre módulos principales, el 
 El despliegue permitió validar que la aplicación puede ejecutarse fuera del entorno local y que los módulos principales consumen información desde la Fake API. Esto evidencia un avance funcional para la revisión del sprint, ya que la solución puede ser mostrada mediante una URL pública y se encuentra preparada para futuras integraciones con el backend real.
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
+Durante este segundo Sprint, la colaboración del equipo se volcó plenamente hacia la consolidación técnica del proyecto, abarcando desde la estructuración de la arquitectura de software hasta la configuración de los entornos de despliegue. El foco principal de nuestra sinergia fue la ejecución del nuevo avance funcional, donde nos organizamos para que el desarrollo de la interfaz de usuario avanzara en paralelo con la infraestructura en la nube. Basándonos estrictamente en los criterios de la rúbrica de evaluación, realizamos sesiones de revisión conjunta para asegurar que se cumplieran con los estándares de calidad exigidos, corrigiendo inconsistencias en la lógica de navegación y asegurando que el flujo de datos a través de la Fake API en Render fuera transparente y eficiente.
 
-
+Asimismo, el trabajo en equipo fue fundamental para elevar el rigor de los artefactos técnicos. No nos limitamos a generar código, sino que colaboramos estrechamente para refinar las historias técnicas y los diagramas de arquitectura, asegurando que cada componente reflejara fielmente los requisitos del sistema. Esta etapa de colaboración nos permitió estandarizar el uso de bibliotecas para la persistencia de datos y unificar criterios en el manejo del repositorio mediante GitFlow. Esta coordinación no solo facilitó la integración de las nuevas funcionalidades de monitoreo, sino que garantizó que el progreso actual del proyecto posea una base sólida, coherente y alineada con las expectativas académicas y profesionales del curso.
 
 # Conclusiones
+Tras completar este nuevo avance en la implementación y validación del proyecto LowCortisol, el equipo concluye que se ha logrado consolidar una arquitectura de software robusta a través de un proceso de refactorización guiado por los estándares de la rúbrica docente. A diferencia de la etapa inicial, ahora contamos con un sistema funcional desplegado que integra de manera coherente el frontend con la infraestructura de servicios para las pruebas actuales. La aplicación rigurosa de Domain-Driven Design (DDD) y la corrección de los diagramas C4 han permitido que la aplicación evolucione hacia una plataforma con una lógica de dominio clara, sentando las bases para las funcionalidades que se implementarán en las siguientes etapas.
 
-Hasta el momento, el proyecto LowCortisol ha logrado construir una base sólida a nivel de investigación, diseño y una primera implementación. Se partió de una problemática real relacionada con la detección tardía de fugas de agua y gas, identificando impactos como pérdidas económicas, riesgos de seguridad y desperdicio de recursos.
-
-A partir de esto, se definió una propuesta de valor basada en una solución IoT que permite el monitoreo en tiempo real, generación de alertas y control preventivo de los sistemas. Durante el desarrollo, se trabajaron aspectos clave como el perfil de la startup, análisis competitivo, Lean UX y entrevistas, lo que ayudó a validar la necesidad del producto en los usuarios.
-
-También se estructuraron los requerimientos mediante user stories, technical stories y product backlog, dejando claras las funcionalidades principales del sistema. Además, se logró implementar y desplegar la Landing Page, evidenciando el uso de herramientas como GitHub y el trabajo en equipo mediante sprints.
-
-En general, LowCortisol ya cuenta con una buena base para continuar el proyecto. Como siguiente paso, se deberá avanzar en el desarrollo de la aplicación web y la integración de funcionalidades más completas.
+Por otro lado, concluimos que la transición hacia un modelo de desarrollo basado en requisitos técnicos detallados ha sido fundamental para asegurar la viabilidad de lo avanzado en este Sprint. Al haber refinado las historias técnicas y las hipótesis de Lean UX, el proyecto ahora cuenta con métricas de éxito iniciales y una estructura de datos que utiliza las bibliotecas de persistencia adecuadas para el entorno .NET. Finalmente, el despliegue exitoso de los servicios y la gestión profesional del código confirman que el equipo ha interiorizado las mejores prácticas de ingeniería; sin embargo, somos conscientes de que el trabajo aún está en ejecución, y estos resultados parciales son el punto de partida para completar la solución integral de monitoreo en las entregas finales.
 
 # Bibliografía 
 
