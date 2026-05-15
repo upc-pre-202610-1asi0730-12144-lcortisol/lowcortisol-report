@@ -4011,8 +4011,8 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint Goal & User Stories |
-| Sprint 1 Goal | Desarrollar y desplegar una Landing Page funcional que presente la propuesta de valor del proyecto, incluyendo sus secciones principales y un diseño estructurado. Este objetivo se considerará cumplido cuando la página sea accesible mediante un metodo de despliegue que permita la navegación entre secciones sin errores y comunique claramente los beneficios del producto.
+|  |**Sprint Goal & User Stories** |
+| Sprint 1 Goal | Our focus is on presenting the project’s value proposition through a functional and accessible Landing Page that provides users with a clear and structured overview of the solution. We believe it delivers a better first impression of the product by allowing visitors to navigate through the main sections of the website in an organized and intuitive way. This will be confirmed when the Landing Page is successfully deployed, users can navigate between sections without errors, and the platform clearly communicates the benefits and purpose of the product. |
 | Sprint 1 Velocity | 10 Story Points |
 | Sum of Story Points | 10 Story Points |
 
@@ -4186,7 +4186,7 @@ El Sprint 2 estuvo enfocado en el desarrollo de la estructura funcional inicial 
 | Sprint 2- 1 Review Summary | Durante el Sprint 1 se desarrolló las correciones del informe e implementó la Landing Page de LowCortisol, incluyendo navegación entre secciones, visualización de planes, cambio de idioma y adaptación responsive para distintos dispositivos |
 | Sprint 2 - 1 Retrospective Summary | El equipo logró completar satisfactoriamente las funcionalidades planificadas para la Landing Page, mejorando la organización y distribución de tareas mediante GitHub y Trello. Como oportunidad de mejora, se identificó fortalecer la integración técnica entre frontend y backend para los siguientes sprints |
 |  | Sprint Goal & User Stories |
-| Sprint 2 Goal | Desarrollar la estructura funcional inicial de la plataforma LowCortisol mediante la implementación de módulos de autenticación, monitoreo inteligente, gestión de dispositivos y alertas, integrando frontend, backend y despliegue de servicios en Render. Este objetivo se considerará cumplido cuando la plataforma permita visualizar información de monitoreo, gestionar funcionalidades principales y acceder a los servicios desplegados correctamente |
+| Sprint 2 Goal |  Our focus is on developing the initial functional structure of the LowCortisol platform by implementing authentication, smart monitoring, device management, and alert modules integrated through frontend, backend, and deployed services on Render.  We believe it delivers a more complete and interactive experience to users by allowing them to access core platform functionalities and interact with monitoring services in a centralized environment.  This will be confirmed when users can successfully access the platform, visualize monitoring information, manage the main functionalities, and interact with the services deployed correctly on Render without critical errors.|
 | Sprint 2 Velocity | 34 Story Points |
 | Sum of Story Points | 34 Story Points |
 
