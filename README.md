@@ -4013,9 +4013,7 @@ A continuación, se presenta la tabla resumen del Sprint Planning 1:
 | Location | Reunión virtual (Google Meet) |
 | Prepared By | Condori Torres, Miguel Anibal |
 | Attendees | Condori Torres, Miguel Anibal / Delgado Perez, James Caleb / Loa Rojas, Jean Franck / Montalvo Vasquez, Bruno Rodrigo / Quiliano Motta, Kirk Douglas |
-| Sprint 1 - 1 Review Summary | No existen revisiones previas, dado que el proyecto se encuentra en el primer sprint |
-| Sprint 1 - 1 Retrospective Summary | No existen retrospectivas previas, dado que el proyecto se encuentra en su primer sprint |
-| **Sprint Goal & User Stories** | |
+|  |**Sprint Goal & User Stories** |
 | Sprint 1 Goal | Our focus is on presenting the project’s value proposition through a functional and accessible Landing Page that provides users with a clear and structured overview of the solution. We believe it delivers a better first impression of the product by allowing visitors to navigate through the main sections of the website in an organized and intuitive way. This will be confirmed when the Landing Page is successfully deployed, users can navigate between sections without errors, and the platform clearly communicates the benefits and purpose of the product. |
 | Sprint 1 Velocity | 10 Story Points |
 | Sum of Story Points | 10 Story Points |
