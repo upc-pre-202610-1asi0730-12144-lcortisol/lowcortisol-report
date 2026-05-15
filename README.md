@@ -4115,7 +4115,6 @@ git diff README.md
 
 ![Planes1-IMG](assets/md-images-chapter5/Planes_1-Sección.png)
 
-![Planes2-IMG](assets/md-images-chapter5/Planes_2-Sección.png)
 
 7. Sección Contacto: Las opcciones de contacto que tiene el usuario para poder 
 acceder a mas información
