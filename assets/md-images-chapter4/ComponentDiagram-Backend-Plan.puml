@@ -7,27 +7,25 @@ title LowCortisol Platform - Plan Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes plan backend endpoints.")
-
-System_Ext(paymentProvider, "Payment Provider", "External service projected for real subscription payment processing.")
-
+System_Ext(paymentProvider, "Payment Provider", "External service projected for subscription payment processing.")
 ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores plans, features, subscriptions, payments, and service requests.")
 
 Container_Boundary(plan, "Plan") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes plan, subscription, payment, and service request endpoints through PlanController, SubscriptionController, PaymentController, and ServiceRequestController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes plan, subscription, payment, and service request endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates listing plans, subscribing, changing plans, cancelling subscriptions, recording payments, and loading service requests.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates listing plans, subscribing, changing plans, cancelling subscriptions, recording payments, and service requests.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains Plan, PlanFeature, Subscription, Payment, ServiceRequest, and subscription business rules.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains Plan, PlanFeature, Subscription, Payment, ServiceRequest, and subscription rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for plans, subscriptions, payments, and service requests.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for plans, subscriptions, payments, and service requests.")
 
   Component(paymentConnector, "Payment Connector", "Payment Service Adapter", "Processes subscription payments through an external provider.")
 }
 
-Rel(spa, interface, "Consumes plan endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes plan endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies plan and subscription rules")
 Rel(application, infrastructure, "Uses repositories and persistence services")
 Rel(application, paymentConnector, "Processes payment operations")

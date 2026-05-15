@@ -37,11 +37,13 @@ package "infrastructure" {
   class EfDeviceCommandRepository
 }
 
-package "interface" {
-  class DeviceController
-  class SensorController
-  class ValveController
-  class DeviceCommandController
+package "interfaces" {
+  package "rest" {
+    class DeviceController
+    class SensorController
+    class ValveController
+    class DeviceCommandController
+  }
 }
 
 Device "1" o-- "*" Sensor

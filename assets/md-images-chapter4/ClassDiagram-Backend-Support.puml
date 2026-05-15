@@ -34,10 +34,14 @@ package "infrastructure" {
   class EfKnowledgeArticleRepository
 }
 
-package "interface" {
-  class SupportTicketController
-  class SupportMessageController
-  class KnowledgeArticleController
+package "interfaces" {
+  package "rest" {
+    class SupportTicketController
+    class SupportMessageController
+    class SupportAgentController
+    class SupportConversationController
+    class KnowledgeArticleController
+  }
 }
 
 SupportTicket "1" o-- "*" SupportMessage
@@ -57,6 +61,8 @@ KnowledgeArticleRepository <|.. EfKnowledgeArticleRepository
 
 SupportTicketController --> SupportApplicationService
 SupportMessageController --> SupportApplicationService
+SupportAgentController --> SupportApplicationService
+SupportConversationController --> SupportApplicationService
 KnowledgeArticleController --> SupportApplicationService
 
 SupportTicketController ..> CreateSupportTicketCommand

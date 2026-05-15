@@ -7,34 +7,32 @@ title LowCortisol Platform - IAM Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes IAM backend endpoints.")
-
-System_Ext(emailProvider, "Email Provider", "External service used to send password recovery instructions and account-related emails.")
-
-ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores users, access profiles, permissions, and authentication sessions.")
+System_Ext(emailProvider, "Email Provider", "External service used to send password recovery instructions.")
+ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores users, access profiles, permissions, and sessions.")
 
 Container_Boundary(iam, "IAM") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes authentication, user profile, access profile, and session endpoints through AuthController, UserController, and AccessProfileController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes authentication, user profile, access profile, and session endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates sign in, sign up, password recovery, sign out, profile update, and access profile queries.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates sign in, sign up, password recovery, sign out, profile update, and access profile queries.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains User, AccessProfile, Permission, AuthSession, and IAM business rules for account and access management.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains User, AccessProfile, Permission, AuthSession, and IAM business rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories, database access, session persistence, password hashing, and token generation.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories, database access, session persistence, password hashing, and token generation.")
 
-  Component(securityConnector, "Security Connector", "JWT / Password Hashing", "Generates authentication tokens, validates credentials, hashes passwords, and manages secure authentication operations.")
+  Component(securityConnector, "Security Connector", "JWT / Password Hashing", "Generates tokens, validates credentials, hashes passwords, and manages secure authentication operations.")
 
   Component(emailConnector, "Email Connector", "Email Service Adapter", "Sends password recovery instructions through the external email provider.")
 }
 
-Rel(spa, interface, "Consumes IAM endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes IAM endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies IAM business rules")
-Rel(application, infrastructure, "Uses repositories and infrastructure services")
+Rel(application, infrastructure, "Uses repositories and services")
 
 Rel(infrastructure, securityConnector, "Uses token generation and password hashing")
-Rel(infrastructure, emailConnector, "Sends password recovery messages")
+Rel(infrastructure, emailConnector, "Sends recovery messages")
 Rel(infrastructure, database, "Reads and writes IAM data", "EF Core")
 
 Rel(emailConnector, emailProvider, "Sends recovery emails", "SMTP/HTTPS")

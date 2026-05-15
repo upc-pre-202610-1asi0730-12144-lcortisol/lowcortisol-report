@@ -7,27 +7,25 @@ title LowCortisol Platform - Monitoring Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes monitoring backend endpoints.")
-
 System_Ext(iotNetwork, "IoT Network", "External source of water and gas readings.")
-
 ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores monitoring sessions, readings, anomalies, and reports.")
 
 Container_Boundary(monitoring, "Monitoring") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes monitoring, reading, anomaly, and report endpoints through MonitoringController, ReadingController, AnomalyController, and ReportController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes monitoring, reading, anomaly, and report endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates dashboard summaries, reading registration, anomaly detection, session management, and report generation.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates dashboard summaries, reading registration, anomaly detection, session management, and report generation.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains MonitoringSession, Reading, Anomaly, Report, and monitoring business rules.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains MonitoringSession, Reading, Anomaly, Report, and monitoring rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for monitoring information.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for monitoring information.")
 
   Component(readingConnector, "Reading Connector", "IoT Service Adapter", "Receives or retrieves readings from IoT devices.")
 }
 
-Rel(spa, interface, "Consumes monitoring endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes monitoring endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies monitoring rules")
 Rel(application, infrastructure, "Uses repositories and persistence services")
 Rel(application, readingConnector, "Retrieves sensor readings")

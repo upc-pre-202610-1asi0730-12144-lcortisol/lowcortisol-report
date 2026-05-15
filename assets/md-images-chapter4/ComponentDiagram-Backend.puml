@@ -13,7 +13,7 @@ Container_Boundary(api, "Backend API") {
 
   Component(iam, "IAM", "Bounded Context", "Identity, access, profiles, permissions, and sessions.")
   Component(plan, "Plan", "Bounded Context", "Plans, subscriptions, payments, and service requests.")
-  Component(workspace, "Workspace", "Bounded Context", "Workspaces, sites, members, and assignments.")
+  Component(workplace, "Workplace", "Bounded Context", "Workplaces, sites, members, and assignments.")
   Component(deviceControl, "Device Control", "Bounded Context", "Devices, sensors, valves, and commands.")
   Component(monitoring, "Monitoring", "Bounded Context", "Sessions, readings, anomalies, and reports.")
   Component(notification, "Notification", "Bounded Context", "Alerts, thresholds, incidents, channels, and deliveries.")
@@ -22,7 +22,7 @@ Container_Boundary(api, "Backend API") {
 
 Rel(spa, iam, "Consumes IAM endpoints", "HTTPS/JSON")
 Rel(spa, plan, "Consumes plan endpoints", "HTTPS/JSON")
-Rel(spa, workspace, "Consumes workspace endpoints", "HTTPS/JSON")
+Rel(spa, workplace, "Consumes workplace endpoints", "HTTPS/JSON")
 Rel(spa, deviceControl, "Consumes device control endpoints", "HTTPS/JSON")
 Rel(spa, monitoring, "Consumes monitoring endpoints", "HTTPS/JSON")
 Rel(spa, notification, "Consumes notification endpoints", "HTTPS/JSON")
@@ -30,7 +30,7 @@ Rel(spa, support, "Consumes support endpoints", "HTTPS/JSON")
 
 Rel(iam, database, "Persists IAM data")
 Rel(plan, database, "Persists plan data")
-Rel(workspace, database, "Persists workspace data")
+Rel(workplace, database, "Persists workplace data")
 Rel(deviceControl, database, "Persists device control data")
 Rel(monitoring, database, "Persists monitoring data")
 Rel(notification, database, "Persists notification data")

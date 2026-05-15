@@ -33,10 +33,13 @@ package "infrastructure" {
   class EfReportRepository
 }
 
-package "interface" {
-  class MonitoringController
-  class ReadingController
-  class ReportController
+package "interfaces" {
+  package "rest" {
+    class MonitoringController
+    class ReadingController
+    class ReportController
+    class AnomalyController
+  }
 }
 
 MonitoringSession "1" o-- "*" Reading
@@ -56,6 +59,7 @@ ReportRepository <|.. EfReportRepository
 MonitoringController --> MonitoringApplicationService
 ReadingController --> MonitoringApplicationService
 ReportController --> MonitoringApplicationService
+AnomalyController --> MonitoringApplicationService
 
 ReadingController ..> CreateReadingCommand
 ReportController ..> CreateReportCommand

@@ -36,10 +36,14 @@ package "infrastructure" {
   class EfAlertDeliveryRepository
 }
 
-package "interface" {
-  class AlertController
-  class ThresholdController
-  class IncidentController
+package "interfaces" {
+  package "rest" {
+    class AlertController
+    class ThresholdController
+    class IncidentController
+    class NotificationChannelController
+    class AlertDeliveryController
+  }
 }
 
 Alert "1" --> "0..*" Incident
@@ -62,6 +66,8 @@ AlertDeliveryRepository <|.. EfAlertDeliveryRepository
 AlertController --> NotificationApplicationService
 ThresholdController --> NotificationApplicationService
 IncidentController --> NotificationApplicationService
+NotificationChannelController --> NotificationApplicationService
+AlertDeliveryController --> NotificationApplicationService
 
 AlertController ..> CreateAlertCommand
 ThresholdController ..> CreateThresholdCommand

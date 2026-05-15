@@ -7,27 +7,25 @@ title LowCortisol Platform - Support Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes support backend endpoints.")
-
 System_Ext(emailProvider, "Email Provider", "External service projected for ticket notifications and user follow-ups.")
-
 ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores tickets, messages, agents, conversations, and knowledge articles.")
 
 Container_Boundary(support, "Support") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes ticket, message, agent, conversation, and knowledge article endpoints through SupportTicketController, SupportMessageController, SupportAgentController, SupportConversationController, and KnowledgeArticleController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes ticket, message, agent, conversation, and knowledge article endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates ticket creation, message sending, ticket assignment, resolution, closing, and article loading.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates ticket creation, message sending, ticket assignment, resolution, closing, and article loading.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, KnowledgeArticle, and support rules.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains SupportTicket, SupportMessage, SupportAgent, SupportConversation, KnowledgeArticle, and support rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for support data.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for support data.")
 
   Component(notificationConnector, "Notification Connector", "Email Service Adapter", "Sends ticket updates and support notifications.")
 }
 
-Rel(spa, interface, "Consumes support endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes support endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies support rules")
 Rel(application, infrastructure, "Uses repositories and persistence services")
 Rel(application, notificationConnector, "Sends support notifications")

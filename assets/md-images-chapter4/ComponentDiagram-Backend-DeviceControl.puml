@@ -7,27 +7,25 @@ title LowCortisol Platform - Device Control Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes device control backend endpoints.")
-
 System_Ext(iotNetwork, "IoT Network", "External network of hubs, sensors, and valves.")
-
 ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores devices, sensors, valves, and commands.")
 
 Container_Boundary(deviceControl, "Device Control") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes device, sensor, valve, and command endpoints through DeviceController, SensorController, ValveController, and DeviceCommandController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes device, sensor, valve, and command endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates device creation, sensor linking, valve control, command execution, and summaries.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates device creation, sensor linking, valve control, command execution, and summaries.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains Device, Sensor, Valve, DeviceCommand, and device operation rules.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains Device, Sensor, Valve, DeviceCommand, and device operation rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories, database access, and device communication support.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories, database access, and device communication support.")
 
   Component(iotConnector, "IoT Connector", "IoT Service Adapter", "Sends remote commands and retrieves device-related data.")
 }
 
-Rel(spa, interface, "Consumes device control endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes device control endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies device control rules")
 Rel(application, infrastructure, "Uses repositories and infrastructure services")
 Rel(application, iotConnector, "Executes device operations")

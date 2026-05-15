@@ -40,10 +40,12 @@ package "infrastructure" {
   class EfAuthSessionRepository
 }
 
-package "interface" {
-  class AuthController
-  class UserController
-  class AccessProfileController
+package "interfaces" {
+  package "rest" {
+    class AuthController
+    class UserController
+    class AccessProfileController
+  }
 }
 
 User --> AccessProfile

@@ -7,27 +7,25 @@ title LowCortisol Platform - Notification Backend Component Diagram
 LAYOUT_WITH_LEGEND()
 
 Container(spa, "Single Page Application", "Vue / Vite", "Consumes notification backend endpoints.")
-
 System_Ext(emailProvider, "Email Provider", "External service used to send alert and incident notifications.")
-
 ContainerDb(database, "Database", "SQL Server / PostgreSQL", "Stores alerts, thresholds, incidents, channels, and deliveries.")
 
 Container_Boundary(notification, "Notification") {
 
-  Component(interface, "Interface", "ASP.NET Core Controllers", "Exposes alert, threshold, incident, channel, and delivery endpoints through AlertController, ThresholdController, IncidentController, NotificationChannelController, and AlertDeliveryController.")
+  Component(rest, "interfaces/rest", "ASP.NET Core Controllers", "Exposes alert, threshold, incident, channel, and delivery endpoints.")
 
-  Component(application, "Application", "Application Services / Commands / DTOs", "Coordinates alert creation, resolution, closing, threshold creation, incident creation, and delivery registration.")
+  Component(application, "application", "Application Services / Commands / DTOs", "Coordinates alert creation, resolution, closing, threshold creation, incident creation, and delivery registration.")
 
-  Component(domain, "Domain", "Domain Model / Business Rules", "Contains Alert, Threshold, Incident, NotificationChannel, AlertDelivery, and notification rules.")
+  Component(domain, "domain", "Domain Model / Business Rules", "Contains Alert, Threshold, Incident, NotificationChannel, AlertDelivery, and notification rules.")
 
-  Component(infrastructure, "Infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for notification data.")
+  Component(infrastructure, "infrastructure", "Repositories / Persistence Services", "Implements repositories and database access for notification data.")
 
   Component(deliveryConnector, "Delivery Connector", "Email Service Adapter", "Sends alert notifications through an external provider.")
 }
 
-Rel(spa, interface, "Consumes notification endpoints", "HTTPS/JSON")
+Rel(spa, rest, "Consumes notification endpoints", "HTTPS/JSON")
 
-Rel(interface, application, "Delegates commands and queries")
+Rel(rest, application, "Delegates commands and queries")
 Rel(application, domain, "Applies notification rules")
 Rel(application, infrastructure, "Uses repositories and persistence services")
 Rel(application, deliveryConnector, "Sends notification messages")

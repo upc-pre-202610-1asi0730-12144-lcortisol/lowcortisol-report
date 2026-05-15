@@ -37,11 +37,13 @@ package "infrastructure" {
   class EfSiteDeviceAssignmentRepository
 }
 
-package "interface" {
-  class WorkplaceController
-  class SiteController
-  class SiteMemberController
-  class SiteDeviceAssignmentController
+package "interfaces" {
+  package "rest" {
+    class WorkplaceController
+    class SiteController
+    class SiteMemberController
+    class SiteDeviceAssignmentController
+  }
 }
 
 Workplace "1" o-- "*" Site
